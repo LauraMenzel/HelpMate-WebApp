@@ -15,9 +15,10 @@ root.render(
   <ContextProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Register />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/emailconfirm/:token" element={<EmailConfirm />} />
+<Route path="/emailconfirm/:token" element={<EmailConfirm />} />
         <Route path="/forgotpass" element={<Forgotpass />} />
         <Route path="/changepassword/:token" element={<ChangePassword />} />
       </Routes>

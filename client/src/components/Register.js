@@ -7,6 +7,11 @@ function Register() {
     username: "",
     email: "",
     password: "",
+    firstname: "",
+    lastname: "",
+    city: "",
+    phonenumber:"",
+    uploadphoto: ""
   });
 
   const navigate = useNavigate();
@@ -36,7 +41,7 @@ function Register() {
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             ></path>
           </svg>
-          <div className="text-center pb-3">Welcome at social app!</div>
+          <div className="text-center pb-3">Welcome at help app!</div>
         </div>
 
         <div className="w-full md:w-3/4  lg:w-1/2 flex flex-col items-center bg-slate-50 rounded-md pt-12">
@@ -72,6 +77,46 @@ function Register() {
               className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500  border-solid border-2 border-slate-300"
             />
           </div>
+          <div className="w-3/4 mb-6">
+            <input
+              type="firstname"
+              name="firstname"
+              value={data.firstname}
+              onChange={(e) => setData({ ...data, firstname: e.target.value })}
+              placeholder="firstname"
+              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+            />
+          </div>
+          <div className="w-3/4 mb-6">
+            <input
+              type="text"
+              name="lastnamename"
+              value={data.lastnamename}
+              onChange={(e) => setData({ ...data, lastname: e.target.value })}
+              placeholder="lastnamename"
+              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+            />
+          </div>
+          <div className="w-3/4 mb-6">
+            <input
+              type="text"
+              name="city"
+              value={data.city}
+              onChange={(e) => setData({ ...data, city: e.target.value })}
+              placeholder="city"
+              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+            />
+          </div>
+          <div className="w-3/4 mb-6">
+            <input
+              type="text"
+              name="phonenumber"
+              value={data.phonenumber}
+              onChange={(e) => setData({ ...data, phonenumber: e.target.value })}
+              placeholder="phonenumber"
+              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+            />
+          </div>
 
           <div className="w-3/4 mb-12">
             <button
@@ -81,13 +126,16 @@ function Register() {
             >
               REGISTER
             </button>
+          
           </div>
+            
         </div>
+             <Link className="hover:text-red-500" to="/login">
+           Back to login
+            </Link>
         <div className="flex justify-center container mx-auto mt-6 mb-10 text-slate-100 text-sm">
           <div className="flex flex-col sm:flex-row  justify-between md:w-1/2 items-center">
-            <Link className="hover:text-red-500" to="/login">
-              Do you have an account already?
-            </Link>
+           
           </div>
         </div>
       </div>

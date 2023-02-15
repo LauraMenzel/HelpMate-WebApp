@@ -83,6 +83,11 @@ function Register() {
         </div>
         <div className="flex justify-center container mx-auto mt-6 mb-10 text-slate-100 text-sm">
           <div className="flex flex-col sm:flex-row  justify-between md:w-1/2 items-center">
+             <Link className="hover:text-red-500" to="/register">
+             Sign up
+            </Link>
+            
+            
             <Link className="hover:text-red-500" to="/forgotpass">
               Forgot your password?
             </Link>
