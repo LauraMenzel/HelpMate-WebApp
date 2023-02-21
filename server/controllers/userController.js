@@ -63,7 +63,6 @@ export const login = async (req, res) => {
 
     res.cookie("e04", token);
     res.cookie("e041", "token2");
-
     res.send({ success: true, user: newUser });
   } catch (error) {
     console.log("🚀 ~ login ~ error", error.message);

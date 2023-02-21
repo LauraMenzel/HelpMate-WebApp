@@ -10,8 +10,9 @@ function Register() {
     firstname: "",
     lastname: "",
     city: "",
-    phonenumber:"",
-    uploadphoto: ""
+    phonenumber: "",
+    datebirth: "",
+    uploadphoto: "",
   });
 
   const navigate = useNavigate();
@@ -100,6 +101,16 @@ function Register() {
           <div className="w-3/4 mb-6">
             <input
               type="text"
+              name="birthdate"
+              value={data.birthdate}
+              onChange={(e) => setData({ ...data, birthdate: e.target.value })}
+              placeholder="birthdate"
+              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+            />
+          </div>
+          <div className="w-3/4 mb-6">
+            <input
+              type="text"
               name="city"
               value={data.city}
               onChange={(e) => setData({ ...data, city: e.target.value })}
@@ -112,7 +123,9 @@ function Register() {
               type="text"
               name="phonenumber"
               value={data.phonenumber}
-              onChange={(e) => setData({ ...data, phonenumber: e.target.value })}
+              onChange={(e) =>
+                setData({ ...data, phonenumber: e.target.value })
+              }
               placeholder="phonenumber"
               className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
             />
@@ -126,17 +139,13 @@ function Register() {
             >
               REGISTER
             </button>
-          
           </div>
-            
         </div>
-             <Link className="hover:text-red-500" to="/login">
-           Back to login
-            </Link>
+        <Link className="hover:text-red-500" to="/login">
+          Back to login
+        </Link>
         <div className="flex justify-center container mx-auto mt-6 mb-10 text-slate-100 text-sm">
-          <div className="flex flex-col sm:flex-row  justify-between md:w-1/2 items-center">
-           
-          </div>
+          <div className="flex flex-col sm:flex-row  justify-between md:w-1/2 items-center"></div>
         </div>
       </div>
     </div>
