@@ -76,7 +76,7 @@ function Profile() {
         <div className="flex flex-col items-center mt-14">
           <h3 className="text-[#026670] font-bold text-xl">{data.fullname}</h3>
           <h4 className="text-slate-500 italic text-sm">
-            {data.city}, {data.age}
+            {data.city}, {data.age}.
           </h4>
         </div>
       </div>
