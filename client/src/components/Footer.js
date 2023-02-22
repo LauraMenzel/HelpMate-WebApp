@@ -1,7 +1,8 @@
 function Footer() {
   return (
-    <div className="w-full h-full flex items-center bg-neutral-100 justify-center items-center gap-[20px] flex-col ">
-      <footer className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+    <div className="w-full h-full flex items-center bg-neutral-200 justify-center items-center gap-[20px] flex-col sm:invisible">
+      <footer className=" text-center text-neutral-600 mt-4 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+        
         <div className=" pt-10 text-center md:text-left">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
             <div className="">
@@ -109,7 +110,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between"></div>
-        <div className="flex justify-center mt-4 mb-6">
+        <div className="flex justify-center mt-12 mb-12">
           <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +163,7 @@ function Footer() {
             </svg>
           </a>
         </div>
-        <div className="bg-neutral-200 p-6 text-center dark:bg-neutral-700">
+        <div className="bg-neutral-200 p-6 text-center mb-[100px] dark:bg-neutral-700">
           <span>© 2023 Copyright:</span>
         </div>
       </footer>
