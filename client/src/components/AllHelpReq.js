@@ -24,6 +24,7 @@ function AllHelpReq() {
         <h3>{el.place}</h3>
         <h3>{el.date}</h3>
         <h3>{el.description}</h3>
+        <h3>{el.time}</h3>
       </div>
     ));
   } else return <p>asdasd</p>;

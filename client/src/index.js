@@ -9,13 +9,14 @@ import EmailConfirm from "./components/EmailConfirm";
 import Forgotpass from "./components/Forgotpass.js";
 import ChangePassword from "./components/ChangePassword.js";
 import ContextProvider from "./context/Context";
-import { ToDoListContextProvider } from "./context/NeedAHelpContext";
-import Profile from "./components/Profile.js";
+import ToDoListContextProvider from "./context/NeedAHelpContext";
+import Profile from "./components/Profile/Profile.js";
+import EditProfile from "./components/Profile/EditProfile.js";
+
 import Home from "./components/HomePage.js";
 import LoginLayout from "./layouts/LoginLayout";
 import UserLayout from "./layouts/UserLayout";
-import Rules from "./components/Rules"
-
+import Rules from "./components/Rules";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -36,8 +37,8 @@ root.render(
             <Route path="/profile" element={<Profile />} />
             <Route path="/home" element={<Home />} />
             <Route path="/rules" element={<Rules />} />
+            <Route path="/editprofile" element={<EditProfile />} />
           </Route>
-
         </Routes>
 
         <App />
