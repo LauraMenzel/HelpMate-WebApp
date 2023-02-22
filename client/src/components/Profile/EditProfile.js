@@ -4,13 +4,14 @@ import { GoLocation } from "react-icons/go";
 import { BsFillCalendarMonthFill } from "react-icons/bs";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ToDoListContext } from "../../context/NeedAHelpContext";
+import noImg from "../../images/no-img.jpg";
+import { useContext, useState, useEffect } from "react";
+import { AppContext } from "../../context/Context";
 
-import noImg from "../images/no-img.jpg";
-import { useContext, useState } from "react";
-import { AppContext } from "../context/Context";
-
-function Profile() {
+function EditProfile() {
   const { state, dispatch } = useContext(AppContext);
+  const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
 
   const [fileData, setFiledata] = useState({
     url: "",
@@ -26,6 +27,20 @@ function Profile() {
     phonenumber: state.user.phonenumber,
   });
 
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get("/needAHelp/getUserHelpReq");
+
+      if (response.statusText === "OK")
+        dispatchHelp({
+          type: "getUserTask",
+          payload: response.data.getUserHelpReq,
+        });
+    };
+    getData();
+  }, []);
+  const [helpReq, setHelpReq] = useState(stateHelp.userTask);
+  console.log(helpReq);
   const handleSave = async () => {
     const formdata = new FormData();
 
@@ -65,6 +80,15 @@ function Profile() {
       <Link className="hover:text-red-500" to="/home">
         go to home
       </Link>
+      <label className="cursor-pointer">
+        Select your profile image
+        <input type="file" className="hidden" onChange={handleImageChange} />
+      </label>
+      <img
+        className="w-[150px] h-[150px] rounded-md object-cover"
+        src={fileData.url || noImg}
+        alt=""
+      />
       <div className="flex items-center gap-[10px]">
         <FiUser className="text-slate-400 w-[40px] h-[40px] border-2 border-slate-400 rounded-md p-[3px]" />
 
@@ -127,19 +151,9 @@ function Profile() {
         />
       </div>
 
-      <label className="cursor-pointer">
-        Select your profile image
-        <input type="file" className="hidden" onChange={handleImageChange} />
-      </label>
-      <img
-        className="w-[300px] h-[300px] rounded-md object-cover"
-        src={fileData.url || noImg}
-        alt=""
-      />
-
       <button onClick={handleSave}>I need help</button>
     </div>
   );
 }
 
-export default Profile;
+export default EditProfile;

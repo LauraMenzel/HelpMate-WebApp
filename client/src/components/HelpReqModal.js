@@ -19,6 +19,8 @@ export default function BasicModal() {
   const [open, setOpen] = useState(false);
   const [category, setCategory] = useState("general");
   const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+
   const [place, setPlace] = useState("");
   const [description, setDescription] = useState("");
   const handleOpen = () => {
@@ -36,12 +38,14 @@ export default function BasicModal() {
     const response = await axios.post("/needAHelp/add", {
       description,
       date,
+      time,
       category,
       place,
     });
     console.log(response);
     setDescription("");
     setDate("");
+    setTime("");
     setCategory("General");
     setPlace("");
     if (response.success) {
@@ -88,6 +92,15 @@ export default function BasicModal() {
                   type="date"
                   required
                   onChange={(e) => setDate(e.target.value)}
+                  className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div className="form-group mt-6">
+                <label>Time:</label>
+                <input
+                  type="time"
+                  required
+                  onChange={(e) => setTime(e.target.value)}
                   className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>

@@ -9,8 +9,10 @@ import EmailConfirm from "./components/EmailConfirm";
 import Forgotpass from "./components/Forgotpass.js";
 import ChangePassword from "./components/ChangePassword.js";
 import ContextProvider from "./context/Context";
-import { ToDoListContextProvider } from "./context/NeedAHelpContext";
-import Profile from "./components/Profile.js";
+import ToDoListContextProvider from "./context/NeedAHelpContext";
+import Profile from "./components/Profile/Profile.js";
+import EditProfile from "./components/Profile/EditProfile.js";
+
 import Home from "./components/HomePage.js";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +26,7 @@ root.render(
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/editprofile" element={<EditProfile />} />
 
           <Route path="/emailconfirm/:token" element={<EmailConfirm />} />
           <Route path="/forgotpass" element={<Forgotpass />} />

@@ -124,3 +124,17 @@ export const ChangePassword = async (req, res) => {
     res.send({ success: false, error: error.message });
   }
 };
+
+export const logout = async (req, res) => {
+  try {
+    console.log("🚀 ~ hello logout ");
+
+    res.clearCookie("e04");
+
+    res.send({ success: true });
+  } catch (error) {
+    console.log("🚀 ~ logout ~ error", error.message);
+
+    res.send({ success: false, error: error.message });
+  }
+};

@@ -16,6 +16,10 @@ const NeedAHelpSchema = new Schema(
       type: String,
       required: true,
     },
+    time: {
+      type: String,
+      required: true,
+    },
     category: {
       type: String,
       required: true,

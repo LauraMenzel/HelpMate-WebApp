@@ -27,7 +27,17 @@ export const getAllHelpReq = async (req, res) => {
     res.send({ success: false, error: error.message });
   }
 };
+export const getUserHelpReq = async (req, res) => {
+  try {
+    console.log("🚀 ~ hello getUserHelpReq ", req.user);
+    const getUserHelpReq = await NeedAHelp.find({ owner: req.user });
+    res.send({ success: true, getUserHelpReq });
+  } catch (error) {
+    console.log("🚀 ~ list ~ error", error.message);
 
+    res.send({ success: false, error: error.message });
+  }
+};
 export const deleteItem = async (req, res) => {
   try {
     console.log("🚀 ~ hello deleteItem ", req.body);
