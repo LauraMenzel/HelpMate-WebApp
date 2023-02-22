@@ -76,19 +76,10 @@ function EditProfile() {
   };
 
   return (
-    <div className="flex w-full justify-center items-center gap-[20px] flex-col mt-[30px]">
+    <div className="flex w-full justify-center items-center gap-[20px] bg-neutral-100 flex-col mt-[30px]">
       <Link className="hover:text-red-500" to="/home">
         go to home
       </Link>
-      <label className="cursor-pointer">
-        Select your profile image
-        <input type="file" className="hidden" onChange={handleImageChange} />
-      </label>
-      <img
-        className="w-[150px] h-[150px] rounded-md object-cover"
-        src={fileData.url || noImg}
-        alt=""
-      />
       <div className="flex items-center gap-[10px]">
         <FiUser className="text-slate-400 w-[40px] h-[40px] border-2 border-slate-400 rounded-md p-[3px]" />
 
@@ -150,6 +141,16 @@ function EditProfile() {
           placeholder=""
         />
       </div>
+
+      <label className="cursor-pointer">
+        Select your profile image
+        <input type="file" className="hidden" onChange={handleImageChange} />
+      </label>
+      <img
+        className="w-[300px] h-[300px] rounded-md object-cover"
+        src={fileData.url || noImg}
+        alt=""
+      />
 
       <button onClick={handleSave}>I need help</button>
     </div>

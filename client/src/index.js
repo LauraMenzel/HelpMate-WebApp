@@ -14,24 +14,33 @@ import Profile from "./components/Profile/Profile.js";
 import EditProfile from "./components/Profile/EditProfile.js";
 
 import Home from "./components/HomePage.js";
+import LoginLayout from "./layouts/LoginLayout";
+import UserLayout from "./layouts/UserLayout";
+import Rules from "./components/Rules";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ContextProvider>
     <ToDoListContextProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route element={<LoginLayout />}>
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/emailconfirm/:token" element={<EmailConfirm />} />
+            <Route path="/forgotpass" element={<Forgotpass />} />
+            <Route path="/changepassword/:token" element={<ChangePassword />} />
+          </Route>
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/editprofile" element={<EditProfile />} />
-
-          <Route path="/emailconfirm/:token" element={<EmailConfirm />} />
-          <Route path="/forgotpass" element={<Forgotpass />} />
-          <Route path="/changepassword/:token" element={<ChangePassword />} />
+          <Route element={<UserLayout />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/rules" element={<Rules />} />
+            <Route path="/editprofile" element={<EditProfile />} />
+          </Route>
         </Routes>
+
         <App />
       </BrowserRouter>
     </ToDoListContextProvider>
