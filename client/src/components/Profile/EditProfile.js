@@ -4,15 +4,13 @@ import { GoLocation } from "react-icons/go";
 import { BsFillCalendarMonthFill } from "react-icons/bs";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { ToDoListContext } from "../../context/NeedAHelpContext";
+
 import noImg from "../../images/no-img.jpg";
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../context/Context";
 
 function EditProfile() {
   const { state, dispatch } = useContext(AppContext);
-  const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
-
   const [fileData, setFiledata] = useState({
     url: "",
     file: null,
@@ -20,27 +18,14 @@ function EditProfile() {
 
   const [data, setData] = useState({
     username: state.user.username,
-    fullname: state.user.firstname + " " + state.user.lastname,
+    firstname: state.user.firstname,
+    lastname: state.user.lastname,
     email: state.user.email,
     city: state.user.city,
     age: state.user.age,
     phonenumber: state.user.phonenumber,
   });
 
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get("/needAHelp/getUserHelpReq");
-
-      if (response.statusText === "OK")
-        dispatchHelp({
-          type: "getUserTask",
-          payload: response.data.getUserHelpReq,
-        });
-    };
-    getData();
-  }, []);
-  const [helpReq, setHelpReq] = useState(stateHelp.userTask);
-  console.log(helpReq);
   const handleSave = async () => {
     const formdata = new FormData();
 
@@ -49,14 +34,14 @@ function EditProfile() {
     formdata.set("city", data.city);
     formdata.set("age", data.age);
     formdata.set("phonenumber", data.phonenumber);
-
-    formdata.set("image", fileData.file, "profileImage");
+    console.log(data);
+    // formdata.set("image", fileData.file, "profileImage");
 
     const config = {
       Headers: { "content-type": "multipart/form-data" },
     };
-
-    const response = await axios.post("/users/profile", formdata, config);
+    console.log(formdata.email);
+    const response = await axios.post("/users/profile", data, config);
     console.log("🚀 ~ handleSave ~ response", response);
 
     if (response.data.success)
@@ -80,25 +65,42 @@ function EditProfile() {
       <Link className="hover:text-red-500" to="/home">
         go to home
       </Link>
+      <label className="cursor-pointer">
+        Select your profile image
+        <input type="file" className="hidden" onChange={handleImageChange} />
+      </label>
+      <img
+        className="w-[150px] h-[150px] rounded-md object-cover"
+        src={fileData.url || noImg}
+        alt=""
+      />
       <div className="flex items-center gap-[10px]">
         <FiUser className="text-slate-400 w-[40px] h-[40px] border-2 border-slate-400 rounded-md p-[3px]" />
 
         <input
           value={data.username}
           className="border-2 border-slate-500 p-[5px] w-[200px] h-[40px]"
-          disabled
+          onChange={(e) => setData({ ...data, username: e.target.value })}
         />
       </div>
       <div className="flex items-center gap-[10px]">
         <FiUser className="text-slate-400 w-[40px] h-[40px] border-2 border-slate-400 rounded-md p-[3px]" />
 
         <input
-          value={data.fullname}
+          value={data.firstname}
           className="border-2 border-slate-500 p-[5px] w-[200px] h-[40px]"
-          disabled
+          onChange={(e) => setData({ ...data, firstname: e.target.value })}
         />
       </div>
+      <div className="flex items-center gap-[10px]">
+        <FiUser className="text-slate-400 w-[40px] h-[40px] border-2 border-slate-400 rounded-md p-[3px]" />
 
+        <input
+          value={data.lastname}
+          className="border-2 border-slate-500 p-[5px] w-[200px] h-[40px]"
+          onChange={(e) => setData({ ...data, lastname: e.target.value })}
+        />
+      </div>
       <div className="flex items-center gap-[10px]">
         <HiOutlineMail className="text-slate-400 w-[40px] h-[40px] border-2 border-slate-400 rounded-md p-[3px]" />
 
@@ -106,7 +108,7 @@ function EditProfile() {
           value={data.email}
           className="border-2 border-slate-500 p-[5px] w-[200px] h-[40px]"
           placeholder=""
-          disabled
+          onChange={(e) => setData({ ...data, email: e.target.value })}
         />
       </div>
       <div className="flex items-center gap-[10px]">
@@ -116,7 +118,7 @@ function EditProfile() {
           value={data.phonenumber}
           className="border-2 border-slate-500 p-[5px] w-[200px] h-[40px]"
           placeholder=""
-          disabled
+          onChange={(e) => setData({ ...data, phonenumber: e.target.value })}
         />
       </div>
 
@@ -127,7 +129,6 @@ function EditProfile() {
           value={data.city}
           onChange={(e) => setData({ ...data, city: e.target.value })}
           className="border-2 border-slate-500 p-[5px] w-[200px] h-[40px]"
-          placeholder=""
         />
       </div>
 
@@ -142,17 +143,7 @@ function EditProfile() {
         />
       </div>
 
-      <label className="cursor-pointer">
-        Select your profile image
-        <input type="file" className="hidden" onChange={handleImageChange} />
-      </label>
-      <img
-        className="w-[300px] h-[300px] rounded-md object-cover"
-        src={fileData.url || noImg}
-        alt=""
-      />
-
-      <button onClick={handleSave}>I need help</button>
+      <button onClick={handleSave}>Update profile</button>
     </div>
   );
 }

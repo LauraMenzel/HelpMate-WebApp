@@ -11,7 +11,7 @@ function Register() {
     lastname: "",
     city: "",
     phonenumber: "",
-    datebirth: "",
+    age: "",
     uploadphoto: "",
   });
 

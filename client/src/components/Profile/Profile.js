@@ -1,21 +1,14 @@
-import { FiUser } from "react-icons/fi";
-import { HiOutlineMail } from "react-icons/hi";
-import { GoLocation } from "react-icons/go";
-import { BsFillCalendarMonthFill } from "react-icons/bs";
 import { IoMdLogOut } from "react-icons/io";
 import { TiEdit } from "react-icons/ti";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import { ToDoListContext } from "../../context/NeedAHelpContext";
 import noImg from "../../images/no-img.jpg";
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../context/Context";
 
 function Profile() {
   const { state, dispatch } = useContext(AppContext);
-  const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
   const navigate = useNavigate();
-  const [helpReq, setHelpReq] = useState([]);
   const [fileData, setFiledata] = useState({
     url: "",
     file: null,
@@ -30,22 +23,6 @@ function Profile() {
     phonenumber: state.user.phonenumber,
   });
 
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get("/needAHelp/getUserHelpReq");
-      console.log(response.data.getUserHelpReq);
-
-      if (response.statusText === "OK")
-        dispatchHelp({
-          type: "getUserTask",
-          payload: response.data.getUserHelpReq,
-        });
-      setHelpReq(stateHelp.userTask);
-    };
-    getData();
-  }, []);
-
-  console.log(helpReq);
   const logout = async () => {
     const response = await axios.get("/users/logout");
     console.log(response);
@@ -76,8 +53,14 @@ function Profile() {
         <div className="flex flex-col items-center mt-14">
           <h3 className="text-[#026670] font-bold text-xl">{data.fullname}</h3>
           <h4 className="text-slate-500 italic text-sm">
-            {data.city}, {data.age}.
+            {data.city}, {data.age}
           </h4>
+          <Link
+            to="/mytasks"
+            className="bg-yellow-600 hover:bg-[#FCE181]-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Show my task
+          </Link>
         </div>
       </div>
     </div>
