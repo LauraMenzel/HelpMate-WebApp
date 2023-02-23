@@ -19,7 +19,7 @@ function AllHelpReq() {
     return data.map((el) => (
       <div
         key={el._id}
-        className="flex flex-row w-100 space-x-4 itemss-center mt-12 text-[20px] font-display"
+        className="flex flex-row w-100 space-x-4 items-center  text-[20px] font-display"
       >
         <h3>{el.place}</h3>
         <h3>{el.date}</h3>

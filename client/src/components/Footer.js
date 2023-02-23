@@ -1,9 +1,8 @@
 function Footer() {
   return (
-    <div className="w-full h-full flex items-center bg-neutral-200 justify-center items-center gap-[20px] flex-col sm:invisible">
-      <footer className=" text-center text-neutral-600 mt-4 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
-        
-        <div className=" pt-10 text-center md:text-left">
+    <div className="w-full flex  items-center bg-neutral-200 justify-center items-center gap-[20px] flex-col invisible md:visible">
+      <footer className=" text-center   text-neutral-600 mt-1 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+        <div className=" pt-12 text-center md:text-left">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
             <div className="">
               <p className="mb-4">
@@ -109,11 +108,11 @@ function Footer() {
           </div>
         </div>
         <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between"></div>
-        <div className="flex justify-center mt-12 mb-12">
+        <div className="flex justify-center mt-6 mb-12">
           <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="h-5 w-5"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -123,7 +122,7 @@ function Footer() {
           <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="h-5 w-5"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -134,7 +133,7 @@ function Footer() {
           <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="h-5 w-5"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -144,7 +143,7 @@ function Footer() {
           <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="h-5 w-5"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -154,7 +153,7 @@ function Footer() {
           <a href="#!" className="text-neutral-600 dark:text-neutral-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="h-5 w-5"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
