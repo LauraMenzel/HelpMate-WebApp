@@ -27,7 +27,7 @@ const userSchema = new Schema(
       required: true,
     },
     image: String,
-    birthdate: String,
+    age: String,
     city: String,
     phonenumber: String,
 

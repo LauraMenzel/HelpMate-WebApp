@@ -138,3 +138,20 @@ export const logout = async (req, res) => {
     res.send({ success: false, error: error.message });
   }
 };
+
+export const updateProfile = async (req, res) => {
+  try {
+    console.log(req.body);
+    const user = await User.findByIdAndUpdate(req.user, req.body, {
+      new: true,
+    }).select("-password -__v");
+
+    if (!user) return res.send({ success: false, errorId: 1 });
+
+    res.send({ success: true, user });
+  } catch (error) {
+    console.log("🚀 ~ updateProfile ~ error", error.message);
+
+    res.send({ success: false, error: error.message });
+  }
+};

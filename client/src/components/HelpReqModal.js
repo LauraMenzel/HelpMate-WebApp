@@ -31,7 +31,7 @@ export default function BasicModal() {
   };
   const handleSave = async () => {
     // validation fiels
-    if (!description || !place || !date) {
+    if (!description || !place || !date || !time) {
       // tu mozesz np jakis error pokazac
       return;
     }

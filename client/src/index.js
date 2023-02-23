@@ -12,7 +12,7 @@ import ContextProvider from "./context/Context";
 import ToDoListContextProvider from "./context/NeedAHelpContext";
 import Profile from "./components/Profile/Profile.js";
 import EditProfile from "./components/Profile/EditProfile.js";
-
+import MyTasks from "./components/Profile/MyTasks.js";
 import Home from "./components/HomePage.js";
 import LoginLayout from "./layouts/LoginLayout";
 import UserLayout from "./layouts/UserLayout";
@@ -38,6 +38,7 @@ root.render(
             <Route path="/home" element={<Home />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/editprofile" element={<EditProfile />} />
+            <Route path="/mytasks" element={<MyTasks />} />
           </Route>
         </Routes>
 
