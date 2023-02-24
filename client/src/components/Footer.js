@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="w-full flex  items-center bg-neutral-200 justify-center items-center gap-[20px] flex-col invisible md:visible">
+    <div className="w-full hidden  items-center bg-neutral-200 justify-center items-center gap-[20px] flex-col md:flex">
       <footer className=" text-center   text-neutral-600 mt-1 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
         <div className=" pt-12 text-center md:text-left">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-2">

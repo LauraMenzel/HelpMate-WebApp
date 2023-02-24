@@ -25,11 +25,11 @@ function Register() {
   };
 
   return (
-    <div className="bg-blue-500 w-screen  ">
-      <div className="flex justify-center container mx-auto my-auto w-screen h-screen items-center flex-col">
+    <div className="bg-[#E3DDDD] w-screen  ">
+      <div className="flex justify-center container mx-auto my-auto w-screen items-center flex-col">
         <div className="text-slate-100 items-center">
           <svg
-            className="w-10 h-10 mx-auto pb-3"
+            className="w-10  text-[#feaa0c] mt-6 mx-auto "
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -42,10 +42,12 @@ function Register() {
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             ></path>
           </svg>
-          <div className="text-center pb-3">Welcome at help app!</div>
+          <div className="text-center text-[#feaa0c] pt-3  text-[20px] pb-3">
+            Welcome at help app!
+          </div>
         </div>
 
-        <div className="w-full md:w-3/4  lg:w-1/2 flex flex-col items-center bg-slate-50 rounded-md pt-12">
+        <div className="max-w-[550px] min-w-[340px] md:w-3/4  lg:w-1/2 flex flex-col items-center bg-slate-50 shadow-xl rounded-3xl pt-12">
           <div className="w-3/4 mb-6">
             <input
               type="email"
@@ -53,7 +55,7 @@ function Register() {
               value={data.email}
               onChange={(e) => setData({ ...data, email: e.target.value })}
               placeholder="Email"
-              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+              className="w-full py-4 px-4 bg-slate-200 placeholder:font-semibold rounded-3xl hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
             />
           </div>
 
@@ -64,7 +66,7 @@ function Register() {
               value={data.username}
               onChange={(e) => setData({ ...data, username: e.target.value })}
               placeholder="Username"
-              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+              className="w-full py-4 px-4 bg-slate-200 placeholder:font-semibold rounded-3xl hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
             />
           </div>
 
@@ -75,7 +77,7 @@ function Register() {
               value={data.password}
               onChange={(e) => setData({ ...data, password: e.target.value })}
               placeholder="Password"
-              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500  border-solid border-2 border-slate-300"
+              className="w-full py-4 px-4 bg-slate-200 placeholder:font-semibold rounded-3xl hover:ring-1 hover:ring-gray-600 outline-slate-500  border-solid border-2 border-slate-300"
             />
           </div>
           <div className="w-3/4 mb-6">
@@ -84,18 +86,18 @@ function Register() {
               name="firstname"
               value={data.firstname}
               onChange={(e) => setData({ ...data, firstname: e.target.value })}
-              placeholder="firstname"
-              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+              placeholder="First name"
+              className="w-full py-4 px-4 bg-slate-200 placeholder:font-semibold rounded-3xl hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
             />
           </div>
           <div className="w-3/4 mb-6">
             <input
               type="text"
-              name="lastnamename"
-              value={data.lastnamename}
+              name="Last name"
+              value={data.lastname}
               onChange={(e) => setData({ ...data, lastname: e.target.value })}
-              placeholder="lastnamename"
-              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+              placeholder="Last name"
+              className="w-full py-4 px-4 bg-slate-200 placeholder:font-semibold rounded-3xl hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
             />
           </div>
           <div className="w-3/4 mb-6">
@@ -104,18 +106,18 @@ function Register() {
               name="birthdate"
               value={data.birthdate}
               onChange={(e) => setData({ ...data, birthdate: e.target.value })}
-              placeholder="birthdate"
-              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+              placeholder="Date of birth"
+              className="w-full py-4 px-4 bg-slate-200 placeholder:font-semibold rounded-3xl hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
             />
           </div>
           <div className="w-3/4 mb-6">
             <input
               type="text"
-              name="city"
+              name="City"
               value={data.city}
               onChange={(e) => setData({ ...data, city: e.target.value })}
-              placeholder="city"
-              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+              placeholder="City"
+              className="w-full py-4 px-4 bg-slate-200 placeholder:font-semibold rounded-3xl hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
             />
           </div>
           <div className="w-3/4 mb-6">
@@ -126,8 +128,8 @@ function Register() {
               onChange={(e) =>
                 setData({ ...data, phonenumber: e.target.value })
               }
-              placeholder="phonenumber"
-              className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+              placeholder="Phone"
+              className="w-full py-4 px-4 bg-slate-200 placeholder:font-semibold rounded-3xl hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
             />
           </div>
 
@@ -135,16 +137,19 @@ function Register() {
             <button
               type="submit"
               onClick={handleRegister}
-              className="py-4 bg-blue-500 w-full rounded text-blue-50 font-bold hover:bg-blue-700"
+              className="py-4 bg-[#3B8A80]  w-full rounded-3xl text-white font-bold hover:bg-[#70c2b7]"
             >
               REGISTER
             </button>
           </div>
         </div>
-        <Link className="hover:text-red-500" to="/login">
+        <Link
+          className="hover:text-[#FAA03A] mt-12 mb-12 font-bold text-[#488C82]"
+          to="/login"
+        >
           Back to login
         </Link>
-        <div className="flex justify-center container mx-auto mt-6 mb-10 text-slate-100 text-sm">
+        <div className="flex justify-center container mx-auto mt-10 mb-10 text-slate-100 text-sm">
           <div className="flex flex-col sm:flex-row  justify-between md:w-1/2 items-center"></div>
         </div>
       </div>

@@ -27,7 +27,7 @@ function Register() {
   };
 
   return (
-    <div className="bg-[#e9e3e3] w-screen  ">
+    <div className="bg-[#E3DDDD] w-screen  ">
       <div className="flex justify-center container mx-auto  my-auto w-screen h-screen items-center flex-col">
         <div className="text-slate-100 items-center">
           <svg
@@ -78,7 +78,8 @@ function Register() {
             <button
               type="submit"
               onClick={handleLogin}
-              className="py-4 bg-[#73B6AC] w-full rounded-3xl text-blue-50 font-bold hover:bg-[#488C82]"
+              className="py-4 bg-[#3B8A80] w-full rounded-3xl 
+              text-white font-bold hover:bg-[#70c2b7]"
             >
               LOGIN
             </button>
@@ -87,14 +88,14 @@ function Register() {
         <div className="flex justify-center container mx-auto mt-6 mb-10 text-white text-sm">
           <div className="flex flex-col sm:flex-row  justify-between md:w-1/2 items-center">
             <Link
-              className="hover:text-red-500 font-bold text-[#488C82]"
+              className="hover:text-[#FAA03A] font-bold text-[#488C82]"
               to="/register"
             >
               Sign up
             </Link>
 
             <Link
-              className="hover:text-red-500 font-bold text-[#488C82]"
+              className="hover:text-[#FAA03A] font-bold text-[#488C82]"
               to="/forgotpass"
             >
               Forgot your password?
