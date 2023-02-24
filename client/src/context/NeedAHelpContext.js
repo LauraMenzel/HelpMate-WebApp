@@ -10,20 +10,21 @@ export default function ContextProvider({ children }) {
           ...state,
           userTask: [...action.payload],
         };
-      case "getTodo":
+
+      case "getAllTasks":
         return {
           ...state,
-          todo: [...action.payload],
-        };
-      case "addTodo":
-        return {
-          ...state,
-          todo: [...state.todo, action.payload],
+          allTasks: [...action.payload],
         };
       case "deleteItem":
         return {
           ...state,
-          todo: [...state.todo.filter((item) => item._id !== action.payload)],
+          userTask: [
+            ...state.userTask.filter((item) => item._id !== action.payload),
+          ],
+          allTasks: [
+            ...state.allTasks.filter((item) => item._id !== action.payload),
+          ],
         };
       default:
         return state;
@@ -31,7 +32,7 @@ export default function ContextProvider({ children }) {
   };
 
   const [stateHelp, dispatchHelp] = useReducer(toDoListReducer, {
-    todo: [],
+    allTasks: [],
     userTask: [],
   });
 
