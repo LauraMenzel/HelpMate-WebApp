@@ -1,17 +1,21 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ToDoListContext } from "../context/NeedAHelpContext";
+
 function AllHelpReq() {
   const [data, setData] = useState("");
+  const { dispatchHelp } = useContext(ToDoListContext);
+
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get("/needAHelp/getAllHelpReq");
       console.log(":rakete: ~ getData ~ response", response);
 
       if (response.statusText === "OK") setData(response.data.tasks);
-      /* context.dispatch({
-            type: "getTodo",
-            payload: data.todos,
-          }); */
+      dispatchHelp({
+        type: "getAllTasks",
+        payload: response.data.tasks,
+      });
     };
     getData();
   }, []);
