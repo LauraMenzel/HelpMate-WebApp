@@ -4,21 +4,29 @@ import { ToDoListContext } from "../context/NeedAHelpContext";
 import { GoLocation } from "react-icons/go";
 import { BsFillCalendarMonthFill } from "react-icons/bs";
 import { AiOutlineUnorderedList } from "react-icons/ai";
-
+import { AppContext } from "../context/Context";
 import { RiHandHeartFill } from "react-icons/ri";
 function AllHelpReq() {
   const [data, setData] = useState("");
   const { dispatchHelp } = useContext(ToDoListContext);
-
+  const { state } = useContext(AppContext);
+  console.log("state", state);
   useEffect(() => {
     const getData = async () => {
+      // here filtered all task and show all except yours in home page
       const response = await axios.get("/needAHelp/getAllHelpReq");
       console.log(":rakete: ~ getData ~ response", response);
+      let filteredData = [];
+      if (response.statusText === "OK") {
+        filteredData = response.data.tasks.filter(
+          (item) => item.owner !== state.user._id
+        );
 
-      if (response.statusText === "OK") setData(response.data.tasks);
+        setData(filteredData);
+      }
       dispatchHelp({
         type: "getAllTasks",
-        payload: response.data.tasks,
+        payload: filteredData,
       });
     };
     getData();
