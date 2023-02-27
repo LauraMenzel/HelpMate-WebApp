@@ -16,7 +16,7 @@ function Forgotpass() {
   };
 
   return (
-    <div className="bg-[#3B8A80] w-screen  ">
+    <div className="bg-[#E3DDDD] w-screen  ">
       <div className="flex justify-center container mx-auto my-auto w-screen h-screen items-center flex-col">
         <div className="text-[#FAA03A] pb-4 font-bold items-center">
           <svg
@@ -36,7 +36,7 @@ function Forgotpass() {
           <div className="text-center pb-3">Welcome at social app!</div>
         </div>
 
-        <div className="w-full md:w-3/4  lg:w-1/2 flex flex-col items-center bg-slate-50 rounded-3xl pt-12">
+        <div className="max-w-[500px] md:w-3/4  lg:w-1/2 flex flex-col items-center bg-slate-50 rounded-3xl pt-12">
           <div className="w-3/4 mb-6">
             <input
               type="email"
@@ -46,7 +46,7 @@ function Forgotpass() {
                 setData({ ...data, emailOrUsername: e.target.value })
               }
               placeholder="Email or username"
-              className="w-full py-4 px-4 bg-slate-200 placeholder:font-semibold rounded-3xl hover:ring-1 hover:ring-gray-600 outline-slate-500 border-solid border-2 border-slate-300"
+              className="w-full py-2 px-4 bg-[#f3f3f3] shadow-inner placeholder:font-semibold rounded-3xl hover:border-[#feaa0c] focus:outline-[#3B8A80] border-solid border-2 border-slate-300"
             />
           </div>
 
@@ -54,16 +54,16 @@ function Forgotpass() {
             <button
               type="submit"
               onClick={handleSubmit}
-              className="py-4 bg-[#3B8A80] w-full rounded-3xl text-blue-50 font-bold hover:bg-[#70c2b7]"
+              className="py-2 bg-[#3B8A80] w-full rounded-3xl text-blue-50 font-bold hover:bg-[#70c2b7] active:bg-[#3d8f84]"
             >
               SUBMIT
             </button>
           </div>
         </div>
         <div className="flex justify-center container mx-auto mt-6 mb-10 text-slate-100 text-sm">
-          <div className="flex flex-col sm:flex-row  justify-between md:w-1/2 items-center">
+          <div className="flex flex-col sm:flex-row  justify-center md:w-1/2 items-center">
             <Link
-              className="hover:text-orange-500 font-bold text-[#FAA03A] mx-auto"
+              className="hover:text-[#FAA03A] font-bold text-[#488C82]"
               to="/login"
             >
               Login
