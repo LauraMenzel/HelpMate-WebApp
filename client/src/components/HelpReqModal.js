@@ -2,6 +2,10 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const style = {
   position: "absolute",
@@ -23,6 +27,9 @@ export default function BasicModal() {
 
   const [place, setPlace] = useState("");
   const [description, setDescription] = useState("");
+  const handleChange = (event) => {
+    setCategory(event.target.value);
+  };
   const handleOpen = () => {
     setOpen(true);
   };
@@ -40,6 +47,7 @@ export default function BasicModal() {
       category,
       place,
     });
+
     console.log(response);
     setDescription("");
     setDate("");
@@ -76,14 +84,37 @@ export default function BasicModal() {
             className="flex justify-between mb-6"
           >
             <div className="flex flex-col">
-              <label>Category</label>
-              <input
+              <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    Category
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={category}
+                    label="category"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value={"general"}>General</MenuItem>
+                    <MenuItem value={"sport"}>Sport</MenuItem>
+                    <MenuItem value={"culture"}>Culture</MenuItem>
+                    <MenuItem value={"phone"}>Phone Call</MenuItem>
+                    <MenuItem value={"meal"}>Meal</MenuItem>
+                    <MenuItem value={"visit the doctor"}>
+                      Visit the doctor
+                    </MenuItem>
+                    <MenuItem value={"office"}>Office</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+              {/*    <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required
-              />
+              /> */}
               <div className="form-group mt-6">
                 <label>Date:</label>
                 <input
@@ -104,7 +135,7 @@ export default function BasicModal() {
               </div>
 
               <div className="form-group mt-6">
-                <label>where</label>
+                <label>Place</label>
                 <input
                   type="text"
                   required
@@ -113,7 +144,7 @@ export default function BasicModal() {
                 />
               </div>
               <div className="form-group mt-6">
-                <label>text</label>
+                <label>Description</label>
                 <input
                   required
                   type="text"
