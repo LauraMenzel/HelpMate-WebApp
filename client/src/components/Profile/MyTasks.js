@@ -4,14 +4,14 @@ import { ToDoListContext } from "../../context/NeedAHelpContext";
 import { GoLocation } from "react-icons/go";
 import { BsFillCalendarMonthFill } from "react-icons/bs";
 import { AiOutlineUnorderedList } from "react-icons/ai";
-import { TiEdit } from "react-icons/ti";
 import { BsFillTrashFill } from "react-icons/bs";
-
+import EditMyTask from "./EditMyTask";
 import { useContext, useState, useEffect } from "react";
 
 function MyTasks() {
   const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
   const [helpReq, setHelpReq] = useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -35,12 +35,11 @@ function MyTasks() {
       body: JSON.stringify({ id }),
     });
     const json = await response.json();
-    console.log(json);
-    /* if (json.success)
-    context.dispatch({
-      type: "deleteItem",
-      payload: id,
-    }); */
+    if (json.statusText === "OK")
+      dispatchHelp({
+        type: "deleteItem",
+        payload: id,
+      });
   };
   return (
     <div className="w-full h-full flex items-center flex-col">
@@ -70,10 +69,7 @@ function MyTasks() {
               {el.description}
             </p>
             <div className="flex w-full justify-between flex-wrap mt-4">
-              <span className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#3B8A80] rounded-lg hover:bg-[#3B8FFF] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                edit
-                <TiEdit className="ml-2" />
-              </span>
+              <EditMyTask item={el} />
               <span
                 onClick={() => deleteItem(el._id)}
                 className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

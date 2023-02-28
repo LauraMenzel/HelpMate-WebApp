@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ToDoListContext } from "../../context/NeedAHelpContext";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
+import { TiEdit } from "react-icons/ti";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -19,14 +21,22 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal() {
+export default function EditMyTask(props) {
+  const { dispatchHelp } = useContext(ToDoListContext);
   const [open, setOpen] = useState(false);
-  const [category, setCategory] = useState("general");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [category, setCategory] = useState(props.item.category);
+  const [place, setPlace] = useState(props.item.place);
+  const [description, setDescription] = useState(props.item.description);
+  const [date, setDate] = useState(props.item.date);
+  const [time, setTime] = useState(props.item.time);
 
-  const [place, setPlace] = useState("");
-  const [description, setDescription] = useState("");
+  useEffect(() => {
+    setCategory(props.item.category);
+    setPlace(props.item.place);
+    setDescription(props.item.description);
+    setDate(props.item.date);
+    setTime(props.item.time);
+  }, [props]);
   const handleChange = (event) => {
     setCategory(event.target.value);
   };
@@ -40,25 +50,20 @@ export default function BasicModal() {
     if (!description || !place || !date || !time) {
       return;
     }
-    const response = await axios.post("/needAHelp/add", {
+    const editedTask = {
+      ...props.item,
       description,
       date,
       time,
       category,
       place,
-    });
-
-    console.log(response);
-    setDescription("");
-    setDate("");
-    setTime("");
-    setCategory("General");
-    setPlace("");
+    };
+    const response = await axios.post("/needAHelp/edit", editedTask);
     if (response.success) {
-      /* dispatch({
-        type: "ADD_TODO",
-        payload: json,
-      }); */
+      dispatchHelp({
+        type: "editTask",
+        payload: editedTask,
+      });
       console.log(response);
     }
     handleClose();
@@ -66,12 +71,13 @@ export default function BasicModal() {
 
   return (
     <div>
-      <button
-        className="bg-blue-700 hover:bg-blue-800 text-white mr-2 font-bold py-2 px-4 rounded-lg flex justify-center w-32"
+      <span
         onClick={handleOpen}
+        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#3B8A80] rounded-lg hover:bg-[#3B8FFF] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        Add Task
-      </button>
+        edit
+        <TiEdit className="ml-2" />
+      </span>
       <Modal
         open={open}
         onClose={handleClose}
@@ -108,17 +114,11 @@ export default function BasicModal() {
                   </Select>
                 </FormControl>
               </Box>
-              {/*    <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                required
-              /> */}
               <div className="form-group mt-6">
                 <label>Date:</label>
                 <input
                   type="date"
+                  value={date}
                   required
                   onChange={(e) => setDate(e.target.value)}
                   className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -129,6 +129,7 @@ export default function BasicModal() {
                 <input
                   type="time"
                   required
+                  value={time}
                   onChange={(e) => setTime(e.target.value)}
                   className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
@@ -139,6 +140,7 @@ export default function BasicModal() {
                 <input
                   type="text"
                   required
+                  value={place}
                   onChange={(e) => setPlace(e.target.value)}
                   className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
@@ -148,6 +150,7 @@ export default function BasicModal() {
                 <input
                   required
                   type="text"
+                  value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />

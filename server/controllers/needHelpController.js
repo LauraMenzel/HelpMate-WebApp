@@ -55,3 +55,19 @@ export const deleteItem = async (req, res) => {
     res.send({ success: false, error: error.message });
   }
 };
+export const updateTask = async (req, res) => {
+  try {
+    console.log(req.body);
+    const task = await NeedAHelp.findByIdAndUpdate(req.body._id, req.body, {
+      new: true,
+    }).select("-password -__v");
+
+    if (!task) return res.send({ success: false, errorId: 1 });
+
+    res.send({ success: true, task });
+  } catch (error) {
+    console.log("🚀 ~ updateTask ~ error", error.message);
+
+    res.send({ success: false, error: error.message });
+  }
+};
