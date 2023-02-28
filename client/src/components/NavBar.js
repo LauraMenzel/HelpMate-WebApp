@@ -26,22 +26,22 @@ function NavBar() {
 
   return (
     <div
-      className="bg-white text-black
+      className="bg-white text-black shadow-xl
             w-full h-16 flex justify-center border-rounded
             items-center gap-[25px] text-[2rem]  cursor-pointer fixed left-0 bottom-0
             flex justify-center items-center rounded-t-3xl"
     >
       <Link to="/home">
-        <FaHome className="hover:text-slate-600 text-[#828193]" />{" "}
+        <FaHome className="hover:text-slate-600 rounded-3xl shadow-xl text-[#828193]" />{" "}
       </Link>
       <Link to="/profile">
-        <CgProfile className="hover:text-slate-600 text-[#feaa0c]" />{" "}
+        <CgProfile className="hover:text-slate-600 rounded-3xl shadow-xl text-[#feaa0c]" />{" "}
       </Link>
       <Link to="/notifications">
-        <MdNotifications className="hover:text-slate-600 text-[#828193] cursor-pointer" />
+        <MdNotifications className="hover:text-slate-600 shadow-xl text-[#828193] rounded-3xl cursor-pointer" />
       </Link>
       <Link to="/rules">
-        <TbHandStop className="hover:text-slate-600 text-[#828193] cursor-pointer" />
+        <TbHandStop className="hover:text-slate-600 rounded-3xl shadow-xl text-[#828193] cursor-pointer" />
       </Link>
     </div>
   );
