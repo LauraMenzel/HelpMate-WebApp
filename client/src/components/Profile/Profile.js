@@ -5,9 +5,10 @@ import { useNavigate, Link } from "react-router-dom";
 import noImg from "../../images/no-img.jpg";
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../context/Context";
-
+import { ToDoListContext } from "../../context/NeedAHelpContext";
 function Profile() {
   const { state, dispatch } = useContext(AppContext);
+  const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
   const navigate = useNavigate();
   const [fileData, setFiledata] = useState({
     url: "",
@@ -22,6 +23,15 @@ function Profile() {
     age: state.user.age,
     phonenumber: state.user.phonenumber,
   });
+  useEffect(() => {
+    stateHelp.userInProgressTask.forEach((task) => {
+      task.helper = JSON.parse(task.helper);
+    });
+  }, []);
+  const [inProgressTask, setInProgressTask] = useState(
+    stateHelp.userInProgressTask
+  );
+  console.log(inProgressTask);
 
   const logout = async () => {
     const response = await axios.get("/users/logout");
@@ -55,6 +65,14 @@ function Profile() {
           <h4 className="text-slate-500 italic text-sm">
             {data.city}, {data.age}
           </h4>
+          {inProgressTask.map((task) => {
+            return (
+              <div key={task._id}>
+                <p>{task.place}</p>
+                <p>{task.status}</p>
+              </div>
+            );
+          })}
           <Link
             to="/mytasks"
             className="bg-yellow-600 hover:bg-[#FCE181]-700 text-white font-bold py-2 px-4 rounded"

@@ -46,13 +46,14 @@ export default function BasicModal() {
       time,
       category,
       place,
+      status: "open",
     });
 
     console.log(response);
     setDescription("");
     setDate("");
     setTime("");
-    setCategory("General");
+    setCategory("general");
     setPlace("");
     if (response.success) {
       /* dispatch({
@@ -135,7 +136,7 @@ export default function BasicModal() {
               </div>
 
               <div className="form-group mt-6">
-                <label>Place</label>
+                <label>Localization</label>
                 <input
                   type="text"
                   required

@@ -28,6 +28,13 @@ const NeedAHelpSchema = new Schema(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      required: true,
+    },
+    helper: {
+      type: String,
+    },
   },
   { timeStamps: true }
 );
