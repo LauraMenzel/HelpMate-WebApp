@@ -10,7 +10,11 @@ export default function ContextProvider({ children }) {
           ...state,
           userTask: [...action.payload],
         };
-
+      case "getInProgressUserTask":
+        return {
+          ...state,
+          userInProgressTask: [...action.payload],
+        };
       case "getAllTasks":
         return {
           ...state,
@@ -39,18 +43,20 @@ export default function ContextProvider({ children }) {
           userTask: [...newUserTask],
           allTasks: [...newAllTasks],
         };
-      case "like":
-        const taskLikesIdx = state.allTasks.findIndex(
+      case "setTaskHelper":
+        const helpersIdx = state.allTasks.findIndex(
           (item) => item._id === action.payload._id
         );
 
-        const newLikesPosts = [...state.allTasks];
+        const newAllHelpers = [...state.allTasks];
 
-        newLikesPosts[taskLikesIdx].likes = [...action.payload.likes];
+        newAllHelpers[helpersIdx] = action.payload;
         return {
           ...state,
-          allTasks: [...newLikesPosts],
+
+          allTasks: [...newAllHelpers],
         };
+
       default:
         return state;
     }
@@ -59,6 +65,7 @@ export default function ContextProvider({ children }) {
   const [stateHelp, dispatchHelp] = useReducer(toDoListReducer, {
     allTasks: [],
     userTask: [],
+    userInProgressTask: [],
   });
 
   return (

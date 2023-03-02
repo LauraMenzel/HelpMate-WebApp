@@ -136,7 +136,7 @@ export default function EditMyTask(props) {
               </div>
 
               <div className="form-group mt-6">
-                <label>Place</label>
+                <label>Localization</label>
                 <input
                   type="text"
                   required
