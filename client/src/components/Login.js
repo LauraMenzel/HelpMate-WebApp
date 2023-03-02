@@ -27,29 +27,28 @@ function Register() {
   };
 
   return (
-    <div className="bg-[#E3DDDD] w-screen  ">
+    <div className="bg-[#E3DDDD] w-screen font-display sm:text-xl text-base  ">
       <div className="flex justify-center container mx-auto  my-auto w-screen h-screen items-center flex-col">
-        <div className="text-slate-100 items-center">
-          <svg
-            className="w-12 h-12 text-[#feaa0c] mx-auto pb-3"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            ></path>
-          </svg>
-          <div className="text-center text-[20px] text-[#feaa0c] pb-3">
-            Welcome at social app!
+        <div className="max-w-[500px] min-w-[350px] md:w-3/4  text-[#828193] lg:w-1/2 flex flex-col items-center bg-white shadow-xl rounded-3xl pt-12">
+          <div className="text-slate-100 items-center mb-4">
+            <svg
+              className="w-12 h-12 text-[#feaa0c] mx-auto pb-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+            <div className="text-center text-[20px] text-[#feaa0c] pb-3">
+              Welcome at social app!
+            </div>
           </div>
-        </div>
-
-        <div className="max-w-[500px] md:w-3/4  text-[#828193] lg:w-1/2 flex flex-col items-center bg-white shadow-xl rounded-3xl pt-12">
           <div className="w-3/4 mb-6">
             <input
               type="email"
@@ -74,7 +73,7 @@ function Register() {
             />
           </div>
 
-          <div className="w-3/4 mb-12">
+          <div className="w-3/4 mb-12 mt-4">
             <button
               type="submit"
               onClick={handleLogin}
@@ -84,22 +83,22 @@ function Register() {
               LOGIN
             </button>
           </div>
-        </div>
-        <div className="flex justify-center container mx-auto mt-6 mb-10 text-white text-sm">
-          <div className="flex flex-col sm:flex-row  justify-evenly gap-4 md:w-1/2 items-center">
-            <Link
-              className="hover:text-[#FAA03A] font-bold text-[#488C82]"
-              to="/register"
-            >
-              Sign up
-            </Link>
+          <div className="flex justify-center container mx-auto mt-2 mb-10 text-white text-sm">
+            <div className="flex flex-col sm:flex-row  justify-evenly gap-4 md:w-1/2 items-center">
+              <Link
+                className="hover:text-[#FAA03A] font-bold text-[#488C82]"
+                to="/register"
+              >
+                Sign up
+              </Link>
 
-            <Link
-              className="hover:text-[#FAA03A] font-bold text-[#488C82]"
-              to="/forgotpass"
-            >
-              Forgot your password?
-            </Link>
+              <Link
+                className="hover:text-[#FAA03A] font-bold text-[#488C82]"
+                to="/forgotpass"
+              >
+                Forgot your password?
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -27,27 +27,26 @@ function Register() {
   return (
     <div className="bg-[#E3DDDD] w-screen  ">
       <div className="flex justify-center container mx-auto my-auto w-screen items-center flex-col">
-        <div className="text-slate-100 items-center">
-          <svg
-            className="w-10  text-[#feaa0c] mt-6 mx-auto "
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            ></path>
-          </svg>
-          <div className="text-center text-[#feaa0c] pt-3  text-[20px] pb-3">
-            Welcome at help app!
+        <div className="max-w-[550px] min-w-[390px] md:w-3/4  lg:w-1/2 flex flex-col items-center bg-slate-50 shadow-xl rounded-3xl pt-12">
+          <div className="text-slate-100 mb-4 items-center">
+            <svg
+              className="w-10  text-[#feaa0c] mt-6 mx-auto "
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+            <div className="text-center text-[#feaa0c] pt-3  text-[20px] pb-3">
+              Sign up
+            </div>
           </div>
-        </div>
-
-        <div className="max-w-[550px] min-w-[340px] md:w-3/4  lg:w-1/2 flex flex-col items-center bg-slate-50 shadow-xl rounded-3xl pt-12">
           <div className="w-3/4 mb-6">
             <input
               type="text"
@@ -132,22 +131,23 @@ function Register() {
             />
           </div>
 
-          <div className="w-3/4 mb-12">
+          <div className="w-3/4 mt-4 mb-12">
             <button
               type="submit"
               onClick={handleRegister}
               className="py-2 bg-[#3B8A80]  w-full rounded-3xl text-white font-bold hover:bg-[#70c2b7] active:bg-[#3d8f84]"
             >
-              REGISTER
+              Sign Up
             </button>
           </div>
+          <Link
+            className="hover:text-[#FAA03A]  mb-12 font-bold text-[#488C82]"
+            to="/login"
+          >
+            Back to login
+          </Link>
         </div>
-        <Link
-          className="hover:text-[#FAA03A] mt-12 mb-12 font-bold text-[#488C82]"
-          to="/login"
-        >
-          Back to login
-        </Link>
+
         <div className="flex justify-center container mx-auto mt-10 mb-10 text-slate-100 text-sm">
           <div className="flex flex-col sm:flex-row  justify-between md:w-1/2 items-center"></div>
         </div>
