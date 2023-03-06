@@ -6,6 +6,9 @@ import noImg from "../../images/no-img.jpg";
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../context/Context";
 import { ToDoListContext } from "../../context/NeedAHelpContext";
+import { ImCancelCircle } from "react-icons/im";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import HelperPrev from "./HelperPrev";
 function Profile() {
   const { state, dispatch } = useContext(AppContext);
   const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
@@ -14,7 +17,8 @@ function Profile() {
     url: "",
     file: null,
   });
-
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentProps, setCurrentProps] = useState(null);
   const [data, setData] = useState({
     username: state.user.username,
     fullname: state.user.firstname + " " + state.user.lastname,
@@ -23,14 +27,21 @@ function Profile() {
     age: state.user.age,
     phonenumber: state.user.phonenumber,
   });
+  const [inProgressTask, setInProgressTask] = useState([]);
   useEffect(() => {
-    stateHelp.userInProgressTask.forEach((task) => {
-      task.helper = JSON.parse(task.helper);
-    });
+    setInProgressTask(
+      stateHelp.userInProgressTask.map((el) => {
+        return {
+          ...el,
+          helper: JSON.parse(el.helper),
+        };
+      })
+    );
   }, []);
-  const [inProgressTask, setInProgressTask] = useState(
-    stateHelp.userInProgressTask
-  );
+  const openModal = (helper) => {
+    setCurrentProps(helper);
+    setIsOpen(true);
+  };
   console.log(inProgressTask);
 
   const logout = async () => {
@@ -42,8 +53,16 @@ function Profile() {
 
   return (
     <div className="flex w-full h-full justify-center items-center flex-col bg-[#EDEAE5] relative">
+      {isOpen && (
+        <div
+          className="w-full h-full absolute top-0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
+          onClick={() => setIsOpen(false)}
+        >
+          <HelperPrev helper={currentProps} />
+        </div>
+      )}
       <div className="absolute w-24 h-24 top-36 rounded-3xl">
-        <img className="rounded-3xl"  src={fileData.url || noImg} alt="" />
+        <img className="rounded-3xl" src={fileData.url || noImg} alt="" />
       </div>
       <div className="flex-none bg-[#EDEAE5] w-full h-48">
         <div onClick={logout}>
@@ -53,7 +72,7 @@ function Profile() {
           />
         </div>
       </div>
-      <div className="flex-1 bg-white w-full rounded-t-3xl">
+      <div className="flex-1 bg-white w-full rounded-t-3xl overflow-auto">
         <Link to="/editprofile">
           <TiEdit
             className="w-6 h-6 float-right fill-current mt-4 mr-4"
@@ -67,19 +86,29 @@ function Profile() {
           </h4>
           {inProgressTask.map((task) => {
             return (
-              <div key={task._id}>
-                <h4>{data.fullname}</h4>
-                <p>{task.category}</p>
-                <p>{task.place}</p>
-                <p>{task.date}</p>
-                <p>{task.time}</p>
-                <p>{task.status}</p>
-                <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Accept
-                </button>
-                <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Reject
-                </button>
+              <div
+                className="inline-flex items-center justify-evenly my-4 w-11/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                key={task._id}
+              >
+                <img
+                  className="rounded-3xl w-12 h-12 flex flex-initial"
+                  src={fileData.url || noImg}
+                  alt=""
+                />
+                <h4 className="flex-inline flex-auto mx-4 text-sm ">
+                  <span onClick={() => openModal(task.helper)}>
+                    {task.helper.username}{" "}
+                  </span>
+                  offer you help with {task.category}
+                </h4>
+                <div className="flex flex-nowrap flex-1 items-center ">
+                  {" "}
+                  <AiOutlineCheckCircle
+                    className="w-8 h-8 mr-2"
+                    color="#026670"
+                  />
+                  <ImCancelCircle className="w-7 h-7" color="#D11A2A" />
+                </div>
               </div>
             );
           })}
