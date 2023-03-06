@@ -43,7 +43,7 @@ function Profile() {
   return (
     <div className="flex w-full h-full justify-center items-center flex-col bg-[#EDEAE5] relative">
       <div className="absolute w-24 h-24 top-36 rounded-3xl">
-        <img className="rounded-3xl" src={fileData.url || noImg} alt="" />
+        <img className="rounded-3xl"  src={fileData.url || noImg} alt="" />
       </div>
       <div className="flex-none bg-[#EDEAE5] w-full h-48">
         <div onClick={logout}>
@@ -68,8 +68,18 @@ function Profile() {
           {inProgressTask.map((task) => {
             return (
               <div key={task._id}>
+                <h4>{data.fullname}</h4>
+                <p>{task.category}</p>
                 <p>{task.place}</p>
+                <p>{task.date}</p>
+                <p>{task.time}</p>
                 <p>{task.status}</p>
+                <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Accept
+                </button>
+                <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Reject
+                </button>
               </div>
             );
           })}

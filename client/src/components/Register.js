@@ -25,12 +25,32 @@ function Register() {
   };
 
   return (
-    <div className="bg-[#E3DDDD] w-screen  ">
-      <div className="flex justify-center container mx-auto my-auto w-screen items-center flex-col">
-        <div className="max-w-[550px] min-w-[390px] md:w-3/4  lg:w-1/2 flex flex-col items-center bg-slate-50 shadow-xl rounded-3xl pt-12">
+    <div className="bg-[#E3DDDD]  font-display sm:text-xl text-base md:flex ">
+      <div
+        className="relative  overflow-hidden 
+    md:flex  items-center h-1/2 justify-center hidden bg-white"
+      >
+        <div className="flex justify-center  h-screen items-center flex-col">
+          <img
+            className=" h-auto max-w-full p-8 rounded-lg overflow-hidden"
+            src="https://www.beiersdorf.de/~/media/Beiersdorf/sustainability/society/overview/Beiersdorf-society-teaser-new.png?rx=0&ry=0&rw=940&rh=528&mw=940&hash=A7C99DB3C4914C08A8627E478530FF10"
+            alt=""
+          />
+          <h1 className="text-black relative font-bold lg:text-xl text-base mx-auto font-sans">
+            Join our community of helpers and those in need.
+          </h1>
+          <p className="text-black mt-2 text-base lg:text-lg"></p>
+          <p className="text-black mt-2 text-base lg:text-lg">
+            Get registered now!
+          </p>
+        </div>
+      </div>
+
+      <div className="flex justify-center pt-8 container  mx-auto my-auto w-screen items-center flex-col">
+        <div className="max-w-[500px] min-w-[250px] md:w-3/4  lg:w-1/2 flex flex-col items-center bg-slate-50 shadow-xl rounded-3xl pt-12">
           <div className="text-slate-100 mb-4 items-center">
             <svg
-              className="w-10  text-[#feaa0c] mt-6 mx-auto "
+              className="w-10  text-[#feaa0c] mx-auto "
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -131,7 +151,7 @@ function Register() {
             />
           </div>
 
-          <div className="w-3/4 mt-4 mb-12">
+          <div className="w-3/4 mt-4 mb-5">
             <button
               type="submit"
               onClick={handleRegister}
@@ -141,7 +161,7 @@ function Register() {
             </button>
           </div>
           <Link
-            className="hover:text-[#FAA03A]  mb-12 font-bold text-[#488C82]"
+            className="hover:text-[#FAA03A]  mb-7 font-bold text-[#488C82]"
             to="/login"
           >
             Back to login
