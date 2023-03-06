@@ -58,7 +58,7 @@ function Register() {
       </div>
 
       <div className="flex justify-center container mx-auto md:w-1/2 my-auto w-screen h-screen items-center flex-col">
-        <div className="max-w-[500px] min-w-[250px]  text-[#828193] lg:w-1/2 flex flex-col sm:min-w-[350px] sm:max-w-[370px] md:min-w-[250px] items-center bg-white shadow-xl rounded-3xl pt-12">
+        <div className="max-w-[500px] min-w-[250px]  text-[#828193] lg:w-1/2 flex flex-col sm:min-w-[350px] sm:max-w-[370px] md:min-w-[250px] items-center bg-white shadow-xl rounded-lg pt-12">
           <div className="text-slate-100 items-center mb-4 ">
             <img src="logos/logo.jpg" alt="" />
             <svg
@@ -80,6 +80,12 @@ function Register() {
             </div>
           </div>
           <div className="w-3/4 mb-6">
+            <label
+              className="block mb-2 text-base font-bold text-gray-700"
+              for="email"
+            >
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -88,18 +94,24 @@ function Register() {
                 setData({ ...data, emailOrUsername: e.target.value })
               }
               placeholder="Email"
-              className="w-full md:py-2 py-1 px-4 bg-[#f3f3f3] placeholder:font-semibold shadow-inner rounded-3xl  hover:border-[#feaa0c] focus:outline-[#3B8A80] border-solid border-2 border-slate-300"
+              className="w-full md:py-2 py-1 px-4 placeholder:text-base rounded-lg shadow hover:border-[#feaa0c] focus:outline-[#3B8A80]  border border-slate-300"
             />
           </div>
 
           <div className="w-3/4 mb-6">
+            <label
+              className="block mb-2 text-base font-bold text-gray-700"
+              for="password"
+            >
+              Password
+            </label>
             <input
               type="password"
               name="password"
               value={data.password}
               onChange={(e) => setData({ ...data, password: e.target.value })}
               placeholder="Password"
-              className="w-full md:py-2 py-1 px-4 bg-[#f3f3f3] placeholder:font-semibold shadow-inner rounded-3xl hover:border-[#feaa0c] focus:outline-[#3B8A80] border-solid border-2 border-slate-300"
+              className="w-full md:py-2 py-1 px-4 placeholder:text-base shadow rounded-lg hover:border-[#feaa0c] focus:outline-[#3B8A80]  border border-slate-300"
             />
           </div>
 
@@ -113,6 +125,7 @@ function Register() {
               Login
             </button>
           </div>
+         
           <div className="flex justify-center container mx-auto  mb-10 text-white text-sm">
             <div className="flex flex-col justify-evenly gap-4  items-center">
               <Link
