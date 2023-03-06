@@ -59,7 +59,7 @@ export default function EditMyTask(props) {
       place,
     };
     const response = await axios.post("/needAHelp/edit", editedTask);
-    if (response.success) {
+    if (response.statusText === "OK") {
       dispatchHelp({
         type: "editTask",
         payload: editedTask,

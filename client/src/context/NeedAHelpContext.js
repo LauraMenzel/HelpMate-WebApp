@@ -30,6 +30,15 @@ export default function ContextProvider({ children }) {
             ...state.allTasks.filter((item) => item._id !== action.payload),
           ],
         };
+      case "deleteHelper":
+        return {
+          ...state,
+          userInProgressTask: [
+            ...state.userInProgressTask.filter(
+              (item) => item._id !== action.payload
+            ),
+          ],
+        };
       case "editTask":
         const taskIdx = state.userTask.findIndex(
           (item) => item._id === action.payload._id

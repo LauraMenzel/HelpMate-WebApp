@@ -37,13 +37,33 @@ function Profile() {
         };
       })
     );
+    console.log(stateHelp);
   }, []);
   const openModal = (helper) => {
     setCurrentProps(helper);
     setIsOpen(true);
   };
-  console.log(inProgressTask);
 
+  const rejectedTask = async (task) => {
+    const editedTask = {
+      ...task,
+      status: "open",
+      helper: "",
+    };
+    const response = await axios.post("/needAHelp/edit", editedTask);
+    if (response.statusText === "OK") {
+      dispatchHelp({
+        type: "setTaskHelper",
+        payload: editedTask,
+      });
+      dispatchHelp({
+        type: "deleteHelper",
+        payload: task._id,
+      });
+    }
+    const editedList = inProgressTask.filter((item) => item._id !== task._id);
+    setInProgressTask(editedList);
+  };
   const logout = async () => {
     const response = await axios.get("/users/logout");
     console.log(response);
@@ -52,7 +72,7 @@ function Profile() {
   };
 
   return (
-    <div className="flex w-full h-full justify-center items-center flex-col bg-[#EDEAE5] relative">
+    <div className="flex w-full h-full justify-center items-center flex-col bg-[#EDEAE5] relative mb-4">
       {isOpen && (
         <div
           className="w-full h-full absolute top-0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
@@ -96,7 +116,10 @@ function Profile() {
                   alt=""
                 />
                 <h4 className="flex-inline flex-auto mx-4 text-sm ">
-                  <span onClick={() => openModal(task.helper)}>
+                  <span
+                    className="text-[#026670] font-bold"
+                    onClick={() => openModal(task.helper)}
+                  >
                     {task.helper.username}{" "}
                   </span>
                   offer you help with {task.category}
@@ -107,14 +130,20 @@ function Profile() {
                     className="w-8 h-8 mr-2"
                     color="#026670"
                   />
-                  <ImCancelCircle className="w-7 h-7" color="#D11A2A" />
+                  <ImCancelCircle
+                    className="w-7 h-7"
+                    color="#D11A2A"
+                    onClick={() => {
+                      rejectedTask(task);
+                    }}
+                  />
                 </div>
               </div>
             );
           })}
           <Link
             to="/mytasks"
-            className="bg-yellow-600 hover:bg-[#FCE181]-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-yellow-600 hover:bg-[#FCE181]-700 text-white font-bold py-2 px-4 rounded mb-20"
           >
             Show my task
           </Link>

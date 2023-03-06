@@ -9,7 +9,7 @@ import { RiHandHeartFill } from "react-icons/ri";
 function AllHelpReq() {
   const [data, setData] = useState("");
 
-  const { dispatchHelp } = useContext(ToDoListContext);
+  const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
   const { state } = useContext(AppContext);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function AllHelpReq() {
     };
     getData();
   }, []);
-  console.log(state);
+  console.log(stateHelp);
   const setHelper = async (task) => {
     const editedTask = {
       ...task,
