@@ -46,7 +46,7 @@ function Register() {
                 </p>
               </div>
 
-              <form className="px-8 pt-3 pb-8 mb-4 text:base bg-white rounded">
+              <form className="px-8 pt-3 pb-8 text:base bg-white rounded">
                 <div className="mb-4 md:mr-2  md:mb-0">
                   <label
                     className="block mb-2 text-base font-bold text-gray-700"
@@ -156,57 +156,50 @@ function Register() {
                       setData({ ...data, email: e.target.value })
                     }
                     placeholder="Email"
-                    className="w-full py-2 px-3 placeholder:text-base rounded-lg shadow hover:border-[#feaa0c] focus:outline-orange-600 shadow border border-slate-300"
+                    className="w-full py-2 px-3 mb-4 placeholder:text-base rounded-lg shadow hover:border-[#feaa0c] focus:outline-orange-600 shadow border border-slate-300"
                   />
                 </div>
-                
-                  <div className="mb-4 md:mr-2 md:mb-0">
-                    <label
-                      className="block mb-2 text-base font-bold text-gray-700"
-                      for="password"
-                    >
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      value={data.password}
-                      onChange={(e) =>
-                        setData({ ...data, password: e.target.value })
-                      }
-                      placeholder="Password"
-                      className="w-full py-2 px-3 mb-2 placeholder:text-base rounded-lg  hover:border-[#feaa0c] focus:outline-orange-600 border shadow border-slate-300"
-                    />
-                    <p className="text-xs italic text-red-500">
-                      Please choose a password.
-                    </p>
-                  </div>
-                  
-                
+
+                <div className="mb-4 md:mr-2 md:mb-0">
+                  <label
+                    className="block mb-2 text-base font-bold text-gray-700"
+                    for="password"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={data.password}
+                    onChange={(e) =>
+                      setData({ ...data, password: e.target.value })
+                    }
+                    placeholder="Password"
+                    className="w-full py-2 px-3 mb-1 placeholder:text-base rounded-lg  hover:border-[#feaa0c] focus:outline-orange-600 border shadow border-slate-300"
+                  />
+                  <p className="text-xs italic mb-6 text-red-500">
+                    Please choose a password.
+                  </p>
+                </div>
+
                 <div className="mb-6 text-center">
                   <button
-                    className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                    type="submit"
+                    onClick={handleRegister}
+                    className="w-full px-4 py-2 font-bold text-white bg-[#3B8A80] rounded-full hover:bg-[#70c2b7] active:bg-[#3d8f84]"
                     type="button"
                   >
                     Register Account
                   </button>
                 </div>
-                <hr className="mb-6 border-t" />
-                <div className="text-center">
-                  <a
-                    className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                    href="#"
-                  >
-                    Forgot Password?
-                  </a>
-                </div>
-                <div className="text-center">
-                  <a
-                    className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                    href="./index.html"
+                <hr className="mb-4 border-t" />
+                <div className="text-center mb-2">
+                  <Link
+                    className="hover:text-[#FAA03A] text-base  text-[#488C82]"
+                    to="/login"
                   >
                     Already have an account? Login!
-                  </a>
+                  </Link>
                 </div>
               </form>
             </div>
