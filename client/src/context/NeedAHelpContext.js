@@ -65,7 +65,11 @@ export default function ContextProvider({ children }) {
 
           allTasks: [...newAllHelpers],
         };
-
+      case "getHelpAcceptedTask":
+        return {
+          ...state,
+          helpAcceptedTask: [...action.payload],
+        };
       default:
         return state;
     }
@@ -75,6 +79,7 @@ export default function ContextProvider({ children }) {
     allTasks: [],
     userTask: [],
     userInProgressTask: [],
+    helpAcceptedTask: [],
   });
 
   return (

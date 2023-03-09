@@ -19,9 +19,8 @@ function EmailConfirm() {
   }, []);
   return (
     <div>
-      <p>thank you</p>
-      <p>your email is getting verify</p>
-      <span>your token is {token}</span>
+      <p>Thank you for register, now you can log in:</p>
+      <p>http://localhost:3000/login</p>
     </div>
   );
 }

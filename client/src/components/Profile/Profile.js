@@ -50,6 +50,7 @@ function Profile() {
       status: "open",
       helper: "",
     };
+    console.log(task);
     const response = await axios.post("/needAHelp/edit", editedTask);
     if (response.statusText === "OK") {
       dispatchHelp({
@@ -64,6 +65,23 @@ function Profile() {
     const editedList = inProgressTask.filter((item) => item._id !== task._id);
     setInProgressTask(editedList);
   };
+  const acceptedTask = async (task) => {
+    const editedTask = {
+      ...task,
+      status: "accepted",
+      helper: JSON.stringify(task.helper),
+    };
+    const response = await axios.post("/needAHelp/edit", editedTask);
+    if (response.statusText === "OK") {
+      dispatchHelp({
+        type: "deleteHelper",
+        payload: task._id,
+      });
+    }
+    const editedList = inProgressTask.filter((item) => item._id !== task._id);
+    setInProgressTask(editedList);
+  };
+
   const logout = async () => {
     const response = await axios.get("/users/logout");
     console.log(response);
@@ -129,6 +147,9 @@ function Profile() {
                   <AiOutlineCheckCircle
                     className="w-8 h-8 mr-2"
                     color="#026670"
+                    onClick={() => {
+                      acceptedTask(task);
+                    }}
                   />
                   <ImCancelCircle
                     className="w-7 h-7"

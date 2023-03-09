@@ -4,10 +4,12 @@ export const add = async (req, res) => {
   try {
     console.log("add item", req.body);
     req.body.owner = req.user;
+    console.log(req);
+    req.body.author = JSON.stringify(req.user);
 
     const addTask = await (
       await NeedAHelp.create(req.body)
-    ).populate({ path: "owner", select: "email" });
+    ).populate({ path: "owner", select: "username email" });
     res.send({ success: true, addTask });
   } catch (error) {
     console.log("🚀 ~ add ~ error", error.message);

@@ -12,7 +12,6 @@ function NavBar() {
   const [notifications, setNotifications] = useState(
     stateHelp.userInProgressTask.length
   );
-  console.log(notifications);
   return (
     <div
       className="bg-white text-black shadow-xl

@@ -8,9 +8,12 @@ const NeedAHelpSchema = new Schema(
       required: true,
     },
     owner: {
-      type: Schema.Types.ObjectId,
+      type: Schema.Types.String,
       ref: "User",
       required: true,
+    },
+    author: {
+      type: String,
     },
     date: {
       type: String,

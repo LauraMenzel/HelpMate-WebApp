@@ -11,16 +11,27 @@ function Home() {
     const getData = async () => {
       // here filtered all task and show all except yours in home page
       const response = await axios.get("/needAHelp/getAllHelpReq");
-
+      let offerHelpAccepted = [];
       let filteredData = [];
       if (response.statusText === "OK") {
         filteredData = response.data.tasks.filter(
           (item) => item.owner === state.user._id && item.status === "inProgres"
         );
+        offerHelpAccepted = response.data.tasks.filter((item) => {
+          return (
+            item.helper &&
+            JSON.parse(item.helper)._id === state.user._id &&
+            item.status === "accepted"
+          );
+        });
       }
       dispatchHelp({
         type: "getInProgressUserTask",
         payload: filteredData,
+      });
+      dispatchHelp({
+        type: "getHelpAcceptedTask",
+        payload: offerHelpAccepted,
       });
     };
     getData();
