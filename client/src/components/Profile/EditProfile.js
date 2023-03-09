@@ -65,13 +65,13 @@ function EditProfile() {
   };
 
   return (
-    <div className="bg-[#E3DDDD]  p-8">
-      <div className="bg-white rounded-lg pb-8">
-        <div className="relative flex flex-col items-center  mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white">
-          <div className="relative flex h-60 w-full justify-center rounded-xl bg-cover">
+    <div className="bg-[#EDEAE5]  p-8">
+      <div className="bg-white shadow rounded-3xl ">
+        <div className="relative flex flex-col items-center rounded-3xl mx-auto bg-white bg-clip-border shadow-xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white">
+          <div className="relative rounded-3xl flex h-60 w-full justify-center rounded-xl bg-cover">
             <img
               src="https://images.unsplash.com/photo-1521080755838-d2311117f767?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJsdWUlMjBtb3VudGFpbnxlbnwwfHwwfHw%3D&w=1000&q=80"
-              className="absolute flex h-60 w-full justify-center"
+              className="absolute flex h-60 w-full rounded-t-xl justify-center"
               alt=""
             />
             <div class="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
@@ -87,7 +87,7 @@ function EditProfile() {
           </div>
 
           <div className="flex justify-start ml-[30px]  min-w-[340px] md:w-3/4  lg:w-1/2  pt-8">
-            <Link to="/home">
+            <Link to="/profile">
               <MdArrowBackIosNew className="hover:text-red-500 bg-white rounded-3xl text-[30px]" />
             </Link>
           </div>
@@ -223,7 +223,7 @@ function EditProfile() {
                   value={data.age}
                   type="age"
                   id="age"
-                  className="bg-gray-50  text-gray-900 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80] "
+                  className="bg-gray-50  text-gray-900 border border-gray-300 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80] "
                   placeholder="your age"
                   onChange={(e) => setData({ ...data, age: e.target.value })}
                   required
@@ -242,7 +242,7 @@ function EditProfile() {
                   type="language"
                   id="language"
                   rows="3"
-                  className="bg-gray-50  text-gray-900 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80] "
+                  className="bg-gray-50 border border-gray-300 text-gray-900 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80] "
                   placeholder="Introduce yourself :)"
                   onChange={(e) => setData({ ...data, intro: e.target.value })}
                   required
@@ -261,7 +261,7 @@ function EditProfile() {
                   type="language"
                   id="language"
                   rows="3"
-                  className="bg-gray-50 text-gray-900 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80] "
+                  className="bg-gray-50 border border-gray-300 text-gray-900 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80] "
                   placeholder="Add your language skills here"
                   onChange={(e) =>
                     setData({ ...data, language: e.target.value })
@@ -282,7 +282,7 @@ function EditProfile() {
                   type="helpoffers"
                   id="helpoffers"
                   rows="3"
-                  className="bg-gray-50  text-gray-900 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80]  "
+                  className="bg-gray-50 border border-gray-300 text-gray-900 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80]  "
                   placeholder="Share here some of your help offers"
                   onChange={(e) =>
                     setData({ ...data, helpoffers: e.target.value })

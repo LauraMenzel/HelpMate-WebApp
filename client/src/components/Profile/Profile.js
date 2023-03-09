@@ -72,81 +72,98 @@ function Profile() {
   };
 
   return (
-    <div className="flex w-full h-full justify-center items-center flex-col bg-[#EDEAE5] relative mb-4">
-      {isOpen && (
-        <div
-          className="w-full h-full absolute top-0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
-          onClick={() => setIsOpen(false)}
-        >
-          <HelperPrev helper={currentProps} />
+    <div className="bg-[#EDEAE5] p-8">
+      <div className="bg-white shadow rounded-3xl">
+        <div className="flex items-center flex-col bg-white mx-auto rounded-3xl  relative mb-4">
+          {isOpen && (
+            <div
+              className="w-full h-full absolute top-0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
+              onClick={() => setIsOpen(false)}
+            >
+              <HelperPrev helper={currentProps} />
+            </div>
+          )}
+
+          <div className="relative flex justify-center w-full mb-12 h-60">
+            <img
+              src="https://images.unsplash.com/photo-1521080755838-d2311117f767?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJsdWUlMjBtb3VudGFpbnxlbnwwfHwwfHw%3D&w=1000&q=80"
+              className="absolute flex h-60 w-full rounded-t-xl justify-center"
+              alt=""
+            />
+            <div onClick={logout}>
+              <IoMdLogOut
+                className="w-6 h-6  relative fill-current mt-4 mr-4"
+                color="#026670"
+              />
+            </div>
+
+            <div class="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
+              <img
+                class="h-full h-[150px] w-[150px] rounded-full"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7CcntCwS7gwROBGTkpVa31uf37GxwVqOMVg&usqp=CAU"
+                alt="profilpicture"
+              />
+            </div>
+          </div>
         </div>
-      )}
-      <div className="absolute w-24 h-24 top-36 rounded-3xl">
-        <img className="rounded-3xl" src={fileData.url || noImg} alt="" />
-      </div>
-      <div className="flex-none bg-[#EDEAE5] w-full h-48">
-        <div onClick={logout}>
-          <IoMdLogOut
-            className="w-6 h-6 float-right fill-current mt-4 mr-4"
-            color="#026670"
-          />
-        </div>
-      </div>
-      <div className="flex-1 bg-white w-full rounded-t-3xl overflow-auto">
-        <Link to="/editprofile">
-          <TiEdit
-            className="w-6 h-6 float-right fill-current mt-4 mr-4"
-            color="#026670"
-          />
-        </Link>
-        <div className="flex flex-col items-center mt-14">
-          <h3 className="text-[#026670] font-bold text-xl">{data.fullname}</h3>
-          <h4 className="text-slate-500 italic text-sm">
-            {data.city}, {data.age}
-          </h4>
-          {inProgressTask.map((task) => {
-            return (
-              <div
-                className="inline-flex items-center justify-evenly my-4 w-11/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                key={task._id}
-              >
-                <img
-                  className="rounded-3xl w-12 h-12 flex flex-initial"
-                  src={fileData.url || noImg}
-                  alt=""
-                />
-                <h4 className="flex-inline flex-auto mx-4 text-sm ">
-                  <span
-                    className="text-[#026670] font-bold"
-                    onClick={() => openModal(task.helper)}
-                  >
-                    {task.helper.username}{" "}
-                  </span>
-                  offer you help with {task.category}
-                </h4>
-                <div className="flex flex-nowrap flex-1 items-center ">
-                  {" "}
-                  <AiOutlineCheckCircle
-                    className="w-8 h-8 mr-2"
-                    color="#026670"
-                  />
-                  <ImCancelCircle
-                    className="w-7 h-7"
-                    color="#D11A2A"
-                    onClick={() => {
-                      rejectedTask(task);
-                    }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-          <Link
-            to="/mytasks"
-            className="bg-yellow-600 hover:bg-[#FCE181]-700 text-white font-bold py-2 px-4 rounded mb-20"
-          >
-            Show my task
+        <div className="flex-1 bg-white w-full rounded-t-3xl overflow-auto">
+          <Link to="/editprofile">
+            <TiEdit
+              className="w-6 h-6 float-right fill-current mt-4 mr-4"
+              color="#026670"
+            />
           </Link>
+          <div className="flex flex-col items-center mt-14">
+            <h3 className="text-[#026670] font-bold text-xl">
+              {data.fullname}
+            </h3>
+            <h4 className="text-slate-500 italic text-sm">
+              {data.city}, {data.age}
+            </h4>
+            {inProgressTask.map((task) => {
+              return (
+                <div
+                  className="inline-flex items-center justify-evenly my-4 w-11/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                  key={task._id}
+                >
+                  <img
+                    className="rounded-3xl w-12 h-12 flex flex-initial"
+                    src={fileData.url || noImg}
+                    alt=""
+                  />
+                  <h4 className="flex-inline flex-auto mx-4 text-sm ">
+                    <span
+                      className="text-[#026670] font-bold"
+                      onClick={() => openModal(task.helper)}
+                    >
+                      {task.helper.username}{" "}
+                    </span>
+                    offer you help with {task.category}
+                  </h4>
+                  <div className="flex flex-nowrap flex-1 items-center ">
+                    {" "}
+                    <AiOutlineCheckCircle
+                      className="w-8 h-8 mr-2"
+                      color="#026670"
+                    />
+                    <ImCancelCircle
+                      className="w-7 h-7"
+                      color="#D11A2A"
+                      onClick={() => {
+                        rejectedTask(task);
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+            <Link
+              to="/mytasks"
+              className="bg-yellow-600 hover:bg-[#FCE181]-700 text-white font-bold py-2 px-4 rounded mb-20"
+            >
+              Show my task
+            </Link>
+          </div>
         </div>
       </div>
     </div>
