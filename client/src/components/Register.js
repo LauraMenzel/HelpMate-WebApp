@@ -25,11 +25,11 @@ function Register() {
   };
 
   return (
-    <div className="bg-[#E3DDDD] h-full items-center flex font-display sm:text-xl text-base  ">
+    <div className="bg-[#E3DDDD] items-center flex font-display py-20 sm:text-xl text-base  ">
       <div className="container mx-auto">
         <div className="flex justify-center">
           <div className=" xl:w-auto flex">
-            <div className="xl:flex xl:w-4/5 bg-white w-full hidden overflow-hidden relative rounded-l-lg items-center flex-col">
+            <div className="xl:flex  xl:w-4/5 bg-white w-full hidden overflow-hidden relative rounded-l-lg items-center flex-col">
               <img
                 className="max-w-full h-full bg-cover hidden xl:block rounded-l-lg "
                 src="https://www.beiersdorf.de/~/media/Beiersdorf/sustainability/society/overview/Beiersdorf-society-teaser-new.png?rx=0&ry=0&rw=940&rh=528&mw=940&hash=A7C99DB3C4914C08A8627E478530FF10"
@@ -187,7 +187,7 @@ function Register() {
                     type="submit"
                     onClick={handleRegister}
                     className="w-full px-4 py-2 font-bold text-white bg-[#3B8A80] rounded-full hover:bg-[#70c2b7] active:bg-[#3d8f84]"
-                    type="button"
+                    
                   >
                     Register Account
                   </button>
