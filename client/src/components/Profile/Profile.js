@@ -91,40 +91,41 @@ function Profile() {
 
   return (
     <div className="bg-[#EDEAE5] p-8">
-      <div className="bg-white shadow rounded-3xl">
-        <div className="flex items-center flex-col bg-white mx-auto rounded-3xl  relative mb-4">
+      <div className="bg-white shadow-lg shadow-[#EDEAE5] rounded-3xl">
+        <div className="flex items-center flex-col bg-white mx-auto rounded-3xl bg-clip-border relative mb-4">
           {isOpen && (
             <div
-              className="w-full h-full absolute top-0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
+              className="w-full h-full absolute -0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
               onClick={() => setIsOpen(false)}
             >
               <HelperPrev helper={currentProps} />
             </div>
           )}
 
-          <div className="relative flex justify-center w-full mb-12 h-60">
+          <div className="relative flex justify-center rounded-3xl w-full mb-12 h-60">
             <img
               src="https://images.unsplash.com/photo-1521080755838-d2311117f767?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJsdWUlMjBtb3VudGFpbnxlbnwwfHwwfHw%3D&w=1000&q=80"
               className="absolute flex h-60 w-full rounded-t-xl justify-center"
               alt=""
             />
-            <div onClick={logout}>
+            <div  className="absolute right-3" onClick={logout}>
               <IoMdLogOut
-                className="w-6 h-6  relative fill-current mt-4 mr-4"
+                className="w-6 h-6 fill-current mt-4 "
                 color="#026670"
               />
             </div>
 
-            <div class="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
+            <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
               <img
-                class="h-full h-[150px] w-[150px] rounded-full"
+                className="h-full h-[150px] w-[150px] rounded-full"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7CcntCwS7gwROBGTkpVa31uf37GxwVqOMVg&usqp=CAU"
                 alt="profilpicture"
               />
             </div>
           </div>
         </div>
-        <div className="flex-1 bg-white w-full rounded-t-3xl overflow-auto">
+        
+        <div className="flex-1 bg-white w-full shadow-xl shadow-shadow-500  rounded-3xl overflow-auto">
           <Link to="/editprofile">
             <TiEdit
               className="w-6 h-6 float-right fill-current mt-4 mr-4"
@@ -177,7 +178,7 @@ function Profile() {
             })}
             <Link
               to="/mytasks"
-              className="bg-yellow-600 hover:bg-[#FCE181]-700 text-white font-bold py-2 px-4 rounded mb-20"
+              className="bg-[#feaa0c] mt-2 hover:bg-[#70c2b7] active:bg-[#3d8f84] text-white font-bold py-2 px-4 rounded-3xl shadow-xl mb-20"
             >
               Show my task
             </Link>

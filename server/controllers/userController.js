@@ -79,6 +79,7 @@ export const emailConfirm = async (req, res) => {
       { verified: true },
       { new: true }
     );
+    console.log("🚀 ~ emailConfirm ~ user", user);
     res.send({ success: true });
   } catch (error) {
     console.log("🚀 ~ emailConfirm ~ error", error.message);
@@ -117,6 +118,7 @@ export const ChangePassword = async (req, res) => {
       { password: hashedPass },
       { new: true }
     );
+     console.log("🚀 ~ changePass ~ updated", updated);
     res.send({ success: true });
   } catch (error) {
     console.log("🚀 ~ ChangePassword ~ error", error.message);

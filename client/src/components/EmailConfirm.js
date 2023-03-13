@@ -21,6 +21,7 @@ function EmailConfirm() {
     <div>
       <p>Thank you for register, now you can log in:</p>
       <p>http://localhost:3000/login</p>
+     
     </div>
   );
 }

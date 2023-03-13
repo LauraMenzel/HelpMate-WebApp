@@ -50,7 +50,7 @@ function Register() {
                 <div className="mb-4 md:mr-2  md:mb-0">
                   <label
                     className="block mb-2 text-base font-bold text-gray-700"
-                    for="username"
+                    htmlFor="username"
                   >
                     Username
                   </label>
@@ -69,7 +69,7 @@ function Register() {
                   <div className="mb-4 md:mr-2 md:mb-0">
                     <label
                       className="block mb-2 text-base font-bold text-gray-700"
-                      for="firstname"
+                      htmlFor="firstname"
                     >
                       First Name
                     </label>
@@ -87,7 +87,7 @@ function Register() {
                   <div className="mb-4 md:mr-2 md:mb-0">
                     <label
                       className="block mb-2 text-base font-bold text-gray-700"
-                      for="lastname"
+                      htmlFor="lastname"
                     >
                       Last Name
                     </label>
@@ -107,7 +107,7 @@ function Register() {
                   <div className="mb-4 md:mr-2 md:mb-0">
                     <label
                       className="block mb-2 text-base font-bold text-gray-700"
-                      for="birthdate"
+                      htmlFor="birthdate"
                     >
                       Date of birth
                     </label>
@@ -125,7 +125,7 @@ function Register() {
                   <div className="mb-4 md:mr-2 md:mb-0">
                     <label
                       className="block mb-2 text-base font-bold text-gray-700"
-                      for="city"
+                      htmlFor="city"
                     >
                       City
                     </label>
@@ -144,7 +144,7 @@ function Register() {
                 <div className="mb-4 md:mr-2 md:mb-0">
                   <label
                     className="block mb-2 text-base font-bold text-gray-700"
-                    for="email"
+                    htmlFor="email"
                   >
                     Email
                   </label>
@@ -163,7 +163,7 @@ function Register() {
                 <div className="mb-4 md:mr-2 md:mb-0">
                   <label
                     className="block mb-2 text-base font-bold text-gray-700"
-                    for="password"
+                    htmlFor="password"
                   >
                     Password
                   </label>
@@ -187,7 +187,6 @@ function Register() {
                     type="submit"
                     onClick={handleRegister}
                     className="w-full px-4 py-2 font-bold text-white bg-[#3B8A80] rounded-full hover:bg-[#70c2b7] active:bg-[#3d8f84]"
-                    
                   >
                     Register Account
                   </button>
