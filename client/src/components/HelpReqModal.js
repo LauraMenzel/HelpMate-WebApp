@@ -68,7 +68,8 @@ export default function BasicModal() {
   return (
     <div>
       <button
-        className="bg-blue-700 hover:bg-blue-800 text-white mr-2 font-bold py-2 px-4 rounded-lg flex justify-center w-32"
+        className="py-2 bg-[#feaa0c] shadow-xl w-full rounded-3xl 
+              text-white font-bold hover:bg-[#70c2b7] active:bg-[#3d8f84] px-4 rounded-lg flex items-center justify-center w-32"
         onClick={handleOpen}
       >
         Add Task
@@ -82,10 +83,10 @@ export default function BasicModal() {
         <Box sx={style}>
           <Box
             id="modal-modal-title rounded"
-            className="flex justify-between mb-6"
+            className="flex justify-center mb-6"
           >
-            <div className="flex flex-col">
-              <Box sx={{ minWidth: 120 }}>
+            <div className="flex flex-col ">
+              <Box c sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">
                     Category
@@ -122,7 +123,7 @@ export default function BasicModal() {
                   type="date"
                   required
                   onChange={(e) => setDate(e.target.value)}
-                  className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight hover:border-[#feaa0c] focus:outline-[#3B8A80]"
                 />
               </div>
               <div className="form-group mt-6">
@@ -131,7 +132,7 @@ export default function BasicModal() {
                   type="time"
                   required
                   onChange={(e) => setTime(e.target.value)}
-                  className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight hover:border-[#feaa0c] focus:outline-[#3B8A80]"
                 />
               </div>
 
@@ -141,20 +142,20 @@ export default function BasicModal() {
                   type="text"
                   required
                   onChange={(e) => setPlace(e.target.value)}
-                  className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight hover:border-[#feaa0c] focus:outline-[#3B8A80]"
                 />
               </div>
               <div className="form-group mt-6">
                 <label>Description</label>
-                <input
+                <textarea
                   required
                   type="text"
                   onChange={(e) => setDescription(e.target.value)}
-                  className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight hover:border-[#feaa0c] focus:outline-[#3B8A80]"
                 />
               </div>
               <button
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full mt-6"
+                className="bg-[#feaa0c] hover:bg-[#70c2b7] active:bg-[#3d8f84] text-white font-bold py-2 px-4 rounded-full mt-6"
                 type="button"
                 onClick={() => handleSave()}
               >

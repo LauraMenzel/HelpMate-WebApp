@@ -10,6 +10,7 @@ import { ImCancelCircle } from "react-icons/im";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import HelperPrev from "./HelperPrev";
 function Profile() {
+  const [currentComponent, setCurrentComponent] = useState("Home");
   const { state, dispatch } = useContext(AppContext);
   const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
   const navigate = useNavigate();
@@ -90,7 +91,7 @@ function Profile() {
   };
 
   return (
-    <div className="bg-[#EDEAE5] p-8">
+    <div className="bg-[#EDEAE5] h-full p-8">
       <div className="bg-white shadow-lg shadow-[#EDEAE5] rounded-3xl">
         <div className="flex items-center flex-col bg-white mx-auto rounded-3xl bg-clip-border relative mb-4">
           {isOpen && (
@@ -108,7 +109,16 @@ function Profile() {
               className="absolute flex h-60 w-full rounded-t-xl justify-center"
               alt=""
             />
-            <div  className="absolute right-3" onClick={logout}>
+            <div>
+              <Link
+                to="/home"
+                onClick={() => setCurrentComponent("Home")}
+                className="absolute left-3 font-logo text-[20px] tracking-wide hover:text-[#feaa0c] p-1 rounded-full"
+              >
+                HelpMate
+              </Link>
+            </div>
+            <div className="absolute right-3" onClick={logout}>
               <IoMdLogOut
                 className="w-6 h-6 fill-current mt-4 "
                 color="#026670"
@@ -124,7 +134,7 @@ function Profile() {
             </div>
           </div>
         </div>
-        
+
         <div className="flex-1 bg-white w-full shadow-xl shadow-shadow-500  rounded-3xl overflow-auto">
           <Link to="/editprofile">
             <TiEdit

@@ -1,3 +1,4 @@
+import helpmatelogo from "./../images/HelpMate.jpg";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -14,7 +15,10 @@ function Register() {
     age: "",
     uploadphoto: "",
   });
-
+const [fileData, setFiledata] = useState({
+  url: "",
+  file: null,
+});
   const navigate = useNavigate();
 
   const handleRegister = async () => {
@@ -29,25 +33,26 @@ function Register() {
       <div className="container mx-auto">
         <div className="flex justify-center">
           <div className=" xl:w-auto flex">
-            <div className="xl:flex  xl:w-4/5 bg-white w-full hidden overflow-hidden relative rounded-l-lg items-center flex-col">
+            <div className="xl:flex  xl:w-4/5 bg-white w-full hidden overflow-hidden relative rounded-l-lg  flex-col">
               <img
                 className="max-w-full h-full bg-cover hidden xl:block rounded-l-lg "
-                src="https://www.beiersdorf.de/~/media/Beiersdorf/sustainability/society/overview/Beiersdorf-society-teaser-new.png?rx=0&ry=0&rw=940&rh=528&mw=940&hash=A7C99DB3C4914C08A8627E478530FF10"
+                src="https://static.wixstatic.com/media/763bb8_714bd1aaa4064deba28a9e575fcf06c1~mv2.jpg/v1/fill/w_640,h_742,fp_0.47_0.73,q_85,usm_0.66_1.00_0.01,enc_auto/763bb8_714bd1aaa4064deba28a9e575fcf06c1~mv2.jpg"
                 alt="happy people of different color and age standing together"
               />
-            </div>
-            <div className="bg-white px-4 pt-8 rounded-lg xl:rounded-l-none items-center  ">
-              <div className="">
-                <h1 className="text-black text-center font-bold justify-center lg:text-base text-base mx-auto font-sans">
+              <div className="absolute bottom-0  left-0 right-0 px-6 py-2 bg-gray-800 opacity-70">
+                <h3 className="text-xl text-white mt-4  font-bold">
+                  GET REGISTERED NOW
+                </h3>
+                <p className="text-sm py-4 text-gray-300">
                   Join our community of helpers and those in need.
-                </h1>
-                <p className="text-black mt-2 text-base text-center lg:text-base">
-                  Get registered now!
                 </p>
               </div>
+            </div>
+            <div className="bg-white px-8 flex justify-center flex-col rounded-lg xl:rounded-l-none items-center  ">
+              <p className="font-logo text-[30px] pb-6 tracking-wide ">HelpMate</p>
 
-              <form className="px-8 pt-3 pb-8 text:base bg-white rounded">
-                <div className="mb-4 md:mr-2  md:mb-0">
+              <form className="px-8 pt-3 text:base bg-white rounded">
+                <div className=" md:mr-2  md:mb-0">
                   <label
                     className="block mb-2 text-base font-bold text-gray-700"
                     htmlFor="username"
@@ -177,12 +182,12 @@ function Register() {
                     placeholder="Password"
                     className="w-full py-2 px-3 mb-1 placeholder:text-base rounded-lg  hover:border-[#feaa0c] focus:outline-orange-600 border shadow border-slate-300"
                   />
-                  <p className="text-xs italic mb-6 text-red-500">
+                  <p className="text-xs italic mb-8 text-red-500">
                     Please choose a password.
                   </p>
                 </div>
 
-                <div className="mb-6 text-center">
+                <div className="mb-8 text-center">
                   <button
                     type="submit"
                     onClick={handleRegister}
@@ -191,8 +196,8 @@ function Register() {
                     Register Account
                   </button>
                 </div>
-                <hr className="mb-4 border-t" />
-                <div className="text-center mb-2">
+                <hr className="mb-6 mt-6 border-t" />
+                <div className="text-center mb-6">
                   <Link
                     className="hover:text-[#FAA03A] text-base  text-[#488C82]"
                     to="/login"

@@ -8,6 +8,7 @@ import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../context/Context";
 
 function EditProfile() {
+  const [currentComponent, setCurrentComponent] = useState("Home");
   const { state, dispatch } = useContext(AppContext);
   const [fileData, setFiledata] = useState({
     url: "",
@@ -74,6 +75,15 @@ function EditProfile() {
               className="absolute   flex h-60 w-full rounded-t-xl justify-center"
               alt="mountains in blue color shades"
             />
+            <div>
+              <Link
+                to="/home"
+                onClick={() => setCurrentComponent("Home")}
+                className="absolute left-3 font-logo text-[20px] tracking-wide hover:text-[#feaa0c] p-1 rounded-full"
+              >
+                HelpMate
+              </Link>
+            </div>
             <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
               <img
                 className="h-full h-[150px] w-[150px] rounded-full"

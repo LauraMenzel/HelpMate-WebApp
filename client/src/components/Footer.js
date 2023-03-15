@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <div className="w-full hidden text-black items-center bg-[#EDEAE5]   justify-center items-center gap-[20px] flex-col md:flex">
-      <footer className=" text-center rounded-3xl  mt-1 dark:bg-neutral-600 dark:text-neutral-200">
+      <footer className=" text-center   mt-1 dark:bg-neutral-600 dark:text-neutral-200">
         <div className=" pt-8 text-center rounded-3xl  md:text-left">
           <div className="grid-1 grid md:grid-cols-3 rounded-3xl lg:grid-cols-3">
             <div className="justify-items-center grid mt-6">
