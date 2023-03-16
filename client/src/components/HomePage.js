@@ -1,3 +1,4 @@
+
 import TheModal from "./HelpReqModal.js";
 import AllHelpReq from "./AllHelpReq.js";
 import { useEffect, useContext } from "react";
@@ -37,10 +38,16 @@ function Home() {
     getData();
   }, []);
 
+ 
   return (
-    <div className="w-full h-full flex items-center  bg-neutral-100 justify-center items-center gap-[20px] flex-col mt-[30px] pb-[30px]">
-      <TheModal />
-      <AllHelpReq />
+    <div className="h-full p-8 bg-[#EDEAE5] pb-20 ">
+      <div className=" h-full  ">
+        <div className="h-full flex rounded-3xl shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100 justify-center items-center  flex-col ">
+          <TheModal />
+
+          <AllHelpReq />
+        </div>
+      </div>
     </div>
   );
 }

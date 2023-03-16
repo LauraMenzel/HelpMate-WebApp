@@ -4,10 +4,11 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'mobil': {'raw': '306px'},
+        mobil: { raw: "306px" },
       },
       fontFamily: {
         display: ["Oxygen", "sans - serif"],
+        logo: ["Montserrat", "sans-serif"],
       },
     },
   },

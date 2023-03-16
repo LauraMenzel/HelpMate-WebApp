@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 function Forgotpass() {
   const [data, setData] = useState({
-    emailOrUsername: "",
+    emailOrUsername: ""
   });
 
   const handleSubmit = async () => {

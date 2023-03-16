@@ -7,6 +7,7 @@ import { useContext, useState, useEffect, useRef } from "react";
 import { AppContext } from "../../context/Context";
 
 function EditProfile() {
+  const [currentComponent, setCurrentComponent] = useState("Home");
   const { state, dispatch } = useContext(AppContext);
   const [fileData, setFileData] = useState({
     url: state.user.image,
@@ -66,16 +67,30 @@ function EditProfile() {
 
   return (
     <div className="bg-[#EDEAE5]  p-8">
-      <div className="bg-white shadow rounded-3xl ">
-        <div className="relative flex flex-col items-center rounded-3xl mx-auto bg-white bg-clip-border shadow-xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white">
+      <div className="bg-white shadow-lg  rounded-3xl ">
+        <div className="relative flex mb-[60px]  flex-col items-center rounded-3xl mx-auto bg-white bg-clip-border dark:!bg-navy-800 dark:text-white">
           <div className="relative rounded-3xl flex h-60 w-full justify-center rounded-xl bg-cover">
             <img
               src="https://images.unsplash.com/photo-1521080755838-d2311117f767?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJsdWUlMjBtb3VudGFpbnxlbnwwfHwwfHw%3D&w=1000&q=80"
-              className="absolute flex h-60 w-full rounded-t-xl justify-center"
-              alt=""
+              className="absolute   flex h-60 w-full rounded-t-xl justify-center"
+              alt="mountains in blue color shades"
             />
+            <div>
+              <Link
+                to="/home"
+                onClick={() => setCurrentComponent("Home")}
+                className="absolute left-3 font-logo text-[20px] tracking-wide hover:text-[#feaa0c] p-1 rounded-full"
+              >
+                HelpMate
+              </Link>
+            </div>
             <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
-              <label className="cursor-pointer">
+              <img
+                className="h-full h-[150px] w-[150px] rounded-full"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7CcntCwS7gwROBGTkpVa31uf37GxwVqOMVg&usqp=CAU"
+                alt="profilpicture"
+              />
+              <button className="absolute -top-2 bg-white rounded-3xl border-2 p-2 border-[#3B8A80] -right-2 hover:text-red-500 hover:border-[#feaa0c] active:border-[#3B8A80]">
                 <MdOutlinePhotoCamera className="text-[26px]" />
                 <img
                   className="h-full h-[150px] w-[150px] rounded-full"
@@ -103,7 +118,7 @@ function EditProfile() {
             <div className="grid-1 grid gap-x-10 md:grid-cols-2 lg:grid-cols-2">
               <div className="mb-6">
                 <label
-                  for="Username"
+                  htmlFor="Username"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                 >
                   Username
@@ -123,7 +138,7 @@ function EditProfile() {
 
               <div className="mb-6">
                 <label
-                  for="firstname"
+                  htmlFor="firstname"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                 >
                   First name
@@ -143,7 +158,7 @@ function EditProfile() {
 
               <div className="mb-6">
                 <label
-                  for="lastname"
+                  htmlFor="lastname"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                 >
                   Last name
@@ -163,7 +178,7 @@ function EditProfile() {
 
               <div className="mb-6">
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                 >
                   Email
@@ -181,7 +196,7 @@ function EditProfile() {
 
               <div className="mb-6">
                 <label
-                  for="phonenumber"
+                  htmlFor="phonenumber"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                 >
                   Phone
@@ -201,7 +216,7 @@ function EditProfile() {
 
               <div className="mb-6">
                 <label
-                  for="city"
+                  htmlFor="city"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                 >
                   City
@@ -219,7 +234,7 @@ function EditProfile() {
 
               <div className="mb-6">
                 <label
-                  for="age"
+                  htmlFor="age"
                   className="block mb-2 text-sm font-medium text-base text-gray-900 dark:text-white"
                 >
                   Age
@@ -237,7 +252,7 @@ function EditProfile() {
 
               <div className="mb-6">
                 <label
-                  for="intro"
+                  htmlFor="intro"
                   className="block mb-2 text-base text-gray-900 font-medium dark:text-white"
                 >
                   Introduction
@@ -256,7 +271,7 @@ function EditProfile() {
 
               <div className="mb-6">
                 <label
-                  for="language"
+                  htmlFor="language"
                   className="block mb-2 text-base text-gray-900 font-medium dark:text-white"
                 >
                   Language skills
@@ -277,7 +292,7 @@ function EditProfile() {
 
               <div className="mb-6">
                 <label
-                  for="helpoffers"
+                  htmlFor="helpoffers"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                 >
                   Help offers
@@ -299,7 +314,7 @@ function EditProfile() {
             <div className="w-3/4 max-w-[150px] mb-12">
               <button
                 onClick={handleSave}
-                className="py-2 bg-[#3B8A80] shadow-xl w-full rounded-3xl 
+                className="py-2 bg-[#feaa0c] shadow-xl w-full rounded-3xl 
               text-white font-bold hover:bg-[#70c2b7] active:bg-[#3d8f84]"
               >
                 Update profile

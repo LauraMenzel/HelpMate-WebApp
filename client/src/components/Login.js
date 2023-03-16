@@ -1,12 +1,15 @@
+import helpmatelogo from "./../images/HelpMate.jpg";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AppContext } from "../context/Context";
 
-
 function Register() {
   const { dispatch } = useContext(AppContext);
-
+const [fileData, setFiledata] = useState({
+  url: "",
+  file: null,
+});
   const navigate = useNavigate();
   const [data, setData] = useState({
     emailOrUsername: "",
@@ -36,8 +39,8 @@ function Register() {
         <div className="flex justify-center w-screen h-screen items-center flex-col">
           <img
             className=" h-auto max-w-full p-8"
-            src="https://img.freepik.com/free-photo/closeup-diverse-people-holding-hands_53876-47126.jpg?w=1380&t=st=1677840500~exp=1677841100~hmac=7c66def5de834a8a0ed6753a74e0398b7beb65a5e930bd81fd90c671568c2667"
-            alt=""
+            src="https://www.beiersdorf.de/~/media/Beiersdorf/sustainability/society/overview/Beiersdorf-society-teaser-new.png?rx=0&ry=0&rw=940&rh=528&mw=940&hash=A7C99DB3C4914C08A8627E478530FF10"
+            alt="happy people of different color and age standing together"
           />
           <h1 className="text-black font-bold p-1 lg:text-xl text-base mx-auto font-sans">
             Experience the power of kindness with HelpMate.
@@ -58,31 +61,18 @@ function Register() {
       </div>
 
       <div className="flex justify-center container mx-auto md:w-1/2 my-auto w-screen h-screen items-center flex-col">
-        <div className="max-w-[500px] min-w-[250px]  text-[#828193] lg:w-1/2 flex flex-col sm:min-w-[350px] sm:max-w-[370px] md:min-w-[250px] items-center bg-white shadow-xl rounded-lg pt-12">
-          <div className="text-slate-100 items-center mb-4 ">
-            <img src="logos/logo.jpg" alt="" />
-            <svg
-              className="w-12 h-12 text-[#feaa0c] mx-auto pb-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-            <div className="text-center text-[20px] text-[#feaa0c] pb-3">
-              Welcome to HelpMate!
-            </div>
+        <div className="max-w-[500px] min-w-[250px]  text-[#828193] lg:w-1/2 flex flex-col sm:min-w-[350px] sm:max-w-[370px] md:min-w-[250px] items-center bg-white shadow-xl rounded-lg ">
+          <div className="text-slate-100 items-center ">
+            <img
+              className="w-[350px] h-[350px]"
+              src={fileData.url || helpmatelogo}
+              alt="logo"
+            />
           </div>
           <div className="w-3/4 mb-6">
             <label
               className="block mb-2 text-base font-bold text-gray-700"
-              for="email"
+              htmlFor="email"
             >
               Email
             </label>
@@ -101,7 +91,7 @@ function Register() {
           <div className="w-3/4 mb-6">
             <label
               className="block mb-2 text-base font-bold text-gray-700"
-              for="password"
+              htmlFor="password"
             >
               Password
             </label>
@@ -125,7 +115,7 @@ function Register() {
               Login
             </button>
           </div>
-         
+
           <div className="flex justify-center container mx-auto  mb-10 text-white text-sm">
             <div className="flex flex-col justify-evenly gap-4  items-center">
               <Link

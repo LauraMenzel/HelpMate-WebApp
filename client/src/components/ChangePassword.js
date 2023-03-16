@@ -7,7 +7,7 @@ function ChangePassword() {
   const navigate = useNavigate();
   const [data, setData] = useState({
     password: "",
-    retypepassword: "",
+    retypepassword: ""
   });
 
   const handleSubmit = async () => {
