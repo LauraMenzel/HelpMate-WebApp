@@ -41,12 +41,11 @@ function EditProfile() {
     console.log(data);
     // formdata.set("image", fileData.file, "profileImage");
     if (fileData.file) formdata.set("image", fileData.file, "profileImage");
-
     const config = {
       Headers: { "content-type": "multipart/form-data" },
     };
-    console.log(formdata.email);
-    const response = await axios.post("/users/profile", data, config);
+
+    const response = await axios.post("/users/profile", formdata, config);
     console.log("🚀 ~ handleSave ~ response", response);
 
     if (response.data.success)
@@ -85,24 +84,21 @@ function EditProfile() {
               </Link>
             </div>
             <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
-              <img
-                className="h-full h-[150px] w-[150px] rounded-full"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7CcntCwS7gwROBGTkpVa31uf37GxwVqOMVg&usqp=CAU"
-                alt="profilpicture"
-              />
-              <button className="absolute -top-2 bg-white rounded-3xl border-2 p-2 border-[#3B8A80] -right-2 hover:text-red-500 hover:border-[#feaa0c] active:border-[#3B8A80]">
-                <MdOutlinePhotoCamera className="text-[26px]" />
+              <div className="relative h-full w-full h-[150px] w-[150px] rounded-full">
                 <img
-                  className="h-full h-[150px] w-[150px] rounded-full"
+                  className="absolute rounded-full h-[150px] w-[150px]"
                   src={fileData.url || noImg}
                   alt="profilPicture"
                 />
-                <input
-                  type="file"
-                  onChange={handleImageChange}
-                  className="hidden"
-                />
-              </label>
+                <button className="absolute h-[56px] w-[56px] rounded-full border-[#3B8A80] -right-5 -top-2 hover:text-red-500 hover:border-[#feaa0c] active:border-[#3B8A80] overflow-hidden">
+                  <MdOutlinePhotoCamera className="text-[56px]" />
+                  <input
+                    className="absolute right-0 top-0 opacity-0 text-9xl cursor-pointer"
+                    type="file"
+                    onChange={handleImageChange}
+                  />
+                </button>
+              </div>
             </div>
           </div>
 
