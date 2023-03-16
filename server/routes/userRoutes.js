@@ -10,7 +10,7 @@ import {
   logout,
   updateProfile,
 } from "../controllers/userController.js";
-
+import multerMiddleware from "../config/multer-cloudinary.js";
 const router = express.Router();
 
 router.post("/register", register);
@@ -19,6 +19,6 @@ router.post("/emailconfirm", emailConfirm);
 router.post("/forgotpass", Forgotpass);
 router.post("/changepassword", ChangePassword);
 router.get("/logout", logout);
-router.post("/profile", auth, updateProfile);
+router.post("/profile", auth, multerMiddleware.single("image"), updateProfile);
 
 export default router;

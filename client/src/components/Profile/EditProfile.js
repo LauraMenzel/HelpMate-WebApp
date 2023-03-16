@@ -2,15 +2,14 @@ import axios from "axios";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { MdOutlinePhotoCamera } from "react-icons/md";
-
 import noImg from "../../images/no-img.jpg";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { AppContext } from "../../context/Context";
 
 function EditProfile() {
   const { state, dispatch } = useContext(AppContext);
-  const [fileData, setFiledata] = useState({
-    url: "",
+  const [fileData, setFileData] = useState({
+    url: state.user.image,
     file: null,
   });
 
@@ -40,6 +39,7 @@ function EditProfile() {
     formdata.set("helpoffers", data.helpoffers);
     console.log(data);
     // formdata.set("image", fileData.file, "profileImage");
+    if (fileData.file) formdata.set("image", fileData.file, "profileImage");
 
     const config = {
       Headers: { "content-type": "multipart/form-data" },
@@ -58,7 +58,7 @@ function EditProfile() {
   const handleImageChange = (e) => {
     console.log("🚀 ~ handleImageChange ~ e", e.currentTarget.files[0]);
 
-    setFiledata({
+    setFileData({
       url: URL.createObjectURL(e.currentTarget.files[0]),
       file: e.currentTarget.files[0],
     });
@@ -74,15 +74,20 @@ function EditProfile() {
               className="absolute flex h-60 w-full rounded-t-xl justify-center"
               alt=""
             />
-            <div class="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
-              <img
-                class="h-full h-[150px] w-[150px] rounded-full"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7CcntCwS7gwROBGTkpVa31uf37GxwVqOMVg&usqp=CAU"
-                alt="profilpicture"
-              />
-              <button className="absolute -top-2 bg-white rounded-3xl border-2 p-2 border-[#3B8A80] -right-2 hover:text-red-500 hover:border-[#feaa0c] active:border-[#3B8A80]">
+            <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
+              <label className="cursor-pointer">
                 <MdOutlinePhotoCamera className="text-[26px]" />
-              </button>
+                <img
+                  className="h-full h-[150px] w-[150px] rounded-full"
+                  src={fileData.url || noImg}
+                  alt="profilPicture"
+                />
+                <input
+                  type="file"
+                  onChange={handleImageChange}
+                  className="hidden"
+                />
+              </label>
             </div>
           </div>
 
@@ -96,7 +101,7 @@ function EditProfile() {
             <div className="relative"></div>
 
             <div className="grid-1 grid gap-x-10 md:grid-cols-2 lg:grid-cols-2">
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="Username"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
@@ -116,7 +121,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="firstname"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
@@ -136,7 +141,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="lastname"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
@@ -156,7 +161,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="email"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
@@ -174,7 +179,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="phonenumber"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
@@ -194,7 +199,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="city"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
@@ -212,7 +217,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="age"
                   className="block mb-2 text-sm font-medium text-base text-gray-900 dark:text-white"
@@ -230,7 +235,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="intro"
                   className="block mb-2 text-base text-gray-900 font-medium dark:text-white"
@@ -249,7 +254,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="language"
                   className="block mb-2 text-base text-gray-900 font-medium dark:text-white"
@@ -270,7 +275,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div class="mb-6">
+              <div className="mb-6">
                 <label
                   for="helpoffers"
                   className="block mb-2 text-base font-medium text-gray-900 dark:text-white"
