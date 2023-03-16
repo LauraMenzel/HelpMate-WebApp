@@ -14,8 +14,8 @@ function Profile() {
   const { state, dispatch } = useContext(AppContext);
   const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
   const navigate = useNavigate();
-  const [fileData, setFiledata] = useState({
-    url: "",
+  const [fileData, setFileData] = useState({
+    url: state.user.image,
     file: null,
   });
   const [isOpen, setIsOpen] = useState(false);
@@ -128,7 +128,7 @@ function Profile() {
             <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
               <img
                 className="h-full h-[150px] w-[150px] rounded-full"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7CcntCwS7gwROBGTkpVa31uf37GxwVqOMVg&usqp=CAU"
+                src={fileData.url || noImg}
                 alt="profilpicture"
               />
             </div>

@@ -2,16 +2,15 @@ import axios from "axios";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { MdOutlinePhotoCamera } from "react-icons/md";
-
 import noImg from "../../images/no-img.jpg";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { AppContext } from "../../context/Context";
 
 function EditProfile() {
   const [currentComponent, setCurrentComponent] = useState("Home");
   const { state, dispatch } = useContext(AppContext);
-  const [fileData, setFiledata] = useState({
-    url: "",
+  const [fileData, setFileData] = useState({
+    url: state.user.image,
     file: null,
   });
 
@@ -41,12 +40,12 @@ function EditProfile() {
     formdata.set("helpoffers", data.helpoffers);
     console.log(data);
     // formdata.set("image", fileData.file, "profileImage");
-
+    if (fileData.file) formdata.set("image", fileData.file, "profileImage");
     const config = {
       Headers: { "content-type": "multipart/form-data" },
     };
-    console.log(formdata.email);
-    const response = await axios.post("/users/profile", data, config);
+
+    const response = await axios.post("/users/profile", formdata, config);
     console.log("🚀 ~ handleSave ~ response", response);
 
     if (response.data.success)
@@ -59,7 +58,7 @@ function EditProfile() {
   const handleImageChange = (e) => {
     console.log("🚀 ~ handleImageChange ~ e", e.currentTarget.files[0]);
 
-    setFiledata({
+    setFileData({
       url: URL.createObjectURL(e.currentTarget.files[0]),
       file: e.currentTarget.files[0],
     });
@@ -85,14 +84,21 @@ function EditProfile() {
               </Link>
             </div>
             <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
-              <img
-                className="h-full h-[150px] w-[150px] rounded-full"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7CcntCwS7gwROBGTkpVa31uf37GxwVqOMVg&usqp=CAU"
-                alt="profilpicture"
-              />
-              <button className="absolute -top-2 bg-white rounded-3xl border-2 p-2 border-[#3B8A80] -right-2 hover:text-red-500 hover:border-[#feaa0c] active:border-[#3B8A80]">
-                <MdOutlinePhotoCamera className="text-[26px]" />
-              </button>
+              <div className="relative h-full w-full h-[150px] w-[150px] rounded-full">
+                <img
+                  className="absolute rounded-full h-[150px] w-[150px]"
+                  src={fileData.url || noImg}
+                  alt="profilPicture"
+                />
+                <button className="absolute h-[56px] w-[56px] rounded-full border-[#3B8A80] -right-5 -top-2 hover:text-red-500 hover:border-[#feaa0c] active:border-[#3B8A80] overflow-hidden">
+                  <MdOutlinePhotoCamera className="text-[56px]" />
+                  <input
+                    className="absolute right-0 top-0 opacity-0 text-9xl cursor-pointer"
+                    type="file"
+                    onChange={handleImageChange}
+                  />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -105,7 +111,7 @@ function EditProfile() {
           <div className="flex w-full h-full justify-center items-center gap-[15px] flex-col">
             <div className="relative"></div>
 
-            <div className="grid-1 grid gap-x-10 md:grid-cols-2 lg:grid-cols-2 ">
+            <div className="grid-1 grid gap-x-10 md:grid-cols-2 lg:grid-cols-2">
               <div className="mb-6">
                 <label
                   htmlFor="Username"

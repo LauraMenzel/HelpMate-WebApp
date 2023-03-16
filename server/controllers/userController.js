@@ -144,6 +144,9 @@ export const logout = async (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     console.log(req.body);
+
+    if (req.file) req.body.image = req.file.path;
+
     const user = await User.findByIdAndUpdate(req.user, req.body, {
       new: true,
     }).select("-password -__v");
