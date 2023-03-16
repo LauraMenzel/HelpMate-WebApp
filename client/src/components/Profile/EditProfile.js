@@ -255,8 +255,8 @@ function EditProfile() {
                 </label>
                 <textarea
                   value={data.intro}
-                  type="language"
-                  id="language"
+                  type="intro"
+                  id="intro"
                   rows="3"
                   className="bg-gray-50 border border-gray-300 text-gray-900 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80] "
                   placeholder="Introduce yourself :)"

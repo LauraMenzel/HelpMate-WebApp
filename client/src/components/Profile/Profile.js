@@ -27,6 +27,9 @@ function Profile() {
     city: state.user.city,
     age: state.user.age,
     phonenumber: state.user.phonenumber,
+    language: state.user.language,
+    helpoffers: state.user.helpoffers,
+    intro: state.user.intro,
   });
   const [inProgressTask, setInProgressTask] = useState([]);
   useEffect(() => {
@@ -148,7 +151,11 @@ function Profile() {
             </h3>
             <h4 className="text-slate-500 italic text-sm">
               {data.city}, {data.age}
+              {data.email}
             </h4>
+            <h4>{data.language}</h4>
+            <h4>{data.intro}</h4>
+            <h4>{data.helpoffers}</h4>
             {inProgressTask.map((task) => {
               return (
                 <div
@@ -174,6 +181,9 @@ function Profile() {
                     <AiOutlineCheckCircle
                       className="w-8 h-8 mr-2"
                       color="#026670"
+                      onClick={() => {
+                        acceptedTask(task);
+                      }}
                     />
                     <ImCancelCircle
                       className="w-7 h-7"

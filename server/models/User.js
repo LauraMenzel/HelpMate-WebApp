@@ -30,7 +30,9 @@ const userSchema = new Schema(
     age: String,
     city: String,
     phonenumber: String,
-
+    language: String,
+    intro: String,
+    helpoffers: String,
     verified: {
       Boolean,
       default: false,
