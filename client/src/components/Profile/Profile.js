@@ -28,6 +28,8 @@ function Profile() {
     age: state.user.age,
     phonenumber: state.user.phonenumber,
     language: state.user.language,
+    intro:state.user.intro,
+    helpoffers:state.user.helpoffers,
   });
   const [inProgressTask, setInProgressTask] = useState([]);
   useEffect(() => {
@@ -145,14 +147,15 @@ function Profile() {
           </Link>
           <div className="flex flex-col items-center mt-14">
             <h3 className="text-[#026670] font-bold text-xl">
-              {data.fullname}
+              {data.username}
             </h3>
             <h4 className="text-slate-500 italic text-sm">
-              {data.city}, {data.age},{data.email},{data.phonenumber},{data.language}
+              {data.city}, {data.age},{data.email},{data.phonenumber},
             </h4>
             <h4>{data.language}</h4>
             <h4>{data.intro}</h4>
             <h4>{data.helpoffers}</h4>
+            
             {inProgressTask.map((task) => {
               return (
                 <div
