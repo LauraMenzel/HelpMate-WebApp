@@ -65,7 +65,7 @@ function EditProfile() {
   };
 
   return (
-    <div className="bg-[#EDEAE5]  p-8">
+    <div className="bg-[#EDEAE5]  p-12">
       <div className="bg-white shadow-lg  rounded-3xl ">
         <div className="relative flex mb-[60px]  flex-col items-center rounded-3xl mx-auto bg-white bg-clip-border dark:!bg-navy-800 dark:text-white">
           <div className="relative rounded-3xl flex h-60 w-full justify-center rounded-xl bg-cover">
@@ -83,17 +83,17 @@ function EditProfile() {
                 HelpMate
               </Link>
             </div>
-            <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
+            <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white dark:!border-navy-700">
               <div className="relative h-full w-full h-[150px] w-[150px] rounded-full">
                 <img
-                  className="absolute rounded-full h-[150px] w-[150px]"
+                  className="absolute object-cover rounded-full h-[150px] w-[150px]"
                   src={fileData.url || noImg}
                   alt="profilPicture"
                 />
-                <button className="absolute h-[56px] w-[56px] rounded-full border-[#3B8A80] -right-5 -top-2 hover:text-red-500 hover:border-[#feaa0c] active:border-[#3B8A80] overflow-hidden">
-                  <MdOutlinePhotoCamera className="text-[56px]" />
+                <button className="absolute h-[56px] w-[56px] rounded-full border-[#3B8A80] -right-6 -top-2 hover:text-red-500 hover:border-[#feaa0c] active:border-[#3B8A80] overflow-hidden">
+                  <MdOutlinePhotoCamera className="text-[35px] border-2 bg-white rounded-full " />
                   <input
-                    className="absolute right-0 top-0 opacity-0 text-9xl cursor-pointer"
+                    className="absolute opacity-0 text-9xl cursor-pointer"
                     type="file"
                     onChange={handleImageChange}
                   />
@@ -104,14 +104,14 @@ function EditProfile() {
 
           <div className="flex justify-start ml-[30px]  min-w-[340px] md:w-3/4  lg:w-1/2  pt-8">
             <Link to="/profile">
-              <MdArrowBackIosNew className="hover:text-red-500 bg-white rounded-3xl text-[30px]" />
+              <MdArrowBackIosNew className="hover:text-red-500 bg-white rounded-3xl text-[30px] mx-2" />
             </Link>
           </div>
 
           <div className="flex w-full h-full justify-center items-center gap-[15px] flex-col">
             <div className="relative"></div>
 
-            <div className="grid-1 grid gap-x-10 md:grid-cols-2 lg:grid-cols-2">
+            <div className="grid-1 grid gap-x-10 md:grid-cols-2 lg:grid-cols-2 px-4">
               <div className="mb-6">
                 <label
                   htmlFor="Username"
@@ -255,8 +255,8 @@ function EditProfile() {
                 </label>
                 <textarea
                   value={data.intro}
-                  type="language"
-                  id="language"
+                  type="intro"
+                  id="intro"
                   rows="3"
                   className="bg-gray-50 border border-gray-300 text-gray-900 shadow-lg rounded-xl block w-full p-2.5 hover:border-[#feaa0c] focus:outline-[#3B8A80] "
                   placeholder="Introduce yourself :)"

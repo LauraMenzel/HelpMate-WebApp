@@ -53,12 +53,12 @@ function AllHelpReq() {
     return data.map((el) => (
       <div
         key={el._id}
-        className="my-4 w-11/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        className="relative bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl"
       >
         <div className="flex w-full justify-between flex-wrap mb-2">
           <span className="flex justify-center items-center">
-            <AiOutlineUnorderedList className="text-slate-400 w-[14px] h-[14px] mr-2" />
-            <p className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            
+            <p className="mb-2 text-2xl font-semibold  text-gray-900 dark:text-white border-2 rounded-full p-2">
               {el.category}
             </p>
           </span>

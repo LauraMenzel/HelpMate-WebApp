@@ -42,10 +42,14 @@ function Home() {
   return (
     <div className="h-full p-8 bg-[#EDEAE5] pb-20 ">
       <div className=" h-full  ">
-        <div className="h-full flex rounded-3xl shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100 justify-center items-center  flex-col ">
-          <TheModal />
-
-          <AllHelpReq />
+        <div className="h-full flex rounded-3xl shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100  flex-col items-center">
+          <div className="w-full h-[200px] bg-white rounded-t-3xl"></div>
+          <div className="pt-12 pb-8">
+            <TheModal />
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
+            <AllHelpReq />
+          </div>
         </div>
       </div>
     </div>
