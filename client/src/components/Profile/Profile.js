@@ -150,6 +150,9 @@ function Profile() {
             <h4 className="text-slate-500 italic text-sm">
               {data.city}, {data.age},{data.email},{data.phonenumber},{data.language}
             </h4>
+            <h4>{data.language}</h4>
+            <h4>{data.intro}</h4>
+            <h4>{data.helpoffers}</h4>
             {inProgressTask.map((task) => {
               return (
                 <div
@@ -175,6 +178,9 @@ function Profile() {
                     <AiOutlineCheckCircle
                       className="w-8 h-8 mr-2"
                       color="#026670"
+                      onClick={() => {
+                        acceptedTask(task);
+                      }}
                     />
                     <ImCancelCircle
                       className="w-7 h-7"
