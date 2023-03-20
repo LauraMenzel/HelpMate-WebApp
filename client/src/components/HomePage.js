@@ -10,7 +10,7 @@ import { ToDoListContext } from "../context/NeedAHelpContext.js";
 function Home() {
   const { state } = useContext(AppContext);
   const [fileData, setFiledata] = useState({
-    url: "",
+    url: state.user.image,
     file: null,
   });
   
@@ -111,7 +111,7 @@ function Home() {
             <div className=" py-4 pr-5">
               <img
                 className="w-[80px] h-[45px] "
-                src={fileData.url || onlylogo}
+                src={ onlylogo}
                 alt="logo"
               />
               <p className="font-logo pl-2 text-[14px]">HelpMate</p>
@@ -161,8 +161,8 @@ function Home() {
                 <div className="">
                   <img
                     className="h-[500px] object-cover"
-                    src={fileData.url || homeImg}
-                    alt="profilpicture"
+                    src={homeImg}
+                    alt="differentpeoplepicture"
                   />
                 </div>
               </li>
