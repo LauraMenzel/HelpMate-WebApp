@@ -13,7 +13,7 @@ function Home() {
     url: state.user.image,
     file: null,
   });
-  
+
   const [isOpen, setIsOpen] = useState(false);
   const [currentProps, setCurrentProps] = useState(null);
   const [data, setData] = useState({
@@ -27,13 +27,13 @@ function Home() {
     intro: state.user.intro,
     helpoffers: state.user.helpoffers,
   });
-  
+
   const { dispatchHelp } = useContext(ToDoListContext);
   useEffect(() => {
     const getData = async () => {
       // here filtered all task and show all except yours in home page
       const response = await axios.get("/needAHelp/getAllHelpReq");
-      
+
       let offerHelpAccepted = [];
       let filteredData = [];
       if (response.statusText === "OK") {
@@ -109,11 +109,7 @@ function Home() {
               </div>
             </div>
             <div className=" py-4 pr-5">
-              <img
-                className="w-[80px] h-[45px] "
-                src={ onlylogo}
-                alt="logo"
-              />
+              <img className="w-[80px] h-[45px] " src={onlylogo} alt="logo" />
               <p className="font-logo pl-2 text-[14px]">HelpMate</p>
             </div>
           </nav>{" "}
@@ -130,7 +126,7 @@ function Home() {
                       <p className="text-[23px]  pr-2">Willkommen</p>
                     </li>
                     <li>
-                      <p className="text-[23px] pl-16 pr-2">Powitanie</p>
+                      <p className="text-[23px] pl-16 pr-2">Witaj</p>
                     </li>
                     <li>
                       <p>Bi xêr hatî</p>
