@@ -92,7 +92,7 @@ function MyTasks() {
         <div className="pl-8 pt-12 ">
           <h1>Your added tasks:</h1>
         </div>
-        <div className="flex flex-wrap gap-5">
+        <div className=" flex flex-wrap gap-5">
           {helpReq.length != 0 ? (
             helpReq.map((el) => (
               <div

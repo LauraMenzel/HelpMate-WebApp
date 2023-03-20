@@ -1,5 +1,6 @@
 import onlylogo from "./../images/HelpMate_withoutText.jpg";
 import noImg from "./../images/no-img.jpg";
+import homeImg from "./../images/homeImage.jpg";
 import TheModal from "./HelpReqModal.js";
 import AllHelpReq from "./AllHelpReq.js";
 import { useEffect, useContext, useState } from "react";
@@ -9,7 +10,7 @@ import { ToDoListContext } from "../context/NeedAHelpContext.js";
 function Home() {
   const { state } = useContext(AppContext);
   const [fileData, setFiledata] = useState({
-    url: "",
+    url: state.user.image,
     file: null,
   });
   
@@ -60,7 +61,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="h-full p-8 bg-[#EDEAE5] pb-20 ">
+    <div className=" p-8 bg-[#EDEAE5] font-display pb-20 ">
       <div className=" h-full  ">
         <div className="h-full flex rounded-3xl shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100  flex-col items-center">
           <nav className="w-full h-[100px] bg-white flex justify-between rounded-t-3xl">
@@ -110,16 +111,67 @@ function Home() {
             <div className=" py-4 pr-5">
               <img
                 className="w-[80px] h-[45px] "
-                src={fileData.url || onlylogo}
+                src={ onlylogo}
                 alt="logo"
               />
               <p className="font-logo pl-2 text-[14px]">HelpMate</p>
             </div>
           </nav>{" "}
+          <div className="items-center bg-white w-full p-4 dark:!border-navy-700">
+            <ul className="flex flex-col justify-center lg:flex-row list-none ">
+              <li className="flex pl-5 ">
+                <div className="flex ">
+                  <ul>
+                    <li className="flex   pl-4">
+                      <p className="text-[30px] font-bold pr-2">Welcome </p>
+                    </li>
+
+                    <li>
+                      <p className="text-[23px]  pr-2">Willkommen</p>
+                    </li>
+                    <li>
+                      <p className="text-[23px] pl-16 pr-2">Powitanie</p>
+                    </li>
+                    <li>
+                      <p>Bi xêr hatî</p>
+                    </li>
+                    <li>
+                      <p>اهلا وسهلا</p>
+                    </li>
+                    <li>
+                      <p>いらっしゃいませ</p>
+                    </li>
+                    <li>
+                      <p>Bienvenido</p>
+                    </li>
+                    <li>
+                      <p>Ласкаво просимо</p>
+                    </li>
+                    <li>
+                      <p>歡迎</p>
+                    </li>
+                    <li>
+                      <p>καλως ΗΡΘΑΤΕ</p>
+                    </li>
+                    <li>
+                      <p>خوش آمدید</p>
+                    </li>
+                  </ul>
+                </div>
+                <div className="">
+                  <img
+                    className="h-[500px] object-cover"
+                    src={homeImg}
+                    alt="differentpeoplepicture"
+                  />
+                </div>
+              </li>
+            </ul>
+          </div>
           <div className="pt-12 pb-8">
             <TheModal />
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
+          <div className="grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
             <AllHelpReq />
           </div>
         </div>
