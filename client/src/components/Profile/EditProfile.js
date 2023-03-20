@@ -93,7 +93,7 @@ function EditProfile() {
                 <button className="absolute h-[56px] w-[56px] rounded-full border-[#3B8A80] -right-6 -top-2 hover:text-red-500 hover:border-[#feaa0c] active:border-[#3B8A80] overflow-hidden">
                   <MdOutlinePhotoCamera className="text-[35px] border-2 bg-white rounded-full " />
                   <input
-                    className="absolute opacity-0 text-9xl cursor-pointer"
+                    className="absolute opacity-0 text-9xl cursor-pointer -right-6 -top-2"
                     type="file"
                     onChange={handleImageChange}
                   />

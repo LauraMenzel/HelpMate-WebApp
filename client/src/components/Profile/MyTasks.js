@@ -71,6 +71,14 @@ function MyTasks() {
   };
   return (
     <div className="h-full  p-8 bg-[#EDEAE5] ">
+      {isOpen && (
+        <div
+          className="w-full h-full absolute -0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
+          onClick={() => setIsOpen(false)}
+        >
+          <HelperPrev helper={currentProps} />
+        </div>
+      )}
       <div className=" rounded-3xl  p-8 shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100 ">
         <div>
           <Link
@@ -160,14 +168,6 @@ function MyTasks() {
           ))}
         </div>
         <p className="pl-8 pt-12"> History:</p>
-        {isOpen && (
-          <div
-            className="w-full h-full absolute -0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
-            onClick={() => setIsOpen(false)}
-          >
-            <HelperPrev helper={currentProps} />
-          </div>
-        )}
         <div className="flex gap-5 flex-row-3 flex-wrap pb-8">
           {acceptedReq.map((el) => (
             <div
