@@ -4,7 +4,7 @@ import { ToDoListContext } from "../../context/NeedAHelpContext";
 import { GoLocation } from "react-icons/go";
 import { BsFillCalendarMonthFill } from "react-icons/bs";
 import { AiOutlineUnorderedList } from "react-icons/ai";
-
+import HelperPrev from "./HelperPrev";
 import { BsFillTrashFill } from "react-icons/bs";
 import EditMyTask from "./EditMyTask";
 import { useContext, useState, useEffect } from "react";
@@ -18,6 +18,8 @@ function MyTasks() {
   const [acceptedOffer, setAcceptedOffer] = useState(
     stateHelp.helpAcceptedTask
   );
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentProps, setCurrentProps] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -63,9 +65,21 @@ function MyTasks() {
         payload: id,
       });
   };
+  const openModal = (helper) => {
+    setCurrentProps(helper);
+    setIsOpen(true);
+  };
   return (
-    <div className=" p-8 bg-[#EDEAE5] ">
-      <div className=" rounded-3xl h-full p-8 shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100 ">
+    <div className="h-full  p-8 bg-[#EDEAE5] ">
+      {isOpen && (
+        <div
+          className="w-full h-full absolute -0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
+          onClick={() => setIsOpen(false)}
+        >
+          <HelperPrev helper={currentProps} />
+        </div>
+      )}
+      <div className=" rounded-3xl  p-8 shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100 ">
         <div>
           <Link
             to="/home"
@@ -149,14 +163,7 @@ function MyTasks() {
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 {el.helper.firstname}
               </p>
-              <div className="flex w-full justify-between flex-wrap mt-4">
-                <span
-                  onClick={() => deleteItem(el._id)}
-                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-black rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
-                  <BsFillTrashFill className="ml-2" />
-                </span>
-              </div>
+              <div className="flex w-full justify-between flex-wrap mt-4"></div>
             </div>
           ))}
         </div>
@@ -186,9 +193,17 @@ function MyTasks() {
               <p className="mb-3 font-normal flex flex-wrap w-[300px] text-gray-700 dark:text-gray-400">
                 {el.description}
               </p>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {el.helper.firstname}
-              </p>
+              <div className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <h4 className="flex-inline flex-auto mx-4 text-sm ">
+                  <span
+                    className="text-[#026670] font-bold"
+                    onClick={() => openModal(el.helper)}
+                  >
+                    {el.helper.username}{" "}
+                  </span>
+                  offer you help with {el.category}
+                </h4>
+              </div>
               <div className="flex w-full justify-between flex-wrap mt-4">
                 <span
                   onClick={() => deleteItem(el._id)}
