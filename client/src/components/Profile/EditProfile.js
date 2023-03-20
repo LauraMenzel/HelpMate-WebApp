@@ -1,12 +1,13 @@
 import axios from "axios";
 import { MdArrowBackIosNew } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import noImg from "../../images/no-img.jpg";
 import { useContext, useState, useEffect, useRef } from "react";
 import { AppContext } from "../../context/Context";
 
 function EditProfile() {
+  const navigate = useNavigate();
   const [currentComponent, setCurrentComponent] = useState("Home");
   const { state, dispatch } = useContext(AppContext);
   const [fileData, setFileData] = useState({
@@ -47,12 +48,12 @@ function EditProfile() {
 
     const response = await axios.post("/users/profile", formdata, config);
     console.log("🚀 ~ handleSave ~ response", response);
-
     if (response.data.success)
       dispatch({
         type: "userSaved",
         payload: response.data.user,
       });
+    navigate("/profile");
   };
 
   const handleImageChange = (e) => {

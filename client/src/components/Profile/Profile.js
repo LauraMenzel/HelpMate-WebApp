@@ -28,8 +28,8 @@ function Profile() {
     age: state.user.age,
     phonenumber: state.user.phonenumber,
     language: state.user.language,
-    intro:state.user.intro,
-    helpoffers:state.user.helpoffers,
+    intro: state.user.intro,
+    helpoffers: state.user.helpoffers,
   });
   const [inProgressTask, setInProgressTask] = useState([]);
   useEffect(() => {
@@ -41,7 +41,6 @@ function Profile() {
         };
       })
     );
-    console.log(stateHelp);
   }, []);
   const openModal = (helper) => {
     setCurrentProps(helper);
@@ -54,7 +53,6 @@ function Profile() {
       status: "open",
       helper: "",
     };
-    console.log(task);
     const response = await axios.post("/needAHelp/edit", editedTask);
     if (response.statusText === "OK") {
       dispatchHelp({
@@ -92,7 +90,6 @@ function Profile() {
     dispatch({ type: "logout" });
     navigate("/");
   };
-
   return (
     <div className="bg-[#EDEAE5] h-full p-12">
       <div className="bg-white shadow-lg shadow-[#EDEAE5] rounded-3xl">
@@ -155,7 +152,7 @@ function Profile() {
             <h4>{data.language}</h4>
             <h4>{data.intro}</h4>
             <h4>{data.helpoffers}</h4>
-            
+
             {inProgressTask.map((task) => {
               return (
                 <div
@@ -164,7 +161,7 @@ function Profile() {
                 >
                   <img
                     className="rounded-3xl w-12 h-12 flex flex-initial"
-                    src={fileData.url || noImg}
+                    src={task.helper.image || noImg}
                     alt=""
                   />
                   <h4 className="flex-inline flex-auto mx-4 text-sm ">

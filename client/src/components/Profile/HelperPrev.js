@@ -4,7 +4,11 @@ function HelperPrev(props) {
   console.log(props.helper);
   return (
     <div className="my-4 w-11/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <img className="rounded-t-lg w-24 h-24" src={noImg} alt="" />
+      <img
+        className="rounded-t-lg w-24 h-24"
+        src={props.helper.image || noImg}
+        alt=""
+      />
       <div className="p-5">
         <a href="#">
           <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

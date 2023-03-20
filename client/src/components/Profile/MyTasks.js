@@ -199,9 +199,8 @@ function MyTasks() {
                     className="text-[#026670] font-bold"
                     onClick={() => openModal(el.helper)}
                   >
-                    {el.helper.username}{" "}
+                    Helper: {el.helper.username}
                   </span>
-                  offer you help with {el.category}
                 </h4>
               </div>
               <div className="flex w-full justify-between flex-wrap mt-4">
