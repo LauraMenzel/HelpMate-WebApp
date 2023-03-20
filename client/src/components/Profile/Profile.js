@@ -28,8 +28,8 @@ function Profile() {
     age: state.user.age,
     phonenumber: state.user.phonenumber,
     language: state.user.language,
-    helpoffers: state.user.helpoffers,
-    intro: state.user.intro,
+    intro:state.user.intro,
+    helpoffers:state.user.helpoffers,
   });
   const [inProgressTask, setInProgressTask] = useState([]);
   useEffect(() => {
@@ -94,7 +94,7 @@ function Profile() {
   };
 
   return (
-    <div className="bg-[#EDEAE5] h-full p-8">
+    <div className="bg-[#EDEAE5] h-full p-12">
       <div className="bg-white shadow-lg shadow-[#EDEAE5] rounded-3xl">
         <div className="flex items-center flex-col bg-white mx-auto rounded-3xl bg-clip-border relative mb-4">
           {isOpen && (
@@ -130,7 +130,7 @@ function Profile() {
 
             <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
               <img
-                className="h-full h-[150px] w-[150px] rounded-full"
+                className="h-full h-[150px] object-cover w-[150px] rounded-full"
                 src={fileData.url || noImg}
                 alt="profilpicture"
               />
@@ -147,15 +147,15 @@ function Profile() {
           </Link>
           <div className="flex flex-col items-center mt-14">
             <h3 className="text-[#026670] font-bold text-xl">
-              {data.fullname}
+              {data.username}
             </h3>
             <h4 className="text-slate-500 italic text-sm">
-              {data.city}, {data.age}
-              {data.email}
+              {data.city}, {data.age},{data.email},{data.phonenumber},
             </h4>
             <h4>{data.language}</h4>
             <h4>{data.intro}</h4>
             <h4>{data.helpoffers}</h4>
+            
             {inProgressTask.map((task) => {
               return (
                 <div

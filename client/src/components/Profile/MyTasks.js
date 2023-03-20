@@ -89,7 +89,7 @@ function MyTasks() {
             helpReq.map((el) => (
               <div
                 key={el._id}
-                className="my-4 p-6 bg-white border rounded-lg border-gray-200 max-w-[370px]rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                className="my-4 p-6 bg-white border rounded-lg border-gray-200 max-w-[350px]rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
               >
                 <div className="flex w-full justify-between mb-2">
                   <span className="flex justify-center items-center">
@@ -123,15 +123,15 @@ function MyTasks() {
               </div>
             ))
           ) : (
-            <p>No data</p>
+            <p className="px-10 pt-4 text-[red]">No data</p>
           )}
         </div>
-        <p className="pl-8 pt-12">Your offers accepted by other users :</p>
+        <p className="pl-8 pt-12">Accepted tasks:</p>
         <div className="flex gap-5 flex-row-3 flex-wrap ">
           {acceptedOffer.map((el) => (
             <div
               key={el._id}
-              className="my-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+              className="my-4 p-6 bg-white border border-gray-200 rounded-lg max-w-[350px] shadow dark:bg-gray-800 dark:border-gray-700"
             >
               <div className="flex w-full justify-between flex-wrap mb-2">
                 <span className="flex justify-center items-center">
