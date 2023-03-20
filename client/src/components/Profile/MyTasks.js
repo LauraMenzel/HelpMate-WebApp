@@ -64,8 +64,8 @@ function MyTasks() {
       });
   };
   return (
-    <div className="h-full  p-8 bg-[#EDEAE5] ">
-      <div className=" rounded-3xl  p-8 shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100 ">
+    <div className=" p-8 bg-[#EDEAE5] ">
+      <div className=" rounded-3xl h-full p-8 shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100 ">
         <div>
           <Link
             to="/home"
@@ -78,7 +78,7 @@ function MyTasks() {
         <div className="pl-8 pt-12 ">
           <h1>Your added tasks:</h1>
         </div>
-        <div className="flex flex-wrap gap-5">
+        <div className=" flex flex-wrap gap-5">
           {helpReq.length != 0 ? (
             helpReq.map((el) => (
               <div
