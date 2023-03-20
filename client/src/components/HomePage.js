@@ -13,7 +13,7 @@ function Home() {
     url: state.user.image,
     file: null,
   });
-  
+
   const [isOpen, setIsOpen] = useState(false);
   const [currentProps, setCurrentProps] = useState(null);
   const [data, setData] = useState({
@@ -27,13 +27,13 @@ function Home() {
     intro: state.user.intro,
     helpoffers: state.user.helpoffers,
   });
-  
+
   const { dispatchHelp } = useContext(ToDoListContext);
   useEffect(() => {
     const getData = async () => {
       // here filtered all task and show all except yours in home page
       const response = await axios.get("/needAHelp/getAllHelpReq");
-      
+
       let offerHelpAccepted = [];
       let filteredData = [];
       if (response.statusText === "OK") {
@@ -109,11 +109,7 @@ function Home() {
               </div>
             </div>
             <div className=" py-4 pr-5">
-              <img
-                className="w-[80px] h-[45px] "
-                src={ onlylogo}
-                alt="logo"
-              />
+              <img className="w-[80px] h-[45px] " src={onlylogo} alt="logo" />
               <p className="font-logo pl-2 text-[14px]">HelpMate</p>
             </div>
           </nav>{" "}
@@ -121,40 +117,60 @@ function Home() {
             <ul className="flex flex-col justify-center lg:flex-row list-none ">
               <li className="flex pl-5 ">
                 <div className="flex ">
-                  <ul>
-                    <li className="flex   pl-4">
-                      <p className="text-[30px] font-bold pr-2">Welcome </p>
+                  <ul className=" pr-16">
+                    <li className="flex   ">
+                      <p className="text-[40px] pl-10 pt-3 font-bold pr-2">
+                        Welcome{" "}
+                      </p>
                     </li>
 
                     <li>
-                      <p className="text-[23px]  pr-2">Willkommen</p>
+                      <p className="text-[23px]  pl-5">Willkommen</p>
                     </li>
                     <li>
-                      <p className="text-[23px] pl-16 pr-2">Powitanie</p>
+                      <p className="text-[20px] font-semibold pl-20 ">
+                        Powitanie
+                      </p>
                     </li>
                     <li>
-                      <p>Bi xêr hatî</p>
+                      <p className="text-[20px] pl-[150px] ">Bi xêr hatî</p>
                     </li>
                     <li>
-                      <p>اهلا وسهلا</p>
+                      <p className="text-[20px] pl-[40px] ">اهلا وسهلا</p>
                     </li>
                     <li>
-                      <p>いらっしゃいませ</p>
+                      <p className="text-[20px] pl-[60px] ">いらっしゃいませ</p>
                     </li>
                     <li>
-                      <p>Bienvenido</p>
+                      <p className="text-[20px] font-semibold pl-[140px] ">
+                        Bienvenido
+                      </p>
                     </li>
                     <li>
-                      <p>Ласкаво просимо</p>
+                      <p className="text-[20px] pl-2">Ласкаво просимо</p>
                     </li>
                     <li>
-                      <p>歡迎</p>
+                      <p className="text-[20px] font-medium pl-10 ">歡迎</p>
                     </li>
                     <li>
-                      <p>καλως ΗΡΘΑΤΕ</p>
+                      <p className="text-[20px] pl-20 ">καλως ΗΡΘΑΤΕ</p>
                     </li>
                     <li>
-                      <p>خوش آمدید</p>
+                      <p className="text-[20px] pl-[50px]">خوش آمدید</p>
+                    </li>
+                    <li>
+                      <p className="text-[20px] pl-[2px]">ברוכים הבאים</p>
+                    </li>
+                    <li>
+                      <p className="text-[20px] pl-[20px]">Karibu</p>
+                    </li>
+                    <li>
+                      <p className="text-[20px] pl-[70px]">Nau mai haere mai</p>
+                    </li>
+                    <li>
+                      <p className="text-[20px] font-semibold pl-[50px]">
+                        Fáilte
+                      </p>
                     </li>
                   </ul>
                 </div>
