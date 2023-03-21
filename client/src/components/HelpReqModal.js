@@ -86,7 +86,7 @@ export default function BasicModal() {
             className="flex justify-center mb-6"
           >
             <div className="flex flex-col ">
-              <Box c sx={{ minWidth: 120 }}>
+              <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">
                     Category

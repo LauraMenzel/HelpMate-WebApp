@@ -7,6 +7,7 @@ import { useEffect, useContext, useState } from "react";
 import axios from "axios";
 import { AppContext } from "../context/Context.js";
 import { ToDoListContext } from "../context/NeedAHelpContext.js";
+
 function Home() {
   const { state } = useContext(AppContext);
   const [fileData, setFiledata] = useState({
@@ -14,8 +15,6 @@ function Home() {
     file: null,
   });
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentProps, setCurrentProps] = useState(null);
   const [data, setData] = useState({
     username: state.user.username,
     fullname: state.user.firstname + " " + state.user.lastname,
@@ -167,7 +166,7 @@ function Home() {
           <div className="pt-12 pb-8">
             <TheModal />
           </div>
-          <div className="grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
+          <div>
             <AllHelpReq />
           </div>
         </div>

@@ -16,8 +16,18 @@ function HelperPrev(props) {
           </h4>
           <h5> {props.helper.birthdate}</h5>
           <h5>{props.helper.city}</h5>
-          <a href={"mailto:" + props.helper.email}>{props.helper.email}</a>
-          <h5> {props.helper.phonenumber}</h5>
+          <a
+            href={"mailto:" + props.helper.email}
+            className="mb-2 text-xl font-bold tracking-tight text-red-900 dark:text-white"
+          >
+            {props.helper.email}
+          </a>
+          <a href={"tel:" + props.helper.phonenumber}>
+            <h5 className="mb-2 text-xl font-bold tracking-tight text-blue-900 dark:text-white">
+              {props.helper.phonenumber}
+            </h5>
+          </a>
+
           <h5>{props.helper.language}</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
