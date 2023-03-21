@@ -17,6 +17,7 @@ import Home from "./components/HomePage.js";
 import LoginLayout from "./layouts/LoginLayout";
 import UserLayout from "./layouts/UserLayout";
 import Rules from "./components/Rules";
+import AboutUs from "./components/AboutUs";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -37,6 +38,7 @@ root.render(
             <Route path="/profile" element={<Profile />} />
             <Route path="/home" element={<Home />} />
             <Route path="/rules" element={<Rules />} />
+            <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/editprofile" element={<EditProfile />} />
             <Route path="/mytasks" element={<MyTasks />} />
           </Route>

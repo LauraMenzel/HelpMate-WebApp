@@ -66,9 +66,9 @@ export default function BasicModal() {
   };
 
   return (
-    <div>
+    <div className="">
       <button
-        className="py-2 bg-[#feaa0c] shadow-xl w-full rounded-3xl 
+        className="py-2 bg-[#feaa0c] shadow-xl w-full mt-8 rounded-3xl 
               text-white font-bold hover:bg-[#70c2b7] active:bg-[#3d8f84] px-4 rounded-lg flex items-center justify-center w-32"
         onClick={handleOpen}
       >

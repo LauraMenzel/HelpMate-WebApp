@@ -8,6 +8,7 @@ import { AppContext } from "../../context/Context";
 import { ToDoListContext } from "../../context/NeedAHelpContext";
 import { ImCancelCircle } from "react-icons/im";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { GoLocation } from "react-icons/go";
 import HelperPrev from "./HelperPrev";
 function Profile() {
   const [currentComponent, setCurrentComponent] = useState("Home");
@@ -91,9 +92,9 @@ function Profile() {
     navigate("/");
   };
   return (
-    <div className="bg-[#EDEAE5] h-full p-12">
+    <div className="bg-[#EDEAE5] font-display p-12">
       <div className="bg-white shadow-lg shadow-[#EDEAE5] rounded-3xl">
-        <div className="flex items-center flex-col bg-white mx-auto rounded-3xl bg-clip-border relative mb-4">
+        <div className="flex items-center flex-col bg-white mx-auto rounded-3xl mb-12 bg-clip-border relative">
           {isOpen && (
             <div
               className="w-full h-full absolute -0 left-0 bg-black bg-opacity-25 z-10 flex items-center justify-center"
@@ -103,7 +104,7 @@ function Profile() {
             </div>
           )}
 
-          <div className="relative flex justify-center rounded-3xl w-full mb-12 h-60">
+          <div className="relative flex justify-center rounded-3xl w-full  h-60">
             <img
               src="https://images.unsplash.com/photo-1521080755838-d2311117f767?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJsdWUlMjBtb3VudGFpbnxlbnwwfHwwfHw%3D&w=1000&q=80"
               className="absolute flex h-60 w-full rounded-t-xl justify-center"
@@ -133,72 +134,115 @@ function Profile() {
               />
             </div>
           </div>
-        </div>
-
-        <div className="flex-1 bg-white w-full shadow-xl shadow-shadow-500  rounded-3xl overflow-auto">
-          <Link to="/editprofile">
-            <TiEdit
-              className="w-6 h-6 float-right fill-current mt-4 mr-4"
-              color="#026670"
-            />
-          </Link>
-          <div className="flex flex-col items-center mt-14">
-            <h3 className="text-[#026670] font-bold text-xl">
-              {data.username}
-            </h3>
-            <h4 className="text-slate-500 italic text-sm">
-              {data.city}, {data.age},{data.email},{data.phonenumber},
-            </h4>
-            <h4>{data.language}</h4>
-            <h4>{data.intro}</h4>
-            <h4>{data.helpoffers}</h4>
-
-            {inProgressTask.map((task) => {
-              return (
-                <div
-                  className="inline-flex items-center justify-evenly my-4 w-11/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                  key={task._id}
-                >
-                  <img
-                    className="rounded-3xl w-12 h-12 flex flex-initial"
-                    src={task.helper.image || noImg}
-                    alt=""
-                  />
-                  <h4 className="flex-inline flex-auto mx-4 text-sm ">
-                    <span
-                      className="text-[#026670] font-bold"
-                      onClick={() => openModal(task.helper)}
-                    >
-                      {task.helper.username}{" "}
-                    </span>
-                    offer you help with {task.category}
-                  </h4>
-                  <div className="flex flex-nowrap flex-1 items-center ">
-                    {" "}
-                    <AiOutlineCheckCircle
-                      className="w-8 h-8 mr-2"
-                      color="#026670"
-                      onClick={() => {
-                        acceptedTask(task);
-                      }}
-                    />
-                    <ImCancelCircle
-                      className="w-7 h-7"
-                      color="#D11A2A"
-                      onClick={() => {
-                        rejectedTask(task);
-                      }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-            <Link
-              to="/mytasks"
-              className="bg-[#feaa0c] mt-2 hover:bg-[#70c2b7] active:bg-[#3d8f84] text-white font-bold py-2 px-4 rounded-3xl shadow-xl mb-20"
-            >
-              Show my task
+          <div className="flex mb-12 text-[#026670] flex-col">
+            <Link to="/editprofile">
+              <TiEdit
+                className="w-6 h-6 float-right fill-current mt-4 mr-4"
+                color="#026670"
+              />
             </Link>
+            <div className="flex flex-col max-w-[500px] p-2 items-center justify-center mt-8">
+              <div className="flex justify-center items-center">
+                <p className="text-black font-bold tracking-wider  text-[35px]">
+                  {data.username}
+                </p>
+              </div>
+              <span className="flex text-black items-center">
+                <GoLocation className=" w-[14px] h-[14px] mr-1" />
+                <p className=" text-[18px]">{data.city}</p>
+              </span>
+              <p className="italic p-2 pb-12 pt-8 ">"{data.intro}"</p>
+              <div className="flex p-4 justify-center flex-col-2">
+                <div className="pr-2 font-semibold min-w-[150px] tracking-wider ">
+                  <p>Age</p>
+                  <p className="pt-4">E-mail</p>
+                  <p className="pt-4">Phone</p>
+                  <p>
+                    <br /> Language skills
+                  </p>
+                  <p>
+                    {" "}
+                    <br />
+                  </p>
+                  <p>Help offers </p>
+                </div>
+                <div className="">
+                  <p className="">{data.age}</p>
+                  <p className="pt-4"> {data.email}</p>
+                  <p className="pt-4">Y{data.phonenumber}</p>
+                  <p>
+                    <br />
+                    {data.language}
+                  </p>
+                  <p>
+                    <br />
+                  </p>
+                  <p>{data.helpoffers}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex-1  w-fit bg-[#BCE3E8] shadow-xl shadow-shadow-500 rounded-lg mb-8 overflow-auto">
+            <div className="flex flex-col p-4 items-center ">
+              <p className="text-[24px] text-left p-4">
+                People who offer you help{" "}
+              </p>
+              {inProgressTask.map((task) => {
+                return (
+                  <div
+                    className="inline-flex items-center justify-evenly my-4 w-11/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                    key={task._id}
+                  >
+                    <img
+                      className="rounded-3xl w-12 h-12 flex flex-initial"
+                      src={task.helper.image || noImg}
+                      alt=""
+                    />
+                    <h4 className="flex-inline flex-auto mx-4 text-sm ">
+                      <span
+                        className="text-[#026670] font-bold"
+                        onClick={() => openModal(task.helper)}
+                      >
+                        {task.helper.username}{" "}
+                      </span>
+                      offers you help with {task.category}
+                    </h4>
+                    <div className="flex flex-nowrap flex-1 items-center ">
+                      {" "}
+                      <AiOutlineCheckCircle
+                        className="w-8 h-8 mr-2"
+                        color="#026670"
+                        onClick={() => {
+                          acceptedTask(task);
+                        }}
+                      />
+                      <ImCancelCircle
+                        className="w-7 h-7"
+                        color="#D11A2A"
+                        onClick={() => {
+                          rejectedTask(task);
+                        }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="flex-1 w-fit max-w-[480px] p-4  shadow-shadow-500 rounded-lg mb-8 overflow-auto">
+            <div className="flex-1 w-auto rounded-lg mb-8 overflow-auto">
+              <div className="flex flex-col p-4 items-center mt-10">
+                <p className="text-[24px] text-center p-4">
+                  Have a look into the tasks you already created{" "}
+                </p>
+                <Link
+                  to="/mytasks"
+                  className="bg-[#feaa0c] mt-2 hover:bg-[#70c2b7] active:bg-[#3d8f84] text-white font-bold py-2 px-4 rounded-3xl shadow-xl mb-20"
+                >
+                  Show my tasks
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -7,8 +7,10 @@ import { useEffect, useContext, useState } from "react";
 import axios from "axios";
 import { AppContext } from "../context/Context.js";
 import { ToDoListContext } from "../context/NeedAHelpContext.js";
+import { Link } from "react-router-dom";
 function Home() {
   const { state } = useContext(AppContext);
+  const [currentComponent, setCurrentComponent] = useState("Home");
   const [fileData, setFiledata] = useState({
     url: state.user.image,
     file: null,
@@ -63,9 +65,9 @@ function Home() {
   return (
     <div className=" p-8 bg-[#EDEAE5] font-display pb-20 ">
       <div className=" h-full  ">
-        <div className="h-full flex rounded-3xl shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100  flex-col items-center">
-          <nav className="w-full h-[100px] bg-white flex justify-between rounded-t-3xl">
-            <div className="items-center rounded-full border-[4px] p-4 border-white dark:!border-navy-700">
+        <div className="h-full flex rounded-3xl shadow-xl bg-[#FAD6BA] flex-col items-center">
+          <nav className="w-full h-[100px] bg-[#FCFAFB] flex justify-between rounded-t-3xl">
+            <div className="items-center rounded-full  p-4 ">
               <ul className="flex flex-col lg:flex-row list-none mr-auto">
                 <li className="flex items-center">
                   <img
@@ -113,16 +115,12 @@ function Home() {
               <p className="font-logo pl-2 text-[14px]">HelpMate</p>
             </div>
           </nav>{" "}
-          <div className="items-center bg-white w-full p-4 dark:!border-navy-700">
+          <div className="items-center bg-[#FCFAFB] w-full p-4 py-12 dark:!border-navy-700">
             <ul className="flex flex-col justify-center lg:flex-row list-none ">
               <li className="flex pl-5 ">
-                <div className="flex ">
+                <div className="flex">
                   <ul className=" pr-16">
-                    <li className="flex   ">
-                      <p className="text-[40px] pl-10 pt-3 font-bold pr-2">
-                        Welcome{" "}
-                      </p>
-                    </li>
+                    <li className="flex   "></li>
 
                     <li>
                       <p className="text-[23px]  pl-5">Willkommen</p>
@@ -147,6 +145,12 @@ function Home() {
                       </p>
                     </li>
                     <li>
+                      {" "}
+                      <p className="text-[50px] tracking-wide pl-10 font-bold pr-2">
+                        Welcome{" "}
+                      </p>
+                    </li>
+                    <li>
                       <p className="text-[20px] pl-2">Ласкаво просимо</p>
                     </li>
                     <li>
@@ -156,7 +160,9 @@ function Home() {
                       <p className="text-[20px] pl-20 ">καλως ΗΡΘΑΤΕ</p>
                     </li>
                     <li>
-                      <p className="text-[20px] pl-[50px]">خوش آمدید</p>
+                      <p className="text-[20px] font-semibold pl-[50px]">
+                        خوش آمدید
+                      </p>
                     </li>
                     <li>
                       <p className="text-[20px] pl-[2px]">ברוכים הבאים</p>
@@ -176,7 +182,7 @@ function Home() {
                 </div>
                 <div className="">
                   <img
-                    className="h-[500px] object-cover"
+                    className="h-[500px] object-contain hidden md:flex"
                     src={homeImg}
                     alt="differentpeoplepicture"
                   />
@@ -184,10 +190,56 @@ function Home() {
               </li>
             </ul>
           </div>
-          <div className="pt-12 pb-8">
-            <TheModal />
+          <div className=" w-full bg-[#bce3e8] flex p-[80px] flex-col items-center pt-20 font-semibold text-[45px] justify-center">
+            <p className="tracking-wide">About Us</p>
+            <p className="font-medium text-[20px] pt-5 px-[200px]">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
+              soluta totam, magni ab quas consequatur autem est provident quo
+              perferendis maiores non ipsam odit quidem! Quia fuga vel
+              repellendus? Tenetur! Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Doloremque magni ut nesciunt, deleniti
+              laudantium aliquid esse dolore non vel, unde laborum? Impedit quae
+              eius laborum eos. Ratione commodi id dolorum?
+            </p>
+            <Link
+              className="text-[18px] mt-8 text-white px-4 py-2 rounded-xl shadow-lg bg-[#23B4C2]"
+              to="/aboutus"
+              onClick={() => setCurrentComponent("AboutUs")}
+            >
+              More About Us
+            </Link>
           </div>
-          <div className="grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
+          <div className=" w-full bg-[#FCFAFB] flex p-[80px] flex-col items-center pt-20 font-semibold text-[45px] justify-center">
+            <p className="tracking-wide">How Our App Work ?</p>
+            <p className="font-medium text-[20px] pt-5 px-[200px]">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
+              soluta totam, magni ab quas consequatur autem est provident quo
+              perferendis maiores non ipsam odit quidem! Quia fuga vel
+              repellendus? Tenetur! Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Doloremque magni ut nesciunt, deleniti
+              laudantium aliquid esse dolore non vel, unde laborum? Impedit quae
+              eius laborum eos. Ratione commodi id dolorum?
+            </p>
+            <Link
+              className="text-[18px] mt-8 text-white px-4 py-2 rounded-xl shadow-lg bg-[#23B4C2]"
+              to="/rules"
+              onClick={() => setCurrentComponent("Rules")}
+            >
+              More about the Rules
+            </Link>
+          </div>
+          <div className="pt-12 pb-12 flex flex-col items-center">
+            <div>
+              <p className="text-[35px] p-4">
+                Here you can create a new task that you need help with
+              </p>
+            </div>
+
+            <div>
+              <TheModal />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center ">
             <AllHelpReq />
           </div>
         </div>

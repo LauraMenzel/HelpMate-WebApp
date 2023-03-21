@@ -31,18 +31,18 @@ const [fileData, setFiledata] = useState({
   };
 
   return (
-    <div className="bg-[#E3DDDD] h-screen font-display sm:text-xl text-base md:flex ">
+    <div className="bg-[#E3DDDD]  h-screen font-display sm:text-xl text-base md:flex ">
       <div
         className="relative overflow-hidden 
     md:flex w-[50%] items-center hidden bg-white"
       >
         <div className="flex justify-center w-screen h-screen items-center flex-col">
           <img
-            className=" h-auto max-w-full p-8"
+            className=" object-contain"
             src="https://www.beiersdorf.de/~/media/Beiersdorf/sustainability/society/overview/Beiersdorf-society-teaser-new.png?rx=0&ry=0&rw=940&rh=528&mw=940&hash=A7C99DB3C4914C08A8627E478530FF10"
             alt="happy people of different color and age standing together"
           />
-          <h1 className="text-black font-bold p-1 lg:text-xl text-base mx-auto font-sans">
+          <h1 className="text-black font-bold pt-4 lg:text-xl text-base font-sans">
             Experience the power of kindness with HelpMate.
           </h1>
           <p className="text-black mt-2 text-base lg:text-lg">
@@ -61,7 +61,7 @@ const [fileData, setFiledata] = useState({
       </div>
 
       <div className="flex justify-center container mx-auto md:w-1/2 my-auto w-screen h-screen items-center flex-col">
-        <div className="max-w-[500px] min-w-[250px]  text-[#828193] lg:w-1/2 flex flex-col sm:min-w-[350px] sm:max-w-[370px] md:min-w-[250px] items-center bg-white shadow-xl rounded-lg ">
+        <div className="max-w-[500px] min-w-[250px]  text-[#828193] flex flex-col sm:min-w-[350px] sm:max-w-[370px] md:min-w-[250px] items-center bg-white shadow-xl rounded-lg ">
           <div className="text-slate-100 items-center ">
             <img
               className="w-[350px] h-[350px]"
