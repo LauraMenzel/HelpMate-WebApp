@@ -13,7 +13,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 function AllHelpReq() {
   const [data, setData] = useState("");
-
+  const [filteredData, setFilteredData] = useState("");
   const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
   const { state } = useContext(AppContext);
   const [category, setCategory] = useState("all");
@@ -30,6 +30,7 @@ function AllHelpReq() {
         );
 
         setData(filteredData);
+        setFilteredData(filteredData);
       }
       dispatchHelp({
         type: "getAllTasks",
@@ -41,7 +42,9 @@ function AllHelpReq() {
 
   const handleChange = (event) => {
     setCategory(event.target.value);
-    console.log(category);
+    if (event.target.value === "all") setFilteredData(stateHelp.allTasks);
+    else
+      setFilteredData(data.filter((el) => el.category === event.target.value));
   };
 
   const setHelper = async (task) => {
@@ -86,7 +89,7 @@ function AllHelpReq() {
           </FormControl>
         </Box>
         <div className="grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
-          {data.map((el) => (
+          {filteredData.map((el) => (
             <div
               key={el._id}
               className="relative bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl"
