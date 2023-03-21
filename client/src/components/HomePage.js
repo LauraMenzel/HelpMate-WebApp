@@ -7,6 +7,7 @@ import { useEffect, useContext, useState } from "react";
 import axios from "axios";
 import { AppContext } from "../context/Context.js";
 import { ToDoListContext } from "../context/NeedAHelpContext.js";
+
 import { Link } from "react-router-dom";
 function Home() {
   const { state } = useContext(AppContext);
@@ -16,8 +17,6 @@ function Home() {
     file: null,
   });
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentProps, setCurrentProps] = useState(null);
   const [data, setData] = useState({
     username: state.user.username,
     fullname: state.user.firstname + " " + state.user.lastname,
@@ -145,10 +144,7 @@ function Home() {
                       </p>
                     </li>
                     <li>
-                      {" "}
-                      <p className="text-[50px] tracking-wide pl-10 font-bold pr-2">
-                        Welcome{" "}
-                      </p>
+                      <p className="text-[23px] pl-16 pr-2">Powitanie</p>
                     </li>
                     <li>
                       <p className="text-[20px] pl-2">Ласкаво просимо</p>
@@ -190,56 +186,10 @@ function Home() {
               </li>
             </ul>
           </div>
-          <div className=" w-full bg-[#bce3e8] flex p-[80px] flex-col items-center pt-20 font-semibold text-[45px] justify-center">
-            <p className="tracking-wide">About Us</p>
-            <p className="font-medium text-[20px] pt-5 px-[200px]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
-              soluta totam, magni ab quas consequatur autem est provident quo
-              perferendis maiores non ipsam odit quidem! Quia fuga vel
-              repellendus? Tenetur! Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Doloremque magni ut nesciunt, deleniti
-              laudantium aliquid esse dolore non vel, unde laborum? Impedit quae
-              eius laborum eos. Ratione commodi id dolorum?
-            </p>
-            <Link
-              className="text-[18px] mt-8 text-white px-4 py-2 rounded-xl shadow-lg bg-[#23B4C2]"
-              to="/aboutus"
-              onClick={() => setCurrentComponent("AboutUs")}
-            >
-              More About Us
-            </Link>
+          <div className="pt-12 pb-8">
+            <TheModal />
           </div>
-          <div className=" w-full bg-[#FCFAFB] flex p-[80px] flex-col items-center pt-20 font-semibold text-[45px] justify-center">
-            <p className="tracking-wide">How Our App Work ?</p>
-            <p className="font-medium text-[20px] pt-5 px-[200px]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
-              soluta totam, magni ab quas consequatur autem est provident quo
-              perferendis maiores non ipsam odit quidem! Quia fuga vel
-              repellendus? Tenetur! Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Doloremque magni ut nesciunt, deleniti
-              laudantium aliquid esse dolore non vel, unde laborum? Impedit quae
-              eius laborum eos. Ratione commodi id dolorum?
-            </p>
-            <Link
-              className="text-[18px] mt-8 text-white px-4 py-2 rounded-xl shadow-lg bg-[#23B4C2]"
-              to="/rules"
-              onClick={() => setCurrentComponent("Rules")}
-            >
-              More about the Rules
-            </Link>
-          </div>
-          <div className="pt-12 pb-12 flex flex-col items-center">
-            <div>
-              <p className="text-[35px] p-4">
-                Here you can create a new task that you need help with
-              </p>
-            </div>
-
-            <div>
-              <TheModal />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center ">
+          <div className="grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
             <AllHelpReq />
           </div>
         </div>
