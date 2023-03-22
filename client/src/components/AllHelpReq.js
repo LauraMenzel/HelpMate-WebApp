@@ -11,6 +11,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+var classNames = require("classnames");
 function AllHelpReq() {
   const [data, setData] = useState("");
   const [filteredData, setFilteredData] = useState("");
@@ -65,7 +66,7 @@ function AllHelpReq() {
   };
   if (data.length > 0) {
     return (
-      <div className="w-full h-full flex flex-col">
+      <div className="w-full h-full flex flex-col items-center">
         <Box sx={{ minWidth: 120 }} className="mt-4 w-40">
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Category</InputLabel>
@@ -76,7 +77,7 @@ function AllHelpReq() {
               label="category"
               onChange={handleChange}
             >
-              <MenuItem value={"all"}>All</MenuItem>
+              <MenuItem value={"all"}>Search...</MenuItem>
 
               <MenuItem value={"general"}>General</MenuItem>
               <MenuItem value={"sport"}>Sport</MenuItem>
@@ -88,11 +89,26 @@ function AllHelpReq() {
             </Select>
           </FormControl>
         </Box>
-        <div className="grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
+        <div className="pt-4 grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
           {filteredData.map((el) => (
             <div
               key={el._id}
-              className="relative bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl"
+              className={classNames(
+                "relative",
+                "py-6",
+                "px-6",
+                "rounded-3xl",
+                "w-64",
+                "my-4",
+                "shadow-xl",
+                { "bg-red-800": el.category === "sport" },
+                { "bg-[#feaa0c]": el.category === "general" },
+                { "bg-[#70c2b7]": el.category === "culture" },
+                { "bg-[#3d8f84]": el.category === "phone" },
+                { "bg-[#feaa0c]": el.category === "meal" },
+                { "bg-red-200": el.category === "visit the doctor" },
+                { "bg-blue-800": el.category === "office" }
+              )}
             >
               <div className="flex w-full justify-between flex-wrap mb-2">
                 <span className="flex justify-center items-center">
@@ -115,7 +131,7 @@ function AllHelpReq() {
                 {el.description}
               </p>
               <div onClick={() => setHelper(el)} className="flex w-full mt-4">
-                <span className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <span className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-800 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   I`m interested
                   <RiHandHeartFill className="ml-2" />
                 </span>

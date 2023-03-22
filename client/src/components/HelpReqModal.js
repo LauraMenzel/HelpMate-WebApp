@@ -6,7 +6,6 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-
 const style = {
   position: "absolute",
   top: "50%",
@@ -18,7 +17,6 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
 export default function BasicModal() {
   const [open, setOpen] = useState(false);
   const [category, setCategory] = useState("general");
@@ -27,14 +25,15 @@ export default function BasicModal() {
 
   const [place, setPlace] = useState("");
   const [description, setDescription] = useState("");
-  const handleChange = (event) => {
-    setCategory(event.target.value);
-  };
+
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleChange = (event) => {
+    setCategory(event.target.value);
   };
   const handleSave = async () => {
     if (!description || !place || !date || !time) {
@@ -55,11 +54,8 @@ export default function BasicModal() {
     setTime("");
     setCategory("general");
     setPlace("");
+
     if (response.success) {
-      /* dispatch({
-        type: "ADD_TODO",
-        payload: json,
-      }); */
       console.log(response);
     }
     handleClose();
