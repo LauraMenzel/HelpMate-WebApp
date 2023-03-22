@@ -8,8 +8,10 @@ import axios from "axios";
 import { AppContext } from "../context/Context.js";
 import { ToDoListContext } from "../context/NeedAHelpContext.js";
 
+import { Link } from "react-router-dom";
 function Home() {
   const { state } = useContext(AppContext);
+  const [currentComponent, setCurrentComponent] = useState("Home");
   const [fileData, setFiledata] = useState({
     url: state.user.image,
     file: null,
