@@ -62,136 +62,68 @@ function Home() {
   }, []);
 
   return (
-    <div className=" p-8 bg-[#EDEAE5] font-display pb-20 ">
-      <div className=" h-full  ">
-        <div className="h-full flex rounded-3xl shadow-xl bg-[#FAD6BA] flex-col items-center">
-          <nav className="w-full h-[100px] bg-[#FCFAFB] flex justify-between rounded-t-3xl">
-            <div className="items-center rounded-full  p-4 ">
-              <ul className="flex flex-col lg:flex-row list-none mr-auto">
-                <li className="flex items-center">
-                  <img
-                    className="h-full h-[50px]  object-cover w-[50px] rounded-full"
-                    src={fileData.url || noImg}
-                    alt="profilpicture"
-                  />
-                </li>
-                <li className="flex items-center pl-4">
-                  <p>Hello </p>
-                  <h3 className="text-[#026670] pl-1 font-bold ">
-                    {data.username}
-                  </h3>
-                </li>
-              </ul>
-            </div>
+    <div className=" p-8 bg-[#EDEAE5] font-display pb-20">
+      <div className=" w-full h-[70px] md:h-[180px] bg-white flex justify-between rounded-t-3xl rounded-b-3xl">
+        <div className="flex justify-evenly h-[100px] w-[250px] md:h-[150px]  md:w-[290px] pt-3">
+          <div className="h-[80px] w-[80px] md:h-[90px]  md:w-[90px] absolute md:top-8 md:left-8 top-6 left-6">
+            <img
+              className=" rounded-full md:p-4 p-6 mb-10 "
+              src={fileData.url || noImg}
+              alt="profilpicture"
+            />
+          </div>
 
-            <div className="p-4">
-              <div className="flex  p-2 items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 pt-0.5 text-gray-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-                <input
-                  className="ml-2 outline-1 outline rounded-lg py-1 px-4 bg-transparent font-"
-                  type="text"
-                  name="search"
-                  id="search"
-                  placeholder="Search..."
-                />
-              </div>
-            </div>
-            <div className=" py-4 pr-5">
-              <img className="w-[80px] h-[45px] " src={onlylogo} alt="logo" />
-              <p className="font-logo pl-2 text-[14px]">HelpMate</p>
-            </div>
-          </nav>{" "}
-          <div className="items-center bg-[#FCFAFB] w-full p-4 py-12 dark:!border-navy-700">
-            <ul className="flex flex-col justify-center lg:flex-row list-none ">
-              <li className="flex pl-5 ">
-                <div className="flex">
-                  <ul className=" pr-16">
-                    <li className="flex   "></li>
+          <div className="h-[150px]  w-[140px] pl-2">
+            <p className="text-sm md:text-lg  md:pt-2">Hello </p>
+            <p className="text-[#026670] md:text-lg font-bold text-sm">
+              {data.username}!
+            </p>
+          </div>
+        </div>
+        {/*   <div
+          className="md:flex md:justify-evenly md:flex-wrap
+           hidden items-center bg-white w-[290px] h-[100px] p-4 dark:!border-navy-700"
+        >
+          <p className=" text-[20px] font-bold pr-2">Welcome </p>
 
-                    <li>
-                      <p className="text-[23px]  pl-5">Willkommen</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] font-semibold pl-20 ">
-                        Powitanie
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] pl-[150px] ">Bi xêr hatî</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] pl-[40px] ">اهلا وسهلا</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] pl-[60px] ">いらっしゃいませ</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] font-semibold pl-[140px] ">
-                        Bienvenido
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-[23px] pl-16 pr-2">Powitanie</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] pl-2">Ласкаво просимо</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] font-medium pl-10 ">歡迎</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] pl-20 ">καλως ΗΡΘΑΤΕ</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] font-semibold pl-[50px]">
-                        خوش آمدید
-                      </p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] pl-[2px]">ברוכים הבאים</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] pl-[20px]">Karibu</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] pl-[70px]">Nau mai haere mai</p>
-                    </li>
-                    <li>
-                      <p className="text-[20px] font-semibold pl-[50px]">
-                        Fáilte
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-                <div className="">
-                  <img
-                    className="h-[500px] object-contain hidden md:flex"
-                    src={homeImg}
-                    alt="differentpeoplepicture"
-                  />
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div className="pt-12 pb-8">
-            <TheModal />
-          </div>
-          <div className="grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
-            <AllHelpReq />
-          </div>
+          <p className="text-[13px]  pr-2">Willkommen</p>
+
+          <p className="text-[13px] pl-16 pr-2">Witaj</p>
+
+          <p>Bi xêr hatî</p>
+
+          <p>اهلا وسهلا</p>
+
+          <p>いらっしゃいませ</p>
+
+          <p>Bienvenido</p>
+
+          <p>Ласкаво просимо</p>
+
+          <p>歡迎</p>
+
+          <p>καλως ΗΡΘΑΤΕ</p>
+
+          <p>خوش آمدید</p>
+        </div> */}
+        <div className="h-[200px] hidden md:flex md:w-[580px] md:justify-center object-cover  ">
+          <img className="" src={homeImg} alt="differentpeoplepicture" />
+        </div>
+        <div className="flex flex-col items-center py-3 md:py-4 pr-5">
+          <img
+            className=" w-[35px] h-[25px] md:w-[85px] md:h-[65px] "
+            src={onlylogo}
+            alt="logo"
+          />
+          <p className="font-logo pl-2 text-[12px] md:text-[14px]">HelpMate</p>
+        </div>
+      </div>
+      <div className="h-full relative flex rounded-3xl shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100  flex-col items-center">
+        <div className="pt-12 pb-8">
+          <TheModal />
+        </div>
+        <div className="">
+          <AllHelpReq />
         </div>
       </div>
     </div>
