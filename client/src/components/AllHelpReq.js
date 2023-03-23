@@ -101,13 +101,13 @@ function AllHelpReq() {
                 "w-64",
                 "my-4",
                 "shadow-xl",
-                { "bg-red-800": el.category === "sport" },
+                { "bg-red-200": el.category === "sport" },
                 { "bg-[#feaa0c]": el.category === "general" },
-                { "bg-[#70c2b7]": el.category === "culture" },
-                { "bg-[#3d8f84]": el.category === "phone" },
+                { "bg-[#dbcdaf]": el.category === "culture" },
+                { "bg-[#9cd6ce]": el.category === "phone" },
                 { "bg-[#feaa0c]": el.category === "meal" },
                 { "bg-red-200": el.category === "visit the doctor" },
-                { "bg-blue-800": el.category === "office" }
+                { "bg-blue-200": el.category === "office" }
               )}
             >
               <div className="flex w-full justify-between flex-wrap mb-2">
