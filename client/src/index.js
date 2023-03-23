@@ -18,6 +18,7 @@ import LoginLayout from "./layouts/LoginLayout";
 import UserLayout from "./layouts/UserLayout";
 import Rules from "./components/Rules";
 import AboutUs from "./components/AboutUs";
+import Landing from "./components/Landing";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -37,6 +38,7 @@ root.render(
           <Route element={<UserLayout />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/landing" element={<Landing />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/editprofile" element={<EditProfile />} />

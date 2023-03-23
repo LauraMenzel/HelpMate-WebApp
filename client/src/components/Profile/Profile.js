@@ -141,7 +141,7 @@ function Profile() {
                 color="#026670"
               />
             </Link>
-            <div className="flex flex-col max-w-[500px] p-2 items-center justify-center mt-8">
+            <div className="flex flex-col max-w-[500px] relative p-2 items-center justify-center mt-8">
               <div className="flex justify-center items-center">
                 <p className="text-black font-bold tracking-wider  text-[35px]">
                   {data.username}
@@ -151,40 +151,37 @@ function Profile() {
                 <GoLocation className=" w-[14px] h-[14px] mr-1" />
                 <p className=" text-[18px]">{data.city}</p>
               </span>
-              <p className="italic p-2 pb-12 pt-8 ">"{data.intro}"</p>
-              <div className="flex p-4 justify-center flex-col-2">
-                <div className="pr-2 font-semibold min-w-[150px] tracking-wider ">
-                  <p>Age</p>
-                  <p className="pt-4">E-mail</p>
-                  <p className="pt-4">Phone</p>
-                  <p>
-                    <br /> Language skills
-                  </p>
-                  <p>
-                    {" "}
-                    <br />
-                  </p>
-                  <p>Help offers </p>
-                </div>
-                <div className="">
-                  <p className="">{data.age}</p>
-                  <p className="pt-4"> {data.email}</p>
-                  <p className="pt-4">Y{data.phonenumber}</p>
-                  <p>
-                    <br />
-                    {data.language}
-                  </p>
-                  <p>
-                    <br />
-                  </p>
-                  <p>{data.helpoffers}</p>
-                </div>
+              <p className="italic p-2 pb-12 pt-8 text-center">"{data.intro}"</p>
+              <div className=" text-center relative overflow-x-auto">
+                <table class=" w-full ">
+                  <tr>
+                    <td class="px-8 py-4 font-semibold">Age</td>
+                    <td class=" px-8 py-4">{data.age}</td>
+                  </tr>
+                  <tr>
+                    <td class=" px-8 py-4 font-semibold">E-mail</td>
+                    <td class=" px-8 py-4">{data.email}</td>
+                  </tr>
+                  <tr>
+                    <td class=" px-8 py-4 font-semibold">Phone</td>
+                    <td class=" px-8 py-4">{data.phonenumber}</td>
+                  </tr>
+                  <tr className="">
+                    <td class=" px-8 py-4 font-semibold ">Language skills</td>
+                    <td class=" px-8 py-4">{data.language}</td>
+                  </tr>{" "}
+                  <tr>
+                    <td class=" px-8 py-4 font-semibold">Help offers</td>
+                    <td class=" px-8 py-4">{data.helpoffers}</td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
+
           <div className="flex-1  w-fit bg-[#BCE3E8] shadow-xl shadow-shadow-500 rounded-lg mb-8 overflow-auto">
-            <div className="flex flex-col p-4 items-center ">
-              <p className="text-[24px] text-left p-4">
+            <div className="flex flex-col p-6 items-center ">
+              <p className="text-[24px] text-left font-sans tracking-wider p-4">
                 People who offer you help{" "}
               </p>
               {inProgressTask.map((task) => {
@@ -198,15 +195,18 @@ function Profile() {
                       src={task.helper.image || noImg}
                       alt=""
                     />
-                    <h4 className="flex-inline flex-auto mx-4 text-sm ">
+                    <div className="flex-inline mx-4 text-md ">
                       <span
                         className="text-[#026670] font-bold"
                         onClick={() => openModal(task.helper)}
                       >
                         {task.helper.username}{" "}
                       </span>
-                      offers you help with {task.category}
-                    </h4>
+                      <span>offers you help with your task </span>
+                      <span className="font-semibold font-sans text-[16px]">
+                        {task.category}
+                      </span>
+                    </div>
                     <div className="flex flex-nowrap flex-1 items-center ">
                       {" "}
                       <AiOutlineCheckCircle
@@ -229,7 +229,7 @@ function Profile() {
               })}
             </div>
           </div>
-          <div className="flex-1 w-fit max-w-[480px] p-4  shadow-shadow-500 rounded-lg mb-8 overflow-auto">
+          <div className="flex-1 w-fit max-w-[480px] p-4 shadow-shadow-500 rounded-lg mb-8 overflow-auto">
             <div className="flex-1 w-auto rounded-lg mb-8 overflow-auto">
               <div className="flex flex-col p-4 items-center mt-10">
                 <p className="text-[24px] text-center p-4">
