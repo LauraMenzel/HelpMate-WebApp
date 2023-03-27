@@ -154,7 +154,7 @@ function MyTasks() {
           )}
         </div>
 
-        <div className="bg-[#ebdfd5] pl-1 pb-5 mt-4 rounded-lg">
+        <div className="bg-[#ebdfd5] pl-1 pb-5 mt-4 rounded-3xl">
           <p className="pl-6 md:pl-6  pt-12 md:mb-4 text-[25px] font-sans font-semibold tracking-wide">
             You've offered help to:
           </p>
@@ -209,12 +209,12 @@ function MyTasks() {
             ))}
           </div>
         </div>
-        <div className="bg-[#cae8e4] pb-5 mt-4 rounded-lg">
+        <div className="bg-[#cae8e4] pb-5 mt-4  rounded-3xl">
           <p className="pl-8 pt-12 text-[25px] font-sans font-semibold tracking-wide">
             {" "}
             Fully accepted tasks:
           </p>
-          <div className="flex flex-wrap gap-[26px] justify-center ">
+          <div className="flex flex-wrap gap-[26px] justify-center  rounded-3xl">
             {acceptedReq.map((el) => (
               <div
                 key={el._id}

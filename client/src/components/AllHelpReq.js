@@ -66,7 +66,7 @@ function AllHelpReq() {
   };
   if (data.length > 0) {
     return (
-      <div className="w-full h-full flex flex-col items-center">
+      <div className="w-full h-full flex flex-col items-center mb-6">
         <Box sx={{ minWidth: 120 }} className="mt-4 w-40">
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Category</InputLabel>
@@ -89,7 +89,7 @@ function AllHelpReq() {
             </Select>
           </FormControl>
         </Box>
-        <div className="pt-4 grid grid-cols-1 gap-6 pb-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 justify-center">
+        <div className="flex flex-wrap gap-[26px] justify-center ">
           {filteredData.map((el) => (
             <div
               key={el._id}
