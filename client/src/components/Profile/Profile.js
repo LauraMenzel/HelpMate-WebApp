@@ -126,7 +126,7 @@ function Profile() {
               />
             </div>
 
-            <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
+            <div className="absolute -bottom-12 flex  items-center justify-center rounded-full border-[4px] border-white dark:!border-navy-700">
               <img
                 className="h-full h-[150px] object-cover w-[150px] rounded-full"
                 src={fileData.url || noImg}

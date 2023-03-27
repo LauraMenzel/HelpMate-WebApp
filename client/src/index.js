@@ -27,6 +27,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route element={<LoginLayout />}>
+            <Route path="/landing" element={<Landing />} />
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
@@ -38,8 +39,7 @@ root.render(
           <Route element={<UserLayout />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/landing" element={<Landing />} />
-            <Route path="/rules" element={<Rules />} />
+<Route path="/rules" element={<Rules />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/editprofile" element={<EditProfile />} />
             <Route path="/mytasks" element={<MyTasks />} />

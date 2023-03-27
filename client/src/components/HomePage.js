@@ -63,7 +63,7 @@ function Home() {
 
   return (
     <div className=" p-8 bg-[#EDEAE5] font-display pb-20">
-      <div className=" w-full h-[70px] md:h-[180px] bg-white flex justify-between rounded-t-3xl rounded-b-3xl">
+      <div className=" w-full h-[50px] md:h-[180px] bg-white flex justify-between rounded-t-3xl rounded-b-3xl">
         <div className="flex justify-evenly h-[100px] w-[250px] md:h-[150px]  md:w-[290px] pt-3">
           <div className="h-[80px] w-[80px] md:h-[90px]  md:w-[90px] absolute md:top-8 md:left-8 top-6 left-6">
             <img
@@ -80,33 +80,7 @@ function Home() {
             </p>
           </div>
         </div>
-        {/*   <div
-          className="md:flex md:justify-evenly md:flex-wrap
-           hidden items-center bg-white w-[290px] h-[100px] p-4 dark:!border-navy-700"
-        >
-          <p className=" text-[20px] font-bold pr-2">Welcome </p>
-
-          <p className="text-[13px]  pr-2">Willkommen</p>
-
-          <p className="text-[13px] pl-16 pr-2">Witaj</p>
-
-          <p>Bi xêr hatî</p>
-
-          <p>اهلا وسهلا</p>
-
-          <p>いらっしゃいませ</p>
-
-          <p>Bienvenido</p>
-
-          <p>Ласкаво просимо</p>
-
-          <p>歡迎</p>
-
-          <p>καλως ΗΡΘΑΤΕ</p>
-
-          <p>خوش آمدید</p>
-        </div> */}
-        <div className="h-[200px] hidden md:flex md:w-[580px] md:justify-center object-cover  ">
+        <div className="h-[180px] hidden md:flex md:w-[580px] md:justify-center object-cover  ">
           <img className="" src={homeImg} alt="differentpeoplepicture" />
         </div>
         <div className="flex flex-col items-center py-3 md:py-4 pr-5">
