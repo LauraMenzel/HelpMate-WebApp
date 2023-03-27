@@ -1,9 +1,9 @@
 import noImg from "../../images/no-img.jpg";
-import { MdOutlineEmail }from "react-icons/md";
+import { MdOutlineEmail } from "react-icons/md";
 import { ImPhone } from "react-icons/im";
 import { TbLanguage } from "react-icons/tb";
 import { GoLocation } from "react-icons/go";
-import {FaHandsHelping} from "react-icons/fa";
+import { FaHandsHelping } from "react-icons/fa";
 
 function HelperPrev(props) {
   console.log(props.helper);

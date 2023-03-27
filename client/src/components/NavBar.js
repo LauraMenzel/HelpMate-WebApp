@@ -1,6 +1,6 @@
 import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MdNotifications } from "react-icons/md";
 import { TbHandStop } from "react-icons/tb";
@@ -9,9 +9,10 @@ import { ToDoListContext } from "../context/NeedAHelpContext";
 function NavBar() {
   const { stateHelp } = useContext(ToDoListContext);
   const [currentComponent, setCurrentComponent] = useState("Home");
-  const [notifications, setNotifications] = useState(
-    stateHelp.userInProgressTask.length
-  );
+  const [notifications, setNotifications] = useState(0);
+  useEffect(() => {
+    setNotifications(stateHelp.userInProgressTask.length);
+  }, [stateHelp.userInProgressTask.length]);
   return (
     <div
       className="bg-white text-black shadow-xl
@@ -34,7 +35,7 @@ function NavBar() {
         />{" "}
       </Link>
       <Link
-        to="/profile"
+        to="/notification"
         onClick={() => setCurrentComponent("Notifications")}
         className="flex items-center justify-center relative"
       >

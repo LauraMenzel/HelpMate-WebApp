@@ -8,10 +8,8 @@ import axios from "axios";
 import { AppContext } from "../context/Context.js";
 import { ToDoListContext } from "../context/NeedAHelpContext.js";
 
-import { Link } from "react-router-dom";
 function Home() {
   const { state } = useContext(AppContext);
-  const [currentComponent, setCurrentComponent] = useState("Home");
   const [fileData, setFiledata] = useState({
     url: state.user.image,
     file: null,
@@ -62,8 +60,8 @@ function Home() {
   }, []);
 
   return (
-    <div className=" p-8 bg-[#EDEAE5] font-display pb-20">
-      <div className=" w-full h-[50px] md:h-[180px] bg-white flex justify-between rounded-t-3xl rounded-b-3xl">
+    <div className="h-full  p-8 bg-[#EDEAE5] font-display flex flex-col">
+      <div className=" w-full h-[67px] md:h-[120px] bg-white flex justify-between rounded-t-3xl ">
         <div className="flex justify-evenly h-[100px] w-[250px] md:h-[150px]  md:w-[290px] pt-3">
           <div className="h-[80px] w-[80px] md:h-[90px]  md:w-[90px] absolute md:top-8 md:left-8 top-6 left-6">
             <img
@@ -80,7 +78,8 @@ function Home() {
             </p>
           </div>
         </div>
-        <div className="h-[180px] hidden md:flex md:w-[580px] md:justify-center object-cover  ">
+
+        <div className="h-[120px] hidden md:flex md:w-[680px] md:justify-center object-cover md:mr-20 ">
           <img className="" src={homeImg} alt="differentpeoplepicture" />
         </div>
         <div className="flex flex-col items-center py-3 md:py-4 pr-5">
@@ -92,7 +91,7 @@ function Home() {
           <p className="font-logo pl-2 text-[12px] md:text-[14px]">HelpMate</p>
         </div>
       </div>
-      <div className="h-full relative flex rounded-3xl shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100  flex-col items-center">
+      <div className="md:h-full relative flex rounded-b-3xl shadow-xl  bg-[#e4f1f2] flex-col items-center overflow-y-auto">
         <div className="pt-12 pb-8">
           <TheModal />
         </div>
