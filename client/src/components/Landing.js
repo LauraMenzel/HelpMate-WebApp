@@ -91,7 +91,7 @@ function Landing() {
         <div className="items-center bg-[#FCFAFB] w-full pb-10 pt-4 dark:!border-navy-700">
           <ul className="flex flex-col justify-center lg:flex-row list-none ">
             <li className="flex pl-5 ">
-              <div className="flex">
+              <div className="flex justify-center">
                 <ul className=" pr-16">
                   <li className="flex   "></li>
 
@@ -155,7 +155,7 @@ function Landing() {
               </div>
               <div className="">
                 <img
-                  className="h-[500px] object-contain hidden md:flex"
+                  className="h-[500px] object-contain hidden xl:flex"
                   src={homeImg}
                   alt="differentpeoplepicture"
                 />
@@ -174,7 +174,7 @@ function Landing() {
             />
           </div>
           <div className="w-full col-span-2 flex justify-end row-span-2  p-10 pt-20 rounded">
-            <div className="flex flex-col  max-w-[900px] p-4  dark:!border-navy-700">
+            <div className="flex flex-col max-w-[900px] p-4  dark:!border-navy-700">
               <p className="text-[47px] pr-10  xl:text-right text-center  font-semibold tracking-wider">
                 About Us
               </p>
@@ -313,7 +313,8 @@ function Landing() {
           <div className="w-[90%] items-center justify-center hidden lg:flex">
             <img
               className="object-contain pb-8 rounded-xl"
-              src={howApp} alt="computer"
+              src={howApp}
+              alt="computer"
             />
           </div>
         </div>

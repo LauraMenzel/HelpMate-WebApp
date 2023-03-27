@@ -5,7 +5,7 @@ function AboutUs() {
   const [currentComponent, setCurrentComponent] = useState("Home");
   return (
     <div className=" p-8 bg-[#EDEAE5] ">
-      <div className=" rounded-3xl p-10  shadow-xl pb-[80px] bg-[#FCFAFB] ">
+      <div className=" rounded-3xl p-10 overflow-hidden shadow-xl pb-[80px] bg-[#FCFAFB] ">
         <div className="pt-8 pb-8 pl-5">
           <Link
             to="/home"
@@ -18,11 +18,11 @@ function AboutUs() {
         <div className="flex h-full  justify-center items-center ">
           <div className="w-[1000px] flex justify-center p-16 rounded-3xl bg-[#BCE3E8]">
             <div className=" max-w-[750px] pt-[40px]">
-              <section class="overflow-hidden text-neutral-700">
-                <div class="container mx-auto ">
-                  <div class="-m-1 flex flex-wrap md:-m-2">
-                    <div class="flex w-1/2 flex-wrap">
-                      <div class="w-1/2 p-1 md:p-2">
+              <section className="overflow-hidden text-neutral-700">
+                <div className="container mx-auto ">
+                  <div className="-m-1 flex flex-wrap md:-m-2">
+                    <div className="flex w-1/2 flex-wrap">
+                      <div className="w-1/2 p-1 md:p-2">
                         <img
                           alt="gallery"
                           className="block h-full w-full rounded-lg object-cover object-center"
@@ -44,18 +44,18 @@ function AboutUs() {
                         />
                       </div>
                     </div>
-                    <div class="flex w-1/2 flex-wrap">
-                      <div class="w-full p-1 md:p-2">
+                    <div className="flex w-1/2 flex-wrap">
+                      <div className="w-full p-1 md:p-2">
                         <img
                           alt="gallery"
-                          class="block h-full w-full rounded-lg object-cover object-center"
+                          className="block h-full w-full rounded-lg object-cover object-center"
                           src="https://img.freepik.com/free-photo/medium-shot-people-planning-trip_23-2148925847.jpg?size=626&ext=jpg&uid=R96852185&ga=GA1.1.971768092.1676332792&semt=ais"
                         />
                       </div>
-                      <div class="w-1/2 p-1 md:p-2">
+                      <div className="w-1/2 p-1 md:p-2">
                         <img
                           alt="gallery"
-                          class="block h-full w-full rounded-lg object-cover object-center"
+                          className="block h-full w-full rounded-lg object-cover object-center"
                           src="https://img.freepik.com/free-photo/senior-couple-harvesting-carrots_23-2148256687.jpg?w=1380&t=st=1679903334~exp=1679903934~hmac=13d329d313af015da8b901d38a176e7b62b936fab718a2607e613ba6c37c7a7a"
                         />
                       </div>

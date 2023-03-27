@@ -28,8 +28,8 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route element={<LoginLayout />}>
-            <Route path="/landing" element={<Landing />} />
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/rules" element={<Rules />} />{" "}
             <Route path="/aboutus" element={<AboutUs />} />

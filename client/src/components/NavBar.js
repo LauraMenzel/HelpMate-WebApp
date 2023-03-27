@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { MdNotifications } from "react-icons/md";
 import { TbHandStop } from "react-icons/tb";
 import { ToDoListContext } from "../context/NeedAHelpContext";
+import { IoMdLogOut } from "react-icons/io";
 
 function NavBar() {
   const { stateHelp } = useContext(ToDoListContext);
@@ -52,8 +53,8 @@ function NavBar() {
           {notifications}
         </p>
       </Link>
-      <Link to="/rules" onClick={() => setCurrentComponent("Rules")}>
-        <TbHandStop
+      <Link to="/login" onClick={() => setCurrentComponent("Login")}>
+        <IoMdLogOut
           className={`hover:text-slate-600 rounded-3xl shadow-xl ${
             currentComponent === "Rules" ? "text-[#feaa0c]" : "text-[#828193]"
           }`}
