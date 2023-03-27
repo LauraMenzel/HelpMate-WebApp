@@ -30,7 +30,8 @@ root.render(
             <Route path="/landing" element={<Landing />} />
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/rules" element={<Rules />} />{" "}
+            <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/emailconfirm/:token" element={<EmailConfirm />} />
             <Route path="/forgotpass" element={<Forgotpass />} />
             <Route path="/changepassword/:token" element={<ChangePassword />} />
@@ -39,8 +40,7 @@ root.render(
           <Route element={<UserLayout />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/home" element={<Home />} />
-<Route path="/rules" element={<Rules />} />
-            <Route path="/aboutus" element={<AboutUs />} />
+
             <Route path="/editprofile" element={<EditProfile />} />
             <Route path="/mytasks" element={<MyTasks />} />
           </Route>
