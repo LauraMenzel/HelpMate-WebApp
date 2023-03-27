@@ -1,4 +1,5 @@
 import onlylogo from "./../images/HelpMate_withoutText.jpg";
+import { Link } from "react-router-dom";
 import noImg from "./../images/no-img.jpg";
 import homeImg from "./../images/homeImage.jpg";
 import TheModal from "./HelpReqModal.js";
@@ -74,7 +75,7 @@ function Home() {
           <div className="h-[150px]  w-[140px] pl-2">
             <p className="text-sm md:text-lg  md:pt-2">Hello </p>
             <p className="text-[#026670] md:text-lg font-bold text-sm">
-              {data.username}!
+              <Link to="/profile"> {data.username}!</Link>
             </p>
           </div>
         </div>

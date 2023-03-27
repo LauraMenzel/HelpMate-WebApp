@@ -5,15 +5,12 @@ import { useNavigate, Link } from "react-router-dom";
 import noImg from "../../images/no-img.jpg";
 import { useContext, useState } from "react";
 import { AppContext } from "../../context/Context";
-import { ToDoListContext } from "../../context/NeedAHelpContext";
 import { GoLocation } from "react-icons/go";
 
 import DataTimePicker from "../DataTimePicker";
 
 function Profile() {
-  const [currentComponent, setCurrentComponent] = useState("Home");
   const { state, dispatch } = useContext(AppContext);
-  const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
   const navigate = useNavigate();
   const [fileData, setFileData] = useState({
     url: state.user.image,
@@ -123,7 +120,7 @@ function Profile() {
             <DataTimePicker />
             <Link
               to="/mytasks"
-              className="bg-[#feaa0c] hover:bg-[#70c2b7] active:bg-[#3d8f84] text-white font-bold py-2 px-4 rounded-3xl shadow"
+              className="bg-[#feaa0c] hover:bg-[#70c2b7] active:bg-[#3d8f84] text-white font-bold  py-2 mb-20 md:py-2 px-4 rounded-3xl shadow "
             >
               Show my tasks
             </Link>
