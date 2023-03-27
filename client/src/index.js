@@ -18,6 +18,7 @@ import LoginLayout from "./layouts/LoginLayout";
 import UserLayout from "./layouts/UserLayout";
 import Rules from "./components/Rules";
 import AboutUs from "./components/AboutUs";
+import TheNotifications from "./components/Profile/TheNotifications";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -41,6 +42,7 @@ root.render(
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/editprofile" element={<EditProfile />} />
             <Route path="/mytasks" element={<MyTasks />} />
+            <Route path="/notification" element={<TheNotifications />} />
           </Route>
         </Routes>
 

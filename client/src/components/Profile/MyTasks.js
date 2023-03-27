@@ -79,7 +79,7 @@ function MyTasks() {
           <HelperPrev helper={currentProps} />
         </div>
       )}
-      <div className=" rounded-3xl  p-8 shadow-xl  bg-gradient-to-b from-cyan-200 via-slate-100 to-slate-100 ">
+      <div className=" rounded-3xl  p-8 shadow-xl  bg-[#e4f1f2]">
         <div>
           <Link
             to="/home"

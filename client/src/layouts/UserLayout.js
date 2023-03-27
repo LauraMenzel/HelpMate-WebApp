@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 
 function UserLayout() {
   const { state } = useContext(AppContext);
-
   if (state.user._id) {
     return (
       <>

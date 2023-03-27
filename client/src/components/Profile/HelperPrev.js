@@ -16,6 +16,7 @@ function HelperPrev(props) {
           </h4>
           <h5> {props.helper.birthdate}</h5>
           <h5>{props.helper.city}</h5>
+          <h5>{props.helper.helpoffers}</h5>
           <a
             href={"mailto:" + props.helper.email}
             className="mb-2 text-xl font-bold tracking-tight text-red-900 dark:text-white"

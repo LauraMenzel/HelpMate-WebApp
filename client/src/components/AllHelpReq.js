@@ -77,7 +77,7 @@ function AllHelpReq() {
               label="category"
               onChange={handleChange}
             >
-              <MenuItem value={"all"}>Search...</MenuItem>
+              <MenuItem value={"all"}>All request</MenuItem>
 
               <MenuItem value={"general"}>General</MenuItem>
               <MenuItem value={"sport"}>Sport</MenuItem>
@@ -101,10 +101,10 @@ function AllHelpReq() {
                 "w-64",
                 "my-4",
                 "shadow-xl",
-                { "bg-red-200": el.category === "sport" },
-                { "bg-[#feaa0c]": el.category === "general" },
+                { "bg-[#f0ab6e]": el.category === "sport" },
+                { "bg-[#c5c6e8]": el.category === "general" },
                 { "bg-[#dbcdaf]": el.category === "culture" },
-                { "bg-[#9cd6ce]": el.category === "phone" },
+                { "bg-[#BCE3E8]": el.category === "phone" },
                 { "bg-[#feaa0c]": el.category === "meal" },
                 { "bg-red-200": el.category === "visit the doctor" },
                 { "bg-blue-200": el.category === "office" }
@@ -127,7 +127,7 @@ function AllHelpReq() {
                   </p>
                 </span>
               </div>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 break-words">
                 {el.description}
               </p>
               <div onClick={() => setHelper(el)} className="flex w-full mt-4">
