@@ -51,12 +51,7 @@ const [fileData, setFiledata] = useState({
           <p className="text-black mt-2 text-base lg:text-lg">
             Together we can make a difference!
           </p>
-          <button
-            type="submit"
-            className="block w-28 bg-white hover:text-[#FAA03A] active:text-[#3d8f84] text-[#3B8A80] mt-4 py-2 rounded-2xl text-base lg:text-lg font-bold mb-2"
-          >
-            Read More
-          </button>
+          
         </div>
       </div>
 

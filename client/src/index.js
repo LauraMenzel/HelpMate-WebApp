@@ -19,6 +19,7 @@ import UserLayout from "./layouts/UserLayout";
 import Rules from "./components/Rules";
 import AboutUs from "./components/AboutUs";
 import TheNotifications from "./components/Profile/TheNotifications";
+import Landing from "./components/Landing";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,6 +28,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route element={<LoginLayout />}>
+            <Route path="/landing" element={<Landing />} />
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
