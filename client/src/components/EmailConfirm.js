@@ -10,7 +10,7 @@ function EmailConfirm() {
       const response = await axios.post("/users/emailconfirm", { token });
       if (response.data.success) {
         setTimeout(() => {
-          navigate("/");
+          navigate("/login");
         }, 3000);
       }
     }
@@ -21,7 +21,6 @@ function EmailConfirm() {
     <div>
       <p>Thank you for register, now you can log in:</p>
       <p>http://localhost:3000/login</p>
-     
     </div>
   );
 }

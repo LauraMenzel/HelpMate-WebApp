@@ -20,7 +20,7 @@ function TheNotifications() {
         };
       })
     );
-  }, []);
+  }, [stateHelp.userInProgressTask]);
 
   const openModal = (helper) => {
     setCurrentProps(helper);
@@ -80,7 +80,7 @@ function TheNotifications() {
         {inProgressTask.map((task) => {
           return (
             <div
-              className="inline-flex items-center justify-evenly my-4 w-11/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+              className="inline-flex items-center justify-evenly my-4 md:w-[30%] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
               key={task._id}
             >
               <img
