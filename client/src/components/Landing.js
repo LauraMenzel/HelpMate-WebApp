@@ -89,7 +89,7 @@ function Landing() {
           </div>
         </nav>{" "}
         <div className="items-center bg-[#FCFAFB] w-full pb-10 pt-4 dark:!border-navy-700">
-          <ul className="flex flex-col justify-center lg:flex-row list-none ">
+          <ul className="flex flex-col justify-center  md:flex-row list-none ">
             <li className="flex pl-5 ">
               <div className="flex justify-center">
                 <ul className=" pr-16">
@@ -165,30 +165,32 @@ function Landing() {
         </div>
       </div>
       <div className="">
-        <div className="grid-cols-3 p-16 space-y-2 bg-[#FEC9A9] lg:space-y-0 lg:grid lg:gap-16 lg:grid-rows-3">
+        <div className="grid-cols-3 p-16 space-y-2 bg-[#FEC9A9] lg:space-y-0 xl:grid gap-8 xl:gap-16 xl:grid-rows-3 ">
           <div className=" rounded">
             <img
-              className="rounded-xl"
+              className="rounded-xl hidden xl:block"
               src="https://img.freepik.com/free-photo/new-employees-taking-corporate-training-newcomers_1262-15010.jpg?size=626&ext=jpg&uid=R96852185&ga=GA1.1.971768092.1676332792&semt=ais"
               alt="image"
             />
           </div>
-          <div className="w-full col-span-2 flex justify-end row-span-2  p-10 pt-20 rounded">
-            <div className="flex flex-col max-w-[900px] p-4  dark:!border-navy-700">
-              <p className="text-[47px] pr-10  xl:text-right text-center  font-semibold tracking-wider">
+          <div className="w-full col-span-2 flex justify-center xl:justify-end row-span-2 pb-10 lg:p-10 pt-3 lg:pt-20 rounded">
+            <div className="flex flex-col max-w-[900px] lg:p-4  dark:!border-navy-700">
+              <p className="text-[38px] lg:text-[47px] lg:pr-10  xl:text-right text-center  font-semibold tracking-wider">
                 About Us
               </p>
 
-              <p className=" xl:pr-10  tracking-wider  xl:text-right text-center pt-8 pb-5 text-[35px]">
+              <p className=" xl:pr-10  tracking-wider  xl:text-right text-center pt-3 lg:pt-8 pb-5 text-[20px] lg:text-[35px]">
                 This app provides an easy way to connect volunteers and people
                 in need. It allows volunteers to search and find opportunities
                 to help, while those in need can access the help they need.
+              </p>
+              <p className=" xl:pr-10  tracking-wider  xl:text-right text-center hidden xl:block pb-5 text-[20px] xl:text-[35px]">
                 Together, we can make the world a better place, one person at a
                 time.
               </p>
               <p className=" xl:text-right text-center  pt-10">
                 <Link
-                  className="  text-[25px] mr-10 w-[100px] font-bold rounded-xl bg-[#FEAC06] shadow-lg px-7 py-3"
+                  className=" text-[16px] lg:text-[25px] lg:mr-10 w-[100px] font-bold rounded-xl bg-[#FEAC06] shadow-lg px-7 py-3"
                   to="/aboutus"
                 >
                   Read more
@@ -198,26 +200,26 @@ function Landing() {
           </div>
           <div className="w-full rounded">
             <img
-              className="w-full rounded-xl"
+              className="w-full hidden xl:block  rounded"
               src="https://img.freepik.com/free-photo/merry-biracial-couple-having-walk-summer-day-african-american-man-caucasian-woman-wheelchairs-embankment-fooling-around-love-relationship-happiness-concept_74855-22202.jpg?size=626&ext=jpg&uid=R96852185&ga=GA1.1.971768092.1676332792&semt=ais"
               alt="image"
             />
           </div>
-          <div className="w-full rounded">
+          <div className="w-full md:hidden xl:block rounded">
             <img
               className="w-full rounded-xl"
               src="https://media.istockphoto.com/id/1092115166/photo/home-nurse-taking-care-of-senior-woman.jpg?s=612x612&w=0&k=20&c=_M4cWhc9DqJClAL8RrorbHo-ygf6nkzCrhruZyosCfo="
               alt="image"
             />
           </div>
-          <div className="w-full rounded">
+          <div className="w-full lg:hidden xl:block rounded">
             <img
               className=" w-full rounded-xl"
               src="https://img.freepik.com/free-photo/young-adult-helping-disabled-friend_23-2149433051.jpg?size=626&ext=jpg&uid=R96852185&ga=GA1.1.971768092.1676332792&semt=ais"
               alt="image"
             />
           </div>
-          <div className="w-full rounded">
+          <div className="w-full hidden xl:block rounded">
             <img
               className="w-full rounded-xl"
               src="https://st2.depositphotos.com/1075946/10139/i/450/depositphotos_101390240-stock-photo-elderly-woman-with-young-woman.jpg"
@@ -226,7 +228,7 @@ function Landing() {
           </div>
         </div>
       </div>
-      <div className=" lg:text-left text-center bg-[#FFFFFF] rounded-b-3xl p-16 dark:!border-navy-700">
+      <div className=" 2xl:text-left text-center bg-[#FFFFFF] rounded-b-3xl lg:p-16 dark:!border-navy-700">
         <p className="text-[35px] font-semibold p-5 tracking-wider">
           How Our App <span className="text-[#FEAB35] ">Work?</span>
         </p>
@@ -236,9 +238,9 @@ function Landing() {
         </p>
         <div className=" items-center justify-center flex  ">
           <div className="flex justify-center p-5 flex-col">
-            <div className="flex flex-wrap gap-8  ">
-              <div className="max-w-sm p-8 bg-[#FEDAAE] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div className="py-3 ">
+            <div className="flex flex-wrap justify-center  gap-8  ">
+              <div className="max-w-sm p-2 lg:p-8 bg-[#FEDAAE] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div className="lg:py-3 ">
                   <p className=" border flex justify-center items-center text-xl bg-gray-300 bg-opacity-30 rounded-full w-[30px] h-[30px]">
                     1
                   </p>
@@ -258,8 +260,8 @@ function Landing() {
                   </p>
                 </Link>
               </div>
-              <div className="max-w-sm p-8 bg-[#F8F7F7] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div className="py-3 ">
+              <div className="max-w-sm p-2 lg:p-8 bg-[#F8F7F7] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div className="lg:py-3 ">
                   <p className=" border flex bg-gray-300 bg-opacity-30 justify-center items-center text-xl rounded-full w-[30px] h-[30px]">
                     2
                   </p>
@@ -278,8 +280,8 @@ function Landing() {
                   </p>
                 </Link>
               </div>
-              <div className="max-w-sm p-8 bg-[#C3FEFE] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div className="py-3 ">
+              <div className="max-w-sm p-2 lg:p-8 bg-[#C3FEFE] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div className="lg:py-3 ">
                   <p className=" border flex justify-center bg-gray-300 bg-opacity-30 items-center text-xl rounded-full w-[30px] h-[30px]">
                     3
                   </p>
@@ -293,8 +295,8 @@ function Landing() {
                   have a look who needs help and show them your interest.
                 </p>
               </div>
-              <div className="max-w-sm p-8 bg-[#C8CCF9] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div className="py-3 ">
+              <div className="max-w-sm p-2 lg:p-8 bg-[#C8CCF9] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div className="lg:py-3 ">
                   <p className=" border flex justify-center items-center text-xl bg-gray-300 bg-opacity-30 rounded-full w-[30px] h-[30px]">
                     4
                   </p>
@@ -310,7 +312,7 @@ function Landing() {
               </div>
             </div>
           </div>
-          <div className="w-[90%] items-center justify-center hidden lg:flex">
+          <div className="w-[90%] items-center justify-center hidden 2xl:block">
             <img
               className="object-contain pb-8 rounded-xl"
               src={howApp}
