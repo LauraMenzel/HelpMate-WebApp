@@ -3,15 +3,22 @@ import { TiEdit } from "react-icons/ti";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import noImg from "../../images/no-img.jpg";
+import { ToDoListContext } from "../../context/NeedAHelpContext";
 import { useContext, useState } from "react";
 import { AppContext } from "../../context/Context";
 import { GoLocation } from "react-icons/go";
-
-import DataTimePicker from "../DataTimePicker";
+import { Calendar } from "react-multi-date-picker";
+import "react-multi-date-picker/styles/colors/teal.css";
+import "react-multi-date-picker/styles/layouts/mobile.css";
 
 function Profile() {
   const { state, dispatch } = useContext(AppContext);
+  const { stateHelp, dispatchHelp } = useContext(ToDoListContext);
   const navigate = useNavigate();
+  const [value, setValue] = useState(
+    stateHelp.helpAcceptedTask.map((el) => el.date)
+  );
+  const initialVal = stateHelp.helpAcceptedTask.map((el) => el.date);
   const [fileData, setFileData] = useState({
     url: state.user.image,
     file: null,
@@ -28,13 +35,13 @@ function Profile() {
     intro: state.user.intro,
     helpoffers: state.user.helpoffers,
   });
-
   const logout = async () => {
     const response = await axios.get("/users/logout");
     console.log(response);
     dispatch({ type: "logout" });
     navigate("/");
   };
+  console.log(stateHelp.helpAcceptedTask.map((el) => el.date));
   return (
     <div className="bg-[#EDEAE5] md:font-display md:p-12 md:w-full md:h-full">
       <div className="font-display w-full md:h-[90%] rounded-t-3xl ">
@@ -117,7 +124,11 @@ function Profile() {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center flex-1">
-            <DataTimePicker />
+            <Calendar
+              value={value}
+              onChange={() => setValue(initialVal)}
+              className="teal rmdp-mobile"
+            />
             <Link
               to="/mytasks"
               className="bg-[#feaa0c] hover:bg-[#70c2b7] active:bg-[#3d8f84] text-white font-bold  py-2 mb-20 md:py-2 px-4 rounded-3xl shadow "

@@ -19,25 +19,26 @@ function AllHelpReq() {
   const { state } = useContext(AppContext);
   const [category, setCategory] = useState("all");
 
+  const getData = async () => {
+    // here filtered all task and show all except yours in home page
+    const response = await axios.get("/needAHelp/getAllHelpReq");
+
+    let filteredData = [];
+    if (response.statusText === "OK") {
+      filteredData = response.data.tasks.filter(
+        (item) => item.owner !== state.user._id && item.status === "open"
+      );
+
+      setData(filteredData);
+      setFilteredData(filteredData);
+    }
+    dispatchHelp({
+      type: "getAllTasks",
+      payload: filteredData,
+    });
+  };
+
   useEffect(() => {
-    const getData = async () => {
-      // here filtered all task and show all except yours in home page
-      const response = await axios.get("/needAHelp/getAllHelpReq");
-
-      let filteredData = [];
-      if (response.statusText === "OK") {
-        filteredData = response.data.tasks.filter(
-          (item) => item.owner !== state.user._id && item.status === "open"
-        );
-
-        setData(filteredData);
-        setFilteredData(filteredData);
-      }
-      dispatchHelp({
-        type: "getAllTasks",
-        payload: filteredData,
-      });
-    };
     getData();
   }, []);
 
@@ -63,6 +64,7 @@ function AllHelpReq() {
       console.log(response);
     }
     console.log(editedTask);
+    getData();
   };
   if (data.length > 0) {
     return (
@@ -130,7 +132,10 @@ function AllHelpReq() {
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 break-words">
                 {el.description}
               </p>
-              <div onClick={() => setHelper(el)} className="flex w-full mt-4">
+              <div
+                onClick={() => setHelper(el)}
+                className="flex w-full mt-4 cursor-pointer"
+              >
                 <span className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-800 rounded-lg hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   I`m interested
                   <RiHandHeartFill className="ml-2" />

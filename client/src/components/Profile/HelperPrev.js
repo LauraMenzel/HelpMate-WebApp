@@ -25,8 +25,8 @@ function HelperPrev(props) {
             />
           </div>
         </div>
-        <div className="flex flex-col items-center w-full justify-center ">
-          <div className="flex justify-center items-center">
+        <div className="flex flex-col items-center w-full justify-center  ">
+          <div className="flex justify-center items-center ">
             <p className="text-black font-bold tracking-wider pt-12 text-[30px]">
               {props.helper.username}
             </p>

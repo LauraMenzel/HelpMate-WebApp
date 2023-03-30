@@ -15,10 +15,10 @@ function Register() {
     age: "",
     uploadphoto: "",
   });
-const [fileData, setFiledata] = useState({
-  url: "",
-  file: null,
-});
+  const [fileData, setFiledata] = useState({
+    url: "",
+    file: null,
+  });
   const navigate = useNavigate();
 
   const handleRegister = async () => {
@@ -49,7 +49,9 @@ const [fileData, setFiledata] = useState({
               </div>
             </div>
             <div className="bg-white px-8 flex justify-center flex-col rounded-lg xl:rounded-l-none items-center  ">
-              <p className="font-logo text-[30px] pb-6 tracking-wide ">HelpMate</p>
+              <p className="font-logo text-[30px] mt-4 md:mt-2 pb-6 tracking-wide ">
+                HelpMate
+              </p>
 
               <form className="px-8 pt-3 text:base bg-white rounded">
                 <div className=" md:mr-2  md:mb-0">
