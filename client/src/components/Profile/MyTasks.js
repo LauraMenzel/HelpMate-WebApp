@@ -20,7 +20,7 @@ function MyTasks() {
 
   const getData = async () => {
     const response = await axios.get("/needAHelp/getUserHelpReq");
-    console.log(stateHelp.helpAcceptedTask);
+    console.log(stateHelp);
 
     if (response.statusText === "OK") {
       dispatchHelp({

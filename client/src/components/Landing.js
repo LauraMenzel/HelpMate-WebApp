@@ -99,9 +99,7 @@ function Landing() {
                     <p className="text-[23px]  pl-5">Willkommen</p>
                   </li>
                   <li>
-                    <p className="text-[20px] font-semibold pl-20 ">
-                      Powitanie
-                    </p>
+                    <p className="text-[20px] font-semibold pl-20 ">Witaj</p>
                   </li>
                   <li>
                     <p className="text-[20px] pl-[150px] ">Bi xêr hatî</p>

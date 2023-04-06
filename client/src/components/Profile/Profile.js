@@ -76,16 +76,13 @@ function Profile() {
         </div>
         <div className="flex flex-col md:flex-row bg-gradient-to-b from-white  to-orange-200 md:to-orange-100 via-orange-100  shadow-lg shadow-[#EDEAE5] rounded-b-3xl w-full h-[90%] p-5">
           <div className="flex flex-col  p-2 pt-8 items-center justify-center  w-full  md:w-8/12">
-            <Link to="/editprofile">
-              <TiEdit
-                className="w-6 h-6  fill-current mt-4 absolute right-8 md:relative md:ml-60"
-                color="#026670"
-              />
-            </Link>
             <div className="flex justify-center items-center">
               <p className="text-black font-bold tracking-wider  text-[35px]">
                 {data.username}
               </p>
+              <Link to="/editprofile">
+                <TiEdit className="w-6 h-6  fill-current" color="#026670" />
+              </Link>
             </div>
             <span className="flex text-black items-center">
               <GoLocation className=" w-[14px] h-[14px] mr-1" />
@@ -123,7 +120,7 @@ function Profile() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center flex-1">
+          <div className="flex flex-col justify-center items-center flex-1 md:mb-0 mb-14 ">
             <Calendar
               value={value}
               onChange={() => setValue(initialVal)}
@@ -131,7 +128,7 @@ function Profile() {
             />
             <Link
               to="/mytasks"
-              className="bg-[#feaa0c] hover:bg-[#70c2b7] active:bg-[#3d8f84] text-white font-bold  py-2 mb-20 md:py-2 px-4 rounded-3xl shadow "
+              className="bg-[#feaa0c] hover:bg-[#70c2b7] active:bg-[#3d8f84] text-white font-bold  py-2 mt-2 md:py-2 px-4 rounded-3xl shadow "
             >
               Show my tasks
             </Link>

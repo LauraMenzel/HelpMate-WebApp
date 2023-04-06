@@ -19,7 +19,8 @@ function NavBar() {
       className="bg-white text-black shadow-xl
             w-full h-16 flex justify-center border-rounded
             items-center gap-[25px] text-[2rem]  cursor-pointer fixed left-0 bottom-0
-            flex justify-center items-center rounded-t-3xl z-10"
+            flex justify-center items-center rounded-t-3xl"
+      style={{ zIndex: 999 }}
     >
       <Link to="/home" onClick={() => setCurrentComponent("Home")}>
         <FaHome
