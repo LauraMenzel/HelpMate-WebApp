@@ -6,11 +6,17 @@ HelpMate WebApplication is developed to bring people together, regardless of age
 
 ### Features
 **Easy Access:** Anyone can join HelpMate, and there are no restrictions or qualifications needed. Simply sign up and start connecting.
+
 **Task Creation:** Create tasks specifying the time, place, and nature of assistance required. Tasks are visible to potential helpers.
+
 **Connecting Channels:** Connect with other users through phone, email making it convenient for users with different communication preferences.
+
 **Community Support:** HelpMate aims to create a supportive and trustworthy environment where individuals can rely on each other for assistance.
+
 **Personalized Profiles:** Users can create profiles that showcase their skills, interests, and availability to help others effectively.
+
 **Notifications:** Stay informed about new task requests, messages, and updates through notifications.
+
 **Task Filtering and Sorting:** Implemented advanced filtering and sorting options to enable users to easily search for specific tasks or prioritize tasks based on different criteria such as date, location, or category.
 
 
