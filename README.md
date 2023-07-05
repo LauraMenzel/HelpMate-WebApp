@@ -27,7 +27,7 @@ HelpMate WebApplication is developed to bring people together, regardless of age
 
 ![Web Application Preview](screenshots/HelpMate-landing.jpg)
 
-![Web Application Preview](screenshots/HelpMate-landing2 (1).jpg)
+![Web Application Preview](screenshots/HelpMate-landing2(1).jpg)
 
 ![Web Application Preview](screenshots/HelpMate-landing3.jpg)
 
