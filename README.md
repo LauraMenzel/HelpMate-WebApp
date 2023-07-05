@@ -4,6 +4,7 @@ Welcome to HelpMate WebApplication! This is a collaborative project developed by
 ## Introduction
 HelpMate WebApplication is developed to bring people together, regardless of age or background, to foster a sense of trust and connectivity. We believe that everyone has something valuable to offer and that by connecting individuals in need with willing helpers, we can make a positive difference in our communities.
 
+![Web Application Preview](screenshots/HelpMate-landing.jpg)
 
 ### Features
 **Easy Access:** Anyone can join HelpMate, and there are no restrictions or qualifications needed. Simply sign up and start connecting.
