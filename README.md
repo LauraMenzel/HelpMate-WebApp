@@ -4,6 +4,7 @@ Welcome to HelpMate WebApplication! This is a collaborative project developed by
 ## Introduction
 HelpMate WebApplication is developed to bring people together, regardless of age or background, to foster a sense of trust and connectivity. We believe that everyone has something valuable to offer and that by connecting individuals in need with willing helpers, we can make a positive difference in our communities.
 
+
 ### Features
 **Easy Access:** Anyone can join HelpMate, and there are no restrictions or qualifications needed. Simply sign up and start connecting.
 
@@ -20,6 +21,7 @@ HelpMate WebApplication is developed to bring people together, regardless of age
 **Task Filtering and Sorting:** Implemented advanced filtering and sorting options to enable users to easily search for specific tasks or prioritize tasks based on different criteria such as date, location, or category.
 
 
+
 ### Technologies Used
 HelpMate WebApplication utilizes the following technologies and frameworks:
 
@@ -32,6 +34,7 @@ Tailwind, MUI
 Node.js
 Mongoose
 Cloudinary
+
 
 
 ### Roadmap and Future Development
