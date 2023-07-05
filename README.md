@@ -38,9 +38,12 @@ Cloudinary
 While HelpMate WebApplication already offers valuable features, there are some areas that require further development and improvements. Here are the key items on our roadmap for the future:
 
 Language Selection: Implement a language selection feature that allows users to choose their preferred language during the registration or in their account settings.
+
 Interactive Chat: Implement a real-time chat functionality within the application, allowing users to communicate and coordinate more effectively. This will enhance the user experience and make it easier for users to connect with each other.
+
 Calendar Integration: Improve the calendar functionality to ensure seamless integration with popular calendar applications. Enhance features such as syncing tasks and events, setting reminders, and providing a comprehensive view of the user's schedule.
+
 Enhanced Accessibility: Continuously work on improving the accessibility of HelpMate WebApplication, ensuring it meets the needs of visually impaired users and adheres to accessibility standards.
+
 Improved User Interface: Continuously enhance the user interface to improve usability, visual appeal, and overall user experience. Incorporate user feedback and conduct usability testing to identify areas for improvement.
-Please note that the roadmap and future development plans are subject to change based on user feedback, emerging technologies, and other factors.
 
