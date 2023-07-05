@@ -14,7 +14,7 @@ Notifications: Stay informed about new task requests, messages, and updates thro
 Task Filtering and Sorting: Implemented advanced filtering and sorting options to enable users to easily search for specific tasks or prioritize tasks based on different criteria such as date, location, or category.
 
 
-###Technologies Used
+### Technologies Used
 HelpMate WebApplication utilizes the following technologies and frameworks:
 
 **Front-end:**
